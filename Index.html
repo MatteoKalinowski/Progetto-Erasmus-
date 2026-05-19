@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OrangeFix - Assistenza e Riparazioni Apple</title>
+    <title>ARL - Apple Technical Assistance & Repairs</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,7 +12,7 @@
     <header>
         <div class="nav-container">
             <div class="logo" onclick="switchPage('home')">
-                <img src="Images/ARL.png" alt="Logo OrangeFix" class="logo-img">
+                <img src="Images/ARL.png" alt="ARL Logo" class="logo-img">
             </div>
             <nav class="nav-menu">
                 <a href="#" class="nav-link active" data-page="home">Home</a>
@@ -20,314 +20,316 @@
                 <a href="#" class="nav-link" data-page="iphone">iPhone</a>
                 <a href="#" class="nav-link" data-page="ipad">iPad</a>
                 <a href="#" class="nav-link" data-page="watch">Watch</a>
-                <a href="#" class="nav-link" data-page="accessori">Accessori</a>
-                <a href="#" class="nav-link" data-page="servizi">Riparazioni</a>
+                <a href="#" class="nav-link" data-page="accessori">Accessories</a>
+                <a href="#" class="nav-link" data-page="servizi">Repairs</a>
                 <a href="#" class="nav-link" data-page="about">About Us</a>
             </nav>
         </div>
     </header>
 
-    <!-- CONTENITORE PRINCIPALE DELLE PAGINE -->
     <main class="container">
 
-        <!-- 1. SEZIONE: HOME PAGE -->
         <section id="page-home" class="page-section active-section">
             <div class="hero">
-                <h1>Il tuo dispositivo Apple è guasto?<br>Ci pensiamo noi con <span>OrangeFix</span>.</h1>
-                <p>Specialisti in riparazioni hardware e software per iPhone, Mac, iPad e Apple Watch. Interventi
-                    rapidi, trasparenti e adatti a tutti.</p>
-                <button class="btn" onclick="switchPage('servizi')">Inizia una Riparazione</button>
+                <h1>Is your Apple device broken?<br>We fix it at <span>ARL</span>.</h1>
+                <p>Specialized hardware and software repair services for iPhone, Mac, iPad, and Apple Watch. Fast, transparent, and intuitive for everyone.</p>
+                <button class="btn" onclick="switchPage('servizi')">Start a Repair Request</button>
             </div>
 
-            <h2 class="section-title">Come possiamo <span>aiutarti oggi?</span></h2>
+            <h2 class="section-title">How can we <span>help you today?</span></h2>
             <div class="grid-categories">
                 <div class="category-card" onclick="openRiparazioneConCategoria('iPhone')">
                     <div class="icon">📱</div>
-                    <h3>Riparazione iPhone</h3>
-                    <p>Schermi, batterie e connettori sostituiti in tempi record.</p>
+                    <h3>iPhone Repair</h3>
+                    <p>Screens, batteries, and charging ports replaced in record time.</p>
                 </div>
                 <div class="category-card" onclick="openRiparazioneConCategoria('Mac')">
                     <div class="icon">💻</div>
-                    <h3>Riparazione Mac</h3>
-                    <p>Interventi su schede madri, tastiere, batterie e schermi.</p>
+                    <h3>Mac Repair</h3>
+                    <p>Expert logic board repairs, screen replacements, and system tune-ups.</p>
                 </div>
                 <div class="category-card" onclick="switchPage('servizi')">
                     <div class="icon">🛠️</div>
-                    <h3>Preventivo Rapido</h3>
-                    <p>Seleziona il tuo modello e richiedi assistenza in pochi clic.</p>
+                    <h3>Quick Estimate</h3>
+                    <p>Select your model and request professional assistance in just a few clicks.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 2. SEZIONE: ABOUT US (Vuota temporaneamente) -->
         <section id="page-about" class="page-section">
             <h2 class="section-title">About <span>Us</span></h2>
-            <div class="about-placeholder">
-                <p>Pagina in allestimento. Questa sezione sarà dedicata alla storia del negozio, al team e alla nostra
-                    filosofia di assistenza trasparente.</p>
+            <div class="about-container" style="background-color: #1a1a1a; border: 1px solid #262626; border-radius: 12px; padding: 40px; margin-bottom: 30px;">
+                <h3 style="color: #ff6b00; font-size: 24px; margin-bottom: 15px;">30 Years of Experience</h3>
+                <p style="color: #ffffff; line-height: 1.8; margin-bottom: 20px;">
+                    Founded in 1993 in the city of Coimbra, <strong>ARL – Assistência, Redes e Computação, Lda</strong> (VAT / Tax ID: 502990031) provides information and communication technology services, standing out as a center of excellence in technical support. With over 30 years of knowledge and experience, you can fully trust us to resolve any issues with your equipment.
+                </p>
+                <p style="color: #ffffff; line-height: 1.8; margin-bottom: 20px;">
+                    Our assistance and repair services cover all IT equipment. We provide support both at our walk-in local store in Coimbra and directly at our clients' premises. We offer quick repairs for the general public, as well as specialized services for small, medium, and large corporations, both nationwide and internationally.
+                </p>
+                <p style="color: #ffffff; line-height: 1.8; margin-bottom: 30px;">
+                    Our wide range of services includes equipment installation, repair, and maintenance, network design and management, and website development. Crucially, all repairs are manufacturer-certified. For your convenience, your devices can be picked up from your home via courier services, adhering to all necessary security procedures, and delivered back directly to your preferred location.
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; border-top: 1px solid #262626; padding-top: 25px;">
+                    <div style="flex: 1; min-width: 220px;">
+                        <h4 style="color: #ff6b00; margin-bottom: 10px; font-size: 18px;">📍 Address</h4>
+                        <p style="color: #a0a0a0; line-height: 1.6;">
+                            Av. João de Deus Ramos,<br>
+                            C.c Girasolum, R. Joao de Deus Ramos 1º,<br>
+                            andar loja 111,<br>
+                            3030-328 Coimbra
+                        </p>
+                    </div>
+                    <div style="flex: 1; min-width: 220px;">
+                        <h4 style="color: #ff6b00; margin-bottom: 10px; font-size: 18px;">📞 Contacts</h4>
+                        <p style="color: #a0a0a0; margin-bottom: 5px;"><strong>Landline:</strong> 239 703 553 <span style="font-size: 11px;">(National fixed network)</span></p>
+                        <p style="color: #a0a0a0; margin-bottom: 5px;"><strong>Mobile:</strong> 960 313 883 <span style="font-size: 11px;">(National mobile network)</span></p>
+                        <p style="color: #a0a0a0;"><strong>Email:</strong> arl@arl.pt</p>
+                    </div>
+                    <div style="flex: 1; min-width: 220px;">
+                        <h4 style="color: #ff6b00; margin-bottom: 10px; font-size: 18px;">🕒 Working Hours</h4>
+                        <p style="color: #a0a0a0; margin-bottom: 5px;"><strong>Monday to Friday</strong></p>
+                        <p style="color: #ffffff; font-size: 16px;">10:00 - 13:00 | 15:00 - 19:30</p>
+                        <p style="color: #666666; font-size: 13px; margin-top: 5px;">Closed on Weekends and Holidays</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- 3. SEZIONE: MAC -->
         <section id="page-mac" class="page-section">
-            <h2 class="section-title">Riparazioni <span>Mac</span></h2>
+            <h2 class="section-title">Mac <span>Repairs</span></h2>
             <div class="products-grid">
                 <div class="product-item">
-                    <div class="badge-status">● Ricambi Pronti in Sede</div>
+                    <div class="badge-status">● Parts in Stock</div>
                     <h3>MacBook Pro & Air</h3>
-                    <p>Risolviamo problemi di batteria, schermi danneggiati o rallentamenti software sia su modelli
-                        Intel che sui nuovi chip Apple Silicon.</p>
+                    <p>We solve battery issues, damaged screens, or software slowdowns for both Intel models and the latest Apple Silicon chips (M1/M2/M3).</p>
                     <ul class="problems-list">
-                        <li>Sostituzione Schermo Retina</li>
-                        <li>Cambio Batteria Esausta</li>
-                        <li>Riparazione danni da liquidi (es. caffè o acqua sulla tastiera)</li>
-                        <li>Pulizia interna e ottimizzazione del sistema operativo</li>
+                        <li>Retina Display Replacement</li>
+                        <li>Degraded Battery Replacement</li>
+                        <li>Liquid Damage Repair (e.g., coffee or water spills)</li>
+                        <li>Internal Cleaning & Thermal Paste Optimization</li>
                     </ul>
-                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('Mac')">Richiedi Assistenza
-                        Mac</button>
+                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('Mac')">Request Mac Assistance</button>
                 </div>
                 <div class="product-item">
-                    <div class="badge-status">● Diagnosi Gratuita</div>
+                    <div class="badge-status">● Free Diagnosis</div>
                     <h3>iMac & Mac Mini</h3>
-                    <p>Assistenza e potenziamento hardware per computer desktop Apple sia per privati che per
-                        professionisti.</p>
+                    <p>Hardware support and performance upgrades for Apple desktop computers, tailored for both home users and professionals.</p>
                     <ul class="problems-list">
-                        <li>Installazione o upgrade SSD ad alta velocità</li>
-                        <li>Riparazione dell'alimentatore interno</li>
-                        <li>Risoluzione problemi di avvio (schermata nera o bloccata)</li>
-                        <li>Salvataggio e recupero dati persi</li>
+                        <li>Ultra-Fast SSD Storage Upgrade</li>
+                        <li>Internal Power Supply Unit Replacement</li>
+                        <li>Boot Issue Resolution (Black screen or stuck on logo)</li>
+                        <li>Data Backup & Recovery Services</li>
                     </ul>
-                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('Mac')">Richiedi Assistenza
-                        Mac</button>
+                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('Mac')">Request Mac Assistance</button>
                 </div>
             </div>
         </section>
 
-        <!-- 4. SEZIONE: IPHONE -->
         <section id="page-iphone" class="page-section">
-            <h2 class="section-title">Riparazioni <span>iPhone</span></h2>
+            <h2 class="section-title">iPhone <span>Repairs</span></h2>
             <div class="products-grid">
                 <div class="product-item">
-                    <div class="badge-status">● Pronto in 30 Minuti</div>
-                    <h3>Riparazioni Veloci</h3>
-                    <p>I problemi più comuni sul tuo iPhone vengono risolti sul momento direttamente nel nostro
-                        laboratorio.</p>
+                    <div class="badge-status">● Ready in 30 Min</div>
+                    <h3>Express Repairs</h3>
+                    <p>The most common iPhone issues are fixed right away inside our local repair laboratory.</p>
                     <ul class="problems-list">
-                        <li>Sostituzione Schermo o Vetro Rotto</li>
-                        <li>Sostituzione Batteria (Stato Batteria torna al 100%)</li>
-                        <li>Riparazione Connettore di Ricarica che non fa contatto</li>
-                        <li>Sostituzione fotocamera posteriore o vetrino graffiato</li>
+                        <li>Broken Glass / OLED Screen Replacement</li>
+                        <li>Battery Replacement (Health status restored to 100%)</li>
+                        <li>Charging Port Repair & Connection Issues</li>
+                        <li>Rear Camera and Camera Glass Replacement</li>
                     </ul>
-                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('iPhone')">Ripara il tuo
-                        iPhone</button>
+                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('iPhone')">Repair Your iPhone</button>
                 </div>
                 <div class="product-item">
-                    <div class="badge-status">● Laboratorio Avanzato</div>
-                    <h3>Interventi Complessi</h3>
-                    <p>Eseguiamo operazioni delicate di micro-saldatura per guasti interni alla scheda logica del
-                        telefono.</p>
+                    <div class="badge-status">● Advanced Lab</div>
+                    <h3>Complex Diagnostics</h3>
+                    <p>Delicate micro-soldering operations to fix internal board components and severe errors.</p>
                     <ul class="problems-list">
-                        <li>Ripristino Face ID o Touch ID non funzionante</li>
-                        <li>Riparazione circuiti integrati di ricarica e audio</li>
-                        <li>Trattamento anti-ossidazione avanzato per telefoni bagnati</li>
-                        <li>Risoluzione blocchi di sistema (iPhone bloccato sul logo Apple)</li>
+                        <li>Face ID or Touch ID Hardware Restoration</li>
+                        <li>Power Management & Audio IC Circuit Repair</li>
+                        <li>Advanced De-oxidation for Liquid-Damaged Phones</li>
+                        <li>System Bootloop Fix (Stuck on Apple Logo)</li>
                     </ul>
-                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('iPhone')">Ripara il tuo
-                        iPhone</button>
+                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('iPhone')">Repair Your iPhone</button>
                 </div>
             </div>
         </section>
 
-        <!-- 5. SEZIONE: IPAD -->
         <section id="page-ipad" class="page-section">
-            <h2 class="section-title">Riparazioni <span>iPad</span></h2>
+            <h2 class="section-title">iPad <span>Repairs</span></h2>
             <div class="products-grid">
                 <div class="product-item">
-                    <div class="badge-status">● Massima Qualità</div>
-                    <h3>Linea iPad, Air, Pro & Mini</h3>
-                    <p>Supporto tecnico completo per qualsiasi modello di tablet Apple, dai dispositivi per lo studio a
-                        quelli professionali.</p>
+                    <div class="badge-status">● Premium Quality</div>
+                    <h3>iPad, Air, Pro & Mini Lines</h3>
+                    <p>Specialized technical support for every generation of Apple tablets, from student models to pro gear.</p>
                     <ul class="problems-list">
-                        <li>Sostituzione del vetro touch screen o del display LCD interno</li>
-                        <li>Cambio batteria interna per problemi di autonomia</li>
-                        <li>Risoluzione problemi al connettore o ai tasti fisici</li>
-                        <li>Raddrizzamento della scocca in alluminio</li>
+                        <li>Touch Screen Glass or Internal LCD Replacement</li>
+                        <li>High-Capacity Internal Battery Replacement</li>
+                        <li>Bent Aluminum Enclosure Straightening</li>
+                        <li>Power and Volume Button Mechanism Repairs</li>
                     </ul>
-                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('iPad')">Seleziona il tuo
-                        iPad</button>
+                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('iPad')">Select Your iPad</button>
                 </div>
             </div>
         </section>
 
-        <!-- 6. SEZIONE: WATCH -->
         <section id="page-watch" class="page-section">
-            <h2 class="section-title">Riparazioni <span>Apple Watch</span></h2>
+            <h2 class="section-title">Apple Watch <span>Repairs</span></h2>
             <div class="products-grid">
                 <div class="product-item">
-                    <div class="badge-status">● Interventi di Precisione</div>
+                    <div class="badge-status">● Precision Repair</div>
                     <h3>Apple Watch SE, Series & Ultra</h3>
-                    <p>Lavorazioni di precisione millimetrica sul display e sulle componenti interne dello smartwatch.
-                    </p>
+                    <p>Millimetric precision craftsmanship on screens, sensors, and internal smartwatch components.</p>
                     <ul class="problems-list">
-                        <li>Sostituzione del Display rotto, rigato o scollegato</li>
-                        <li>Cambio della batteria interna</li>
-                        <li>Ripristino del funzionamento dei sensori biometrici</li>
-                        <li>Risoluzione di problemi di accensione continui</li>
+                        <li>Broken or Detached Display Replacement</li>
+                        <li>Exhausted Internal Battery Replacement</li>
+                        <li>Biometric Rear Sensors Restoration</li>
+                        <li>Power Issues and Bootloop Troubleshooting</li>
                     </ul>
-                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('Watch')">Ripara il tuo Apple
-                        Watch</button>
+                    <button class="btn font-adjust" onclick="openRiparazioneConCategoria('Watch')">Repair Your Apple Watch</button>
                 </div>
             </div>
         </section>
 
-        <!-- 7. SEZIONE: ACCESSORI -->
         <section id="page-accessori" class="page-section">
-            <h2 class="section-title">Accessori & <span>Protezione</span></h2>
+            <h2 class="section-title">Accessories & <span>Protection</span></h2>
             <div class="products-grid">
                 <div class="product-item">
-                    <div class="badge-status">● Disponibili in Negozio</div>
-                    <h3>Accessori Essenziali</h3>
-                    <p>Proteggi e ricarica i tuoi prodotti Apple in totale sicurezza con accessori selezionati dai
-                        nostri tecnici.</p>
+                    <div class="badge-status">● Available in Store</div>
+                    <h3>Essential Accessories</h3>
+                    <p>Protect and power up your Apple products safely with premium items selected by our technicians.</p>
                     <ul class="problems-list">
-                        <li>Applicazione pellicole in vetro temperato ultra-resistenti</li>
-                        <li>Alimentatori e caricatori veloci certificati per iPhone e iPad</li>
-                        <li>Cavi di ricarica rinforzati anti-rottura</li>
-                        <li>Custodie protettive ad alto assorbimento d'urto</li>
+                        <li>Ultra-Resistant Tempered Glass Application</li>
+                        <li>Fast Wall Chargers Certified for iPhone & iPad</li>
+                        <li>Heavy-Duty Anti-Braid Charging Cables</li>
+                        <li>High Impact Absorption Protective Cases</li>
                     </ul>
-                    <button class="btn font-adjust" onclick="switchPage('servizi')">Vieni a trovarci in sede</button>
+                    <button class="btn font-adjust" onclick="switchPage('servizi')">Visit Our Store</button>
                 </div>
             </div>
         </section>
 
-        <!-- 8. SEZIONE CHIAVE: SERVIZI (WIZARD GUIDATO DI RIPARAZIONE) -->
         <section id="page-servizi" class="page-section">
-            <h2 class="section-title">Centro <span>Riparazioni & Assistenza</span></h2>
+            <h2 class="section-title">Repair Center & <span>Technical Support</span></h2>
 
             <div class="wizard-container">
-                <!-- Indicatore dei Passaggi Semplificato -->
                 <div class="wizard-progress">
-                    <div class="progress-step active" id="p-step-1">1. Dispositivo</div>
-                    <div class="progress-step" id="p-step-2">2. Modello</div>
-                    <div class="progress-step" id="p-step-3">3. Problema</div>
-                    <div class="progress-step" id="p-step-4">4. Contatto</div>
+                    <div class="progress-step active" id="p-step-1">1. Device</div>
+                    <div class="progress-step" id="p-step-2">2. Model</div>
+                    <div class="progress-step" id="p-step-3">3. Issue</div>
+                    <div class="progress-step" id="p-step-4">4. Contact</div>
                 </div>
 
                 <form id="repairForm">
 
-                    <!-- PASSO 1: Scelta Categoria Dispositivo -->
                     <div class="wizard-step active-step" id="w-step-1">
-                        <h3 class="step-title">Quale dispositivo desideri riparare?</h3>
+                        <h3 class="step-title">Which device needs repair?</h3>
 
                         <div class="selection-grid">
                             <div class="selection-box" data-category="Mac">
-                                <img src="Images/Mac.jpg" alt="Icona Mac" class="device-icon">
+                                <img src="Images/Mac.jpg" alt="Mac Icon" class="device-icon">
                                 <strong>Mac</strong>
                             </div>
                             <div class="selection-box" data-category="iPhone">
-                                <img src="Images/Iphones.jpg" alt="Icona iPhone" class="device-icon">
+                                <img src="Images/Iphones.jpg" alt="iPhone Icon" class="device-icon">
                                 <strong>iPhone</strong>
                             </div>
                         </div>
                         <div class="selection-grid">
                             <div class="selection-box" data-category="iPad">
-                                <img src="Images/iPad.jpg" alt="Icona iPad" class="device-icon">    
+                                <img src="Images/iPad.jpg" alt="iPad Icon" class="device-icon">    
                                 <strong>iPad</strong>
                             </div>
                             <div class="selection-box" data-category="Watch">
-                                <img src="Images/Watch.jpg" alt="Icona Watch" class="device-icon">
+                                <img src="Images/Watch.jpg" alt="Watch Icon" class="device-icon">
                                 <strong>Watch</strong>
                             </div>
                         </div>
                         <input type="hidden" id="selectedCategory" required>
 
                         <div class="wizard-buttons">
-                            <button type="button" class="btn btn-next" onclick="nextStep(2)">Avanti</button>
+                            <button type="button" class="btn btn-next" onclick="nextStep(2)">Next</button>
                         </div>
                     </div>
 
-                    <!-- PASSO 2: Scelta del Modello Specifico -->
                     <div class="wizard-step" id="w-step-2">
-                        <h3 class="step-title">Seleziona il tuo modello specifico:</h3>
+                        <h3 class="step-title">Select your specific model:</h3>
 
                         <div class="form-group">
-                            <label id="modelLabel" for="deviceModel">Dispositivo: Nessuno</label>
+                            <label id="modelLabel" for="deviceModel">Selected Device: None</label>
                             <select id="deviceModel" class="form-control" required>
-                                <option value="">-- Scegli prima la categoria al passo 1 --</option>
+                                <option value="">-- Please choose a device category first --</option>
                             </select>
                         </div>
 
                         <div class="wizard-buttons">
-                            <button type="button" class="btn btn-prev" onclick="prevStep(1)">Indietro</button>
-                            <button type="button" class="btn btn-next" onclick="nextStep(3)">Avanti</button>
+                            <button type="button" class="btn btn-prev" onclick="prevStep(1)">Back</button>
+                            <button type="button" class="btn btn-next" onclick="nextStep(3)">Next</button>
                         </div>
                     </div>
 
-                    <!-- PASSO 3: Scelta del Problema -->
                     <div class="wizard-step" id="w-step-3">
-                        <h3 class="step-title">Che problema riscontri sul dispositivo?</h3>
+                        <h3 class="step-title">What is the problem you are experiencing?</h3>
 
                         <div class="checkbox-group" data-checkbox="prob1">
-                            <input type="checkbox" id="prob1" value="Schermo / Vetro Rotto">
-                            <label for="prob1">Sostituzione Schermo o Vetro danneggiato</label>
+                            <input type="checkbox" id="prob1" value="Screen / Glass Replacement">
+                            <label for="prob1">Broken Glass / Cracked Screen Replacement</label>
                         </div>
                         <div class="checkbox-group" data-checkbox="prob2">
-                            <input type="checkbox" id="prob2" value="Batteria Degradata">
-                            <label for="prob2">La batteria dura poco o si spegne all'improvviso</label>
+                            <input type="checkbox" id="prob2" value="Degraded Battery">
+                            <label for="prob2">Short battery life / Device shuts down unexpectedly</label>
                         </div>
                         <div class="checkbox-group" data-checkbox="prob3">
-                            <input type="checkbox" id="prob3" value="Danni da Liquido">
-                            <label for="prob3">Contatto con acqua, caffè o altri liquidi</label>
+                            <input type="checkbox" id="prob3" value="Liquid Damage">
+                            <label for="prob3">Liquid spill damage / Contact with water or moisture</label>
                         </div>
                         <div class="checkbox-group" data-checkbox="prob4">
-                            <input type="checkbox" id="prob4" value="Problema di Carica">
-                            <label for="prob4">Il dispositivo non si ricarica correttamente</label>
+                            <input type="checkbox" id="prob4" value="Charging Issues">
+                            <label for="prob4">Device won't charge or cable disconnects easily</label>
                         </div>
 
                         <div class="form-group" style="margin-top: 20px;">
-                            <label for="probAltro">Descrivi il problema con parole tue (Opzionale):</label>
+                            <label for="probAltro">Describe the issue in your own words (Optional):</label>
                             <textarea id="probAltro" class="form-control" rows="3"
-                                placeholder="Es: il tasto laterale è bloccato, la fotocamera non mette a fuoco..."></textarea>
+                                placeholder="E.g., power button is stuck, camera lens is blurry..."></textarea>
                         </div>
 
                         <div class="wizard-buttons">
-                            <button type="button" class="btn btn-prev" onclick="prevStep(2)">Indietro</button>
+                            <button type="button" class="btn btn-prev" onclick="prevStep(2)">Back</button>
                             <button type="button" class="btn btn-next"
-                                onclick="preparaRiepilogoContatti()">Avanti</button>
+                                onclick="preparaRiepilogoContatti()">Next</button>
                         </div>
                     </div>
 
-                    <!-- PASSO 4: Riepilogo e Raccolta Dati Contatto -->
                     <div class="wizard-step" id="w-step-4">
-                        <h3 class="step-title">Controlla il riepilogo e lasciaci i tuoi dati</h3>
+                        <h3 class="step-title">Review request details and enter contact info</h3>
 
-                        <!-- Box di riepilogo visivo -->
                         <div class="summary-box">
-                            <div class="summary-item" id="sumDevice"><strong>Dispositivo scelto:</strong> -</div>
-                            <div class="summary-item" id="sumProblems"><strong>Problemi selezionati:</strong> -</div>
-                            <div class="summary-item"><strong>Verifica ricambi:</strong> <span style="color:#ff6b00;">●
-                                    Controllo immediato in sede</span></div>
+                            <div class="summary-item" id="sumDevice"><strong>Selected Device:</strong> -</div>
+                            <div class="summary-item" id="sumProblems"><strong>Reported Issues:</strong> -</div>
+                            <div class="summary-item"><strong>Component Status:</strong> <span style="color:#ff6b00;">● Stock check ready at laboratory</span></div>
                         </div>
 
                         <div class="form-group">
-                            <label for="clientName">Nome e Cognome *</label>
+                            <label for="clientName">Full Name *</label>
                             <input type="text" id="clientName" class="form-control" required
-                                placeholder="Es. Mario Rossi">
+                                placeholder="E.g. John Doe">
                         </div>
                         <div class="form-group">
-                            <label for="clientEmail">Indirizzo Email *</label>
+                            <label for="clientEmail">Email Address *</label>
                             <input type="email" id="clientEmail" class="form-control" required
-                                placeholder="Es. mario.rossi@email.it">
+                                placeholder="E.g. john.doe@example.com">
                         </div>
                         <div class="form-group">
-                            <label for="clientPhone">Numero di Telefono *</label>
+                            <label for="clientPhone">Phone Number *</label>
                             <input type="tel" id="clientPhone" class="form-control" required
-                                placeholder="Es. 333 1234567">
+                                placeholder="E.g. +351 912 345 678">
                         </div>
 
                         <div class="wizard-buttons">
-                            <button type="button" class="btn btn-prev" onclick="prevStep(3)">Indietro</button>
-                            <button type="submit" class="btn">Invia Richiesta di Assistenza</button>
+                            <button type="button" class="btn btn-prev" onclick="prevStep(3)">Back</button>
+                            <button type="submit" class="btn">Submit Repair Request</button>
                         </div>
                     </div>
 
@@ -337,14 +339,11 @@
 
     </main>
 
-    <!-- FOOTER AZIENDALE -->
     <footer>
-        <p>&copy; 2026 <span>OrangeFix</span> - Tutti i diritti riservati.<br>
-            I marchi Apple, iPhone, iPad, Mac e Watch appartengono ad Apple Inc. OrangeFix è un centro di riparazioni e
-            assistenza tecnica indipendente.</p>
+        <p>&copy; 2026 <span>ARL - Assistência, Redes e Computação, Lda</span>. All rights reserved.<br>
+            Apple, iPhone, iPad, Mac, and Apple Watch are trademarks of Apple Inc. ARL is an independent technical support and repair center.</p>
     </footer>
 
-    <!-- Collegamento al file JavaScript esterno -->
     <script src="script.js"></script>
 </body>
 
