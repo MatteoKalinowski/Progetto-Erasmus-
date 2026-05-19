@@ -1,11 +1,11 @@
-const databaseModelli = {
+const modelsDatabase = {
     'Mac': [
-        'MacBook Pro 14" / 16" (Chip M1/M2/M3)',
-        'MacBook Pro 13" (Modelli Touch Bar / M1 / M2)',
-        'MacBook Air (Chip M1 / M2 / M3)',
-        'MacBook Air (Modelli Intel Retina)',
-        'iMac 24" (Chip Apple Silicon)',
-        'iMac 21.5" / 27" (Modelli Intel)',
+        'MacBook Pro 14" / 16" (M1/M2/M3 Chip)',
+        'MacBook Pro 13" (Touch Bar / M1 / M2 Models)',
+        'MacBook Air (M1 / M2 / M3 Chip)',
+        'MacBook Air (Intel Retina Models)',
+        'iMac 24" (Apple Silicon Chip)',
+        'iMac 21.5" / 27" (Intel Models)',
         'Mac Mini / Mac Studio / Mac Pro'
     ],
     'iPhone': [
@@ -14,13 +14,13 @@ const databaseModelli = {
         'iPhone 13 / 13 Mini / 13 Pro / 13 Pro Max',
         'iPhone 12 / 12 Mini / 12 Pro / 12 Pro Max',
         'iPhone 11 / 11 Pro / 11 Pro Max',
-        'iPhone SE (Seconda e Terza Generazione)',
+        'iPhone SE (2nd & 3rd Generation)',
         'iPhone X / XS / XR / XS Max'
     ],
     'iPad': [
-        'iPad Pro (Tutte le generazioni)',
-        'iPad Air (Chip M1 / Generazioni precedenti)',
-        'iPad Classico (9a / 10a Generazione)',
+        'iPad Pro (All generations)',
+        'iPad Air (M1 Chip / Previous generations)',
+        'iPad Classic (9th / 10th Generation)',
         'iPad Mini'
     ],
     'Watch': [
@@ -31,10 +31,10 @@ const databaseModelli = {
     ]
 };
 
-// 2. GESTIONE DELLA NAVIGAZIONE FRA LE PAGINE (SPA)
+// 2. PAGE NAVIGATION MANAGEMENT (SPA System Engine)
 function switchPage(pageId) {
-    // Aggiorna lo stato dei link di navigazione
-    const links = document.querySelectorAll('.nav-menu .nav-link');
+    // Corrected target selector to match bootstrap navbar container architecture
+    const links = document.querySelectorAll('.navbar-nav .nav-link');
     links.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('data-page') === pageId) {
@@ -42,21 +42,21 @@ function switchPage(pageId) {
         }
     });
 
-    // Mostra la sezione corretta nascondendo le altre
+    // Handle structural display of single page layout views
     const sections = document.querySelectorAll('.page-section');
     sections.forEach(section => section.classList.remove('active-section'));
-   
+    
     const targetSection = document.getElementById(`page-${pageId}`);
     if (targetSection) {
         targetSection.classList.add('active-section');
-        // Scorrimento fluido verso l'alto all'apertura di una nuova pagina
+        // Smooth scroll animation to viewport top layout
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
-// Associa l'evento click ai link di navigazione
+// Global Document Layout Loader Initializer
 document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -65,175 +65,170 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Inizializza i listener per i box grafici delle categorie al Passo 1
+    // Step 1 Category Box Activation Matrix
     const categoryBoxes = document.querySelectorAll('.selection-box');
     categoryBoxes.forEach(box => {
         box.addEventListener('click', () => {
-            const categoria = box.getAttribute('data-category');
-            impostaCategoriaRiparazione(categoria);
+            const category = box.getAttribute('data-category');
+            setRepairCategory(category);
         });
     });
 
-    // Rendi cliccabili gli interi blocchi checkbox per facilitare l'uso
+    // Checkbox block operational functionality alignment + Active style synchronization
     const checkboxGroups = document.querySelectorAll('.checkbox-group');
     checkboxGroups.forEach(group => {
         group.addEventListener('click', (e) => {
-            // Impedisce il doppio click se si preme direttamente sull'input input
+            const checkId = group.getAttribute('data-checkbox');
+            const checkbox = document.getElementById(checkId);
+            
             if (e.target.tagName !== 'INPUT') {
-                const checkId = group.getAttribute('data-checkbox');
-                const checkbox = document.getElementById(checkId);
                 if (checkbox) {
                     checkbox.checked = !checkbox.checked;
+                    group.classList.toggle('selected', checkbox.checked);
                 }
+            } else {
+                group.classList.toggle('selected', checkbox.checked);
             }
         });
     });
 
-    // Listener per l'invio finale del modulo
+    // Form Interceptor Handling Integration 
     const form = document.getElementById('repairForm');
     if (form) {
-        form.addEventListener('submit', gestisciInvioForm);
+        form.addEventListener('submit', handleFormSubmit);
     }
 });
 
-// Funzione rapida usata dalle pagine dei singoli prodotti per saltare al modulo
-function openRiparazioneConCategoria(nomeCategoria) {
-    switchPage('servizi');
-    impostaCategoriaRiparazione(nomeCategoria);
+// Deep redirection automation from explicit marketing components straight into wizard configuration
+function openRepairWithCategory(categoryName) {
+    switchPage('services'); 
+    setRepairCategory(categoryName);
     nextStep(2);
 }
 
-// 3. LOGICA DEL WIZARD (MODULO GUIDATO)
-function impostaCategoriaRiparazione(categoria) {
-    document.getElementById('selectedCategory').value = categoria;
-   
-    // Aggiorna l'aspetto visivo dei box (rimuove selezione precedente e aggiunge la nuova)
+// 3. WIZARD INTERACTIVE ENGINE PIPELINE
+function setRepairCategory(category) {
+    document.getElementById('selectedCategory').value = category;
+    
     const boxes = document.querySelectorAll('.selection-box');
     boxes.forEach(box => {
         box.classList.remove('selected');
-        if (box.getAttribute('data-category') === categoria) {
+        if (box.getAttribute('data-category') === category) {
             box.classList.add('selected');
         }
     });
 
-    // Svuota e ripopola dinamicamente la lista del Passo 2
-    const selectModelli = document.getElementById('deviceModel');
-    const labelModelli = document.getElementById('modelLabel');
-   
-    labelModelli.innerText = `Seleziona il modello specifico di ${categoria}:`;
-    selectModelli.innerHTML = '<option value="">-- Seleziona un modello dalla lista --</option>';
-   
-    if (databaseModelli[categoria]) {
-        databaseModelli[categoria].forEach(modello => {
-            const opzione = document.createElement('option');
-            opzione.value = modello;
-            opzione.textContent = modello;
-            selectModelli.appendChild(opzione);
+    // Clear and build the dynamic option elements on runtime view updates
+    const selectModels = document.getElementById('deviceModel');
+    const labelModels = document.getElementById('modelLabel');
+    
+    labelModels.innerText = `Select the specific model for your ${category}:`;
+    selectModels.innerHTML = '<option value="">-- Select a model from the list --</option>';
+    
+    if (modelsDatabase[category]) {
+        modelsDatabase[category].forEach(model => {
+            const option = document.createElement('option');
+            option.value = model;
+            option.textContent = model;
+            selectModels.appendChild(option);
         });
     }
 }
 
-// Navigazione in Avanti con controlli e verifiche intuitive
-function nextStep(prossimoStep) {
-    // Validazione Passo 1: Verifica che sia stata scelta una categoria
-    if (prossimoStep === 2) {
-        const catScelta = document.getElementById('selectedCategory').value;
-        if (!catScelta) {
-            alert('Per favore, seleziona prima una delle categorie di dispositivi per continuare.');
+// Verification Gatewards before step forward updates are completed
+function nextStep(nextStepNumber) {
+    if (nextStepNumber === 2) {
+        const chosenCategory = document.getElementById('selectedCategory').value;
+        if (!chosenCategory) {
+            alert('Please select a device category to continue.');
             return;
         }
     }
-    // Validazione Passo 2: Verifica che sia stato scelto un modello specifico
-    if (prossimoStep === 3) {
-        const modelloScelto = document.getElementById('deviceModel').value;
-        if (!modelloScelto) {
-            alert('Seleziona il modello specifico del tuo dispositivo per andare avanti.');
+    if (nextStepNumber === 3) {
+        const chosenModel = document.getElementById('deviceModel').value;
+        if (!chosenModel) {
+            alert('Please select the specific model of your device to proceed.');
             return;
         }
     }
 
-    mostraStepSpecifico(prossimoStep);
+    showSpecificStep(nextStepNumber);
 }
 
-// Navigazione all'Indietro semplice
-function prevStep(stepPrecedente) {
-    mostraStepSpecifico(stepPrecedente);
+function prevStep(prevStepNumber) {
+    showSpecificStep(prevStepNumber);
 }
 
-// Cambia la visualizzazione delle schede interne del modulo e aggiorna la barra di avanzamento
-function mostraStepSpecifico(numeroStep) {
-    // Nascondi tutti i passi del modulo
+// Core rendering mechanics for current process steps and top wizard progress state
+function showSpecificStep(stepNumber) {
     const steps = document.querySelectorAll('.wizard-step');
     steps.forEach(st => st.classList.remove('active-step'));
 
-    // Mostra quello selezionato
-    document.getElementById(`w-step-${numeroStep}`).classList.add('active-step');
+    document.getElementById(`w-step-${stepNumber}`).classList.add('active-step');
 
-    // Aggiorna lo stato visivo dei testi di avanzamento in alto
     for (let i = 1; i <= 4; i++) {
-        const elementoProgresso = document.getElementById(`p-step-${i}`);
-        if (i === numeroStep) {
-            elementoProgresso.className = 'progress-step active';
-        } else if (i < numeroStep) {
-            elementoProgresso.className = 'progress-step completed';
-        } else {
-            elementoProgresso.className = 'progress-step';
+        const progressElement = document.getElementById(`p-step-${i}`);
+        if (progressElement) {
+            if (i === stepNumber) {
+                progressElement.className = 'progress-step active fw-bold px-3 py-1 rounded text-orange';
+            } else if (i < stepNumber) {
+                progressElement.className = 'progress-step completed fw-bold px-3 py-1 rounded text-success';
+            } else {
+                progressElement.className = 'progress-step fw-bold px-3 py-1 rounded text-muted';
+            }
         }
     }
 }
 
-// Organizza le informazioni inserite e compone la finestra di riepilogo
-function preparaRiepilogoContatti() {
-    const categoria = document.getElementById('selectedCategory').value;
-    const modello = document.getElementById('deviceModel').value;
-   
-    // Raccoglie i problemi spuntati
-    let elencoProblemi = [];
+// Ticket confirmation generator engine assembling form details
+function prepareContactSummary() {
+    const category = document.getElementById('selectedCategory').value;
+    const model = document.getElementById('deviceModel').value;
+    
+    let selectedIssues = [];
+    // Corrected bug from index.html IDs reference targeting (issue instead of prob)
     for (let i = 1; i <= 4; i++) {
-        const cb = document.getElementById(`prob${i}`);
+        const cb = document.getElementById(`issue${i}`); 
         if (cb && cb.checked) {
-            elencoProblemi.push(cb.value);
+            selectedIssues.push(cb.value);
         }
     }
-   
-    // Controlla se c'è testo scritto nel campo libero "altro"
-    const testoAltro = document.getElementById('probAltro').value.trim();
-    if (testoAltro) {
-        elencoProblemi.push(`Altro problema descritto: "${testoAltro}"`);
+    
+    const otherText = document.getElementById('issueOther').value.trim(); 
+    if (otherText) {
+        selectedIssues.push(`Other issue: "${otherText}"`);
     }
 
-    // Blocca se l'utente non ha inserito o spuntato alcun problema
-    if (elencoProblemi.length === 0) {
-        alert('Seleziona almeno un problema comune o descrivilo nel campo di testo per continuare.');
+    if (selectedIssues.length === 0) {
+        alert('Please select at least one common issue or describe it in the text field to continue.');
         return;
     }
 
-    // Inserisce i dati nel box riepilogativo finale
-    document.getElementById('sumDevice').innerHTML = `<strong>Dispositivo scelto:</strong> ${categoria} — ${modello}`;
-    document.getElementById('sumProblems').innerHTML = `<strong>Problemi selezionati:</strong> ${elencoProblemi.join(', ')}`;
+    document.getElementById('sumDevice').innerHTML = `<strong>Selected Device:</strong> ${category} — ${model}`;
+    document.getElementById('sumProblems').innerHTML = `<strong>Reported Issues:</strong> ${selectedIssues.join(', ')}`;
 
-    // Passa all'ultimo step dei dati personali
     nextStep(4);
 }
 
-// Gestione dell'invio del modulo
-function gestisciInvioForm(event) {
-    event.preventDefault(); // Blocca l'invio effettivo al server per la simulazione
-   
-    const nomeCliente = document.getElementById('clientName').value;
-   
-    // Finestra di conferma chiara e amichevole per l'utente
-    alert(`Grazie per la richiesta, ${nomeCliente}!
-I tecnici di OrangeFix hanno preso in carico la tua segnalazione. Ti risponderemo tramite email o telefono entro un'ora.`);
-   
-    // Svuota i campi e ripulisce le selezioni effettuate
+// Verification simulation output processing execution
+function handleFormSubmit(event) {
+    event.preventDefault(); 
+    
+    const clientName = document.getElementById('clientName').value;
+    
+    alert(`Thank you for your request, ${clientName}!
+The OrangeFix technical team has received your ticket. We will get back to you via email or phone within an hour.`);
+    
+    // Cleaning structure data logs reset operations
     document.getElementById('repairForm').reset();
     document.getElementById('selectedCategory').value = '';
-   
+    
     const boxes = document.querySelectorAll('.selection-box');
     boxes.forEach(box => box.classList.remove('selected'));
-   
-    // Riporta il modulo al Passo 1 e rimanda l'utente alla Home Page
-    mostraStepSpecifico(1);
+    
+    const checkboxGroups = document.querySelectorAll('.checkbox-group');
+    checkboxGroups.forEach(group => group.classList.remove('selected'));
+    
+    showSpecificStep(1);
     switchPage('home');
 }
