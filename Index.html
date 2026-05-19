@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrangeFix - Assistenza e Riparazioni Apple</title>
+    <style>
+        /* Reset e Stili Generali */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        /* Navigazione */
+        header {
+            background-color: #0a0a0a;
+            border-bottom: 2px solid #ff6b00;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: table;
+            width: 100%;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 24px;
+            font-weight: 800;
+            color: #ff6b00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ffffff;
+        }
+
+        .nav-menu {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+        }
+
+        .nav-menu a {
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #ff6b00;
+        }
+
+        /* Layout Principale */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title span {
+            color: #ff6b00;
+        }
+
+        /* Sezione Pagina Attiva (Simulata con display block/none via JS per renderlo un'applicazione a pagina singola pulita) */
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active-section {
+            display: block;
+        }
+
+        /* HOME PAGE */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid #262626;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #ff6b00;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff6b00;
+            color: #ffffff;
+            padding: 14px 30px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #e05e00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+        }
+
+        .grid-categories {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 20px;
+            margin-top: 20px;
+        }
+
+        .category-card {
+            display: table-cell;
+            background-color: #1a1a1a;
+            border: 1px solid #262626;
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            border-color: #ff6b00;
+            transform: translateY(-5px);
+        }
+
+        .category-card .icon {
+            font-size: 40px;
+            color: #ff6b00;
+            margin-bottom: 15px;
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* ABOUT US */
+        .about-placeholder {
+            text-align: center;
+            padding: 100px 20px;
+            border: 2px dashed #333333;
+            border-radius: 12px;
+            color: #a0a0a0;
+        }
+
+        /* PAGINE PRODOTTI / DISPOSITIVI */
+        .products-grid {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 20px;
+        }
+
+        .product-item {
+            display: table-cell;
+            background-color: #1a1a1a;
+            border: 1px solid #262626;
+            border-radius: 10px;
+            padding: 25px;
+            position: relative;
+        }
+
+        .badge-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 11px;
+            background-color: rgba(255, 107, 0, 0.15);
+            color: #ff6b00;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 107, 0, 0.3);
+        }
+
+        .product-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        .product-item p {
+            color: #a0a0a0;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .problems-list {
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #cccccc;
+        }
+
+        .problems-list li {
+            list-style: none;
+            margin-bottom: 6px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .problems-list li::before {
+            content: "•";
+            color: #ff6b00;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* WIZARD SERVIZI & RIPARAZIONI */
+        .wizard-container {
+            background-color: #1a1a1a;
+            border: 1px solid #262626;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wizard-progress {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #262626;
+            padding-bottom: 20px;
+        }
+
+        .progress-step {
+            display: table-cell;
+            text-align: center;
+            font-size: 13px;
+            color: #666666;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .progress-step.active {
+            color: #ff6b00;
+        }
+
+        .progress-step.completed {
+            color: #ffffff;
+        }
+
+        .wizard-step {
+            display: none;
+        }
+
+        .wizard-step.active-step {
+            display: block;
+        }
+
+        /* Form ed Elementi di Selezione */
+        .selection-grid {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 15px;
+            margin-bottom: 30px;
+        }
+
+        .selection-box {
+            display: table-cell;
+            background-color: #121212;
+            border: 2px solid #262626;
+            border-radius: 8px;
+            padding: 25px 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .selection-box:hover {
+            border-color: #ff6b00;
+        }
+
+        .selection-box.selected {
+            border-color: #ff6b00;
+            background-color: rgba(255, 107, 0, 0.05);
+        }
+
+        .selection-box .icon {
+            font-size: 32px;
+            color: #ff6b00;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #cccccc;
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: #121212;
+            border: 1px solid #333333;
+            border-radius: 6px;
+            padding: 12px 15px;
+            color: #ffffff;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #ff6b00;
+        }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        .checkbox-group {
+            background-color: #121212;
+            border: 1px solid #262626;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .checkbox-group input {
+            margin-right: 12px;
+            accent-color: #ff6b00;
+            transform: scale(1.2);
+            vertical-align: middle;
+        }
+
+        .checkbox-group label {
+            display: inline;
+            cursor: pointer;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+
+        .wizard-buttons {
+            margin-top: 30px;
+            border-top: 1px solid #262626;
+            padding-top: 20px;
+        }
+
+        .wizard-buttons .btn-prev {
+            background-color: transparent;
+            color: #a0a0a0;
+            border: 1px solid #333333;
+            box-shadow: none;
+            float: left;
+        }
+
+        .wizard-buttons .btn-prev:hover {
+            background-color: #262626;
+            color: #ffffff;
+        }
+
+        .wizard-buttons .btn-next {
+            float: right;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Riepilogo Finale */
+        .summary-box {
+            background-color: #121212;
+            border: 1px solid #ff6b00;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .summary-item {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .summary-item strong {
+            color: #ff6b00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #262626;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 14px;
+            color: #666666;
+        }
+
+        footer span {
+            color: #ff6b00;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOGO E NAVBAR -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Orange<span>Fix</span></div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active" onclick="switchPage('home')">Home</a>
+                <a href="#" class="nav-link" onclick="switchPage('mac')">Mac</a>
+                <a href="#" class="nav-link" onclick="switchPage('iphone')">iPhone</a>
+                <a href="#" class="nav-link" onclick="switchPage('ipad')">iPad</a>
+                <a href="#" class="nav-link" onclick="switchPage('watch')">Watch</a>
+                <a href="#" class="nav-link" onclick="switchPage('accessori')">Accessori</a>
+                <a href="#" class="nav-link" onclick="switchPage('servizi')">Riparazioni</a>
+                <a href="#" class="nav-link" onclick="switchPage('about')">About Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- SEZIONE: HOME -->
+        <section id="page-home" class="page-section active-section">
+            <div class="hero">
+                <h1>Il tuo dispositivo Apple è KO?<br>Lo ripariamo noi con <span>OrangeFix</span>.</h1>
+                <p>Specialisti in riparazioni hardware e software per iPhone, Mac, iPad e Apple Watch. Rapidi, sicuri e con ricambi di altissima qualità.</p>
+                <button class="btn" onclick="switchPage('servizi')">Prenota Riparazione</button>
+            </div>
+
+            <h2 class="section-title">I Nostri <span>Servizi di Punta</span></h2>
+            <div class="grid-categories">
+                <div class="category-card" onclick="switchPage('iphone')">
+                    <div class="icon">📱</div>
+                    <h3>iPhone</h3>
+                    <p style="color:#a0a0a0; font-size:13px;">Schermi, batterie e connettori in 30 minuti.</p>
+                </div>
+                <div class="category-card" onclick="switchPage('mac')">
+                    <div class="icon">💻</div>
+                    <h3>MacBook / iMac</h3>
+                    <p style="color:#a0a0a0; font-size:13px;">Ripristino scheda madre, SSD e tastiere.</p>
+                </div>
+                <div class="category-card" onclick="switchPage('servizi')">
+                    <div class="icon">🛠️</div>
+                    <h3>Preventivo Rapido</h3>
+                    <p style="color:#a0a0a0; font-size:13px;">Seleziona il modello e scopri la tariffa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE: ABOUT US (Vuota come richiesto) -->
+        <section id="page-about" class="page-section">
+            <h2 class="section-title">About <span>Us</span></h2>
+            <div class="about-placeholder">
+                <p>Pagina in allestimento. Spazio riservato alla storia di OrangeFix, alla vision aziendale e al team di tecnici certificati.</p>
+            </div>
+        </section>
+
+        <!-- SEZIONE: MAC -->
+        <section id="page-mac" class="page-section">
+            <h2 class="section-title">Riparazioni <span>Mac</span></h2>
+            <div class="products-grid">
+                <div class="product-item">
+                    <div class="badge-status">● Ricambi Disponibili</div>
+                    <h3>MacBook Pro / Air</h3>
+                    <p>Interventi rapidi su tutta la linea portatili Apple, sia modelli Intel che Apple Silicon (M1/M2/M3).</p>
+                    <ul class="problems-list">
+                        <li>Sostituzione Display Retina</li>
+                        <li>Cambio Batteria degradata</li>
+                        <li>Riparazione danni da liquidi versati</li>
+                        <li>Pulizia ventole e cambio pasta termica</li>
+                    </ul>
+                    <button class="btn" style="width:100%;" onclick="openRiparazioneConCategoria('Mac')">Richiedi Assistenza Mac</button>
+                </div>
+                <div class="product-item">
+                    <div class="badge-status">● Diagnosi in Sede</div>
+                    <h3>iMac / Mac Mini</h3>
+                    <p>Riparazioni e potenziamenti per i computer desktop Apple per privati e professionisti.</p>
+                    <ul class="problems-list">
+                        <li>Upgrade Archiviazione SSD ultraveloce</li>
+                        <li>Sostituzione Alimentatore interno</li>
+                        <li>Risoluzione problemi di accensione</li>
+                        <li>Ripristino del sistema macOS e Backup</li>
+                    </ul>
+                    <button class="btn" style="width:100%;" onclick="openRiparazioneConCategoria('Mac')">Richiedi Assistenza Mac</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE: IPHONE -->
+        <section id="page-iphone" class="page-section">
+            <h2 class="section-title">Riparazioni <span>iPhone</span></h2>
+            <div class="products-grid">
+                <div class="product-item">
+                    <div class="badge-status">● Pronto in 30 Min</div>
+                    <h3>Riparazioni Espresso</h3>
+                    <p>Per la maggior parte dei guasti su iPhone l'intervento viene eseguito immediatamente in negozio.</p>
+                    <ul class="problems-list">
+                        <li>Sostituzione Vetro / Schermo OLED</li>
+                        <li>Cambio Batteria (Stato della batteria 100%)</li>
+                        <li>Sostituzione Connettore di Ricarica Lightning / USB-C</li>
+                        <li>Riparazione Fotocamera Posteriore e Vetrino</li>
+                    </ul>
+                    <button class="btn" style="width:100%;" onclick="openRiparazioneConCategoria('iPhone')">Ripara il tuo iPhone</button>
+                </div>
+                <div class="product-item">
+                    <div class="badge-status">● Micro-Saldatura</div>
+                    <h3>Problemi Avanzati</h3>
+                    <p>Riparazioni complesse sulla scheda logica del telefono ed errori di sistema critici.</p>
+                    <ul class="problems-list">
+                        <li>Recupero Face ID / Touch ID</li>
+                        <li>Riparazione chip di ricarica Audio/U2</li>
+                        <li>Rilavorazione danni da infiltrazione acqua</li>
+                        <li>Sblocco e ripristino in modalità DFU</li>
+                    </ul>
+                    <button class="btn" style="width:100%;" onclick="openRiparazioneConCategoria('iPhone')">Ripara il tuo iPhone</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE: IPAD -->
+        <section id="page-ipad" class="page-section">
+            <h2 class="section-title">Riparazioni <span>iPad</span></h2>
+            <div class="products-grid">
+                <div class="product-item">
+                    <div class="badge-status">● Alta Qualità</div>
+                    <h3>iPad Pro / Air / Mini</h3>
+                    <p>Assistenza tecnica specializzata per tablet Apple di ogni generazione.</p>
+                    <ul class="problems-list">
+                        <li>Sostituzione Vetro Touch Screen o LCD</li>
+                        <li>Cambio Batteria interna ad alta capacità</li>
+                        <li>Raddrizzamento scocca in alluminio piegata</li>
+                        <li>Riparazione tasti Volume e Accensione</li>
+                    </ul>
+                    <button class="btn" style="width:100%;" onclick="openRiparazioneConCategoria('iPad')">Seleziona il tuo iPad</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE: WATCH -->
+        <section id="page-watch" class="page-section">
+            <h2 class="section-title">Riparazioni <span>Apple Watch</span></h2>
+            <div class="products-grid">
+                <div class="product-item">
+                    <div class="badge-status">● Precisione</div>
+                    <h3>Apple Watch SE / Series / Ultra</h3>
+                    <p>Interventi di micromeccanica ed elettronica di precisione sui dispositivi indossabili Apple.</p>
+                    <ul class="problems-list">
+                        <li>Sostituzione Display rotto o scollato</li>
+                        <li>Sostituzione Batteria esausta</li>
+                        <li>Ripristino sensori biometrici posteriori</li>
+                        <li>Risoluzione Bootloop (Logo Apple fisso)</li>
+                    </ul>
+                    <button class="btn" style="width:100%;" onclick="openRiparazioneConCategoria('Watch')">Ripara Apple Watch</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE: ACCESSORI -->
+        <section id="page-accessori" class="page-section">
+            <h2 class="section-title">Accessori & <span>Altro</span></h2>
+            <div class="products-grid">
+                <div class="product-item">
+                    <div class="badge-status">● In Sede</div>
+                    <h3>Protezione & Ricarica</h3>
+                    <p>Ampia gamma di accessori protettivi e di alimentazione per la massima efficienza dei tuoi prodotti Apple.</p>
+                    <ul class="problems-list">
+                        <li>Applicazione Vetro Temperato con tecnologia UV</li>
+                        <li>Alimentatori da muro USB-C ad alta velocità (Certificati MFi)</li>
+                        <li>Cavi intrecciati rinforzati anti-rottura</li>
+                        <li>Custodie protettive ad alta resistenza agli impatti</li>
+                    </ul>
+                    <button class="btn" style="width:100%;" onclick="switchPage('servizi')">Vieni a trovarci</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE: COMPONENTE CHIAVE - SERVIZI & RIPARAZIONI (WIZARD DI SELEZIONE) -->
+        <section id="page-servizi" class="page-section">
+            <h2 class="section-title">Centro <span>Riparazioni & Assistenza</span></h2>
+            
+            <div class="wizard-container">
+                <!-- Barra Progresso Fasi -->
+                <div class="wizard-progress">
+                    <div class="progress-step active" id="p-step-1">1. Categoria</div>
+                    <div class="progress-step" id="p-step-2">2. Modello</div>
+                    <div class="progress-step" id="p-step-3">3. Problema</div>
+                    <div class="progress-step" id="p-step-4">4. Contatto</div>
+                </div>
+
+                <!-- Form Wizard Totale -->
+                <form id="repairForm" onsubmit="submitRepairForm(event)">
+                    
+                    <!-- STEP 1: Scelta Categoria -->
+                    <div class="wizard-step active-step" id="w-step-1">
+                        <h3 style="margin-bottom: 20px; text-align: center;">Quale dispositivo devi riparare?</h3>
+                        <div class="selection-grid">
+                            <div class="selection-box" onclick="selectCategory('Mac')">
+                                <div class="icon">💻</div>
+                                <strong>Mac</strong>
+                            </div>
+                            <div class="selection-box" onclick="selectCategory('iPhone')">
+                                <div class="icon">📱</div>
+                                <strong>iPhone</strong>
+                            </div>
+                        </div>
+                        <div class="selection-grid">
+                            <div class="selection-box" onclick="selectCategory('iPad')">
+                                <div class="icon">平板</div>
+                                <strong>iPad</strong>
+                            </div>
+                            <div class="selection-box" onclick="selectCategory('Watch')">
+                                <div class="icon">⌚</div>
+                                <strong>Watch</strong>
+                            </div>
+                        </div>
+                        <input type="hidden" id="selectedCategory" required>
+                        
+                        <div class="wizard-buttons clearfix">
+                            <button type="button" class="btn wizard-buttons btn-next" onclick="goToStep(2)">Avanti</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Scelta Modello -->
+                    <div class="wizard-step" id="w-step-2">
+                        <h3 style="margin-bottom: 20px;">Seleziona il modello specifico:</h3>
+                        
+                        <div class="form-group">
+                            <label id="modelLabel" for="deviceModel">Dispositivo Selezionato: Nessuno</label>
+                            <select id="deviceModel" class="form-control" required>
+                                <option value="">-- Scegli prima la categoria --</option>
+                            </select>
+                        </div>
+
+                        <div class="wizard-buttons clearfix">
+                            <button type="button" class="btn wizard-buttons btn-prev" onclick="goToStep(1)">Indietro</button>
+                            <button type="button" class="btn wizard-buttons btn-next" onclick="goToStep(3)">Avanti</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Scelta Problema -->
+                    <div class="wizard-step" id="w-step-3">
+                        <h3 style="margin-bottom: 20px;">Che problema riscontri?</h3>
+                        
+                        <div class="checkbox-group" onclick="toggleCheckbox('prob1')">
+                            <input type="checkbox" id="prob1" value="Schermo / Vetro Rotto">
+                            <label for="prob1">Sostituzione Schermo / Vetro Lineato</label>
+                        </div>
+                        <div class="checkbox-group" onclick="toggleCheckbox('prob2')">
+                            <input type="checkbox" id="prob2" value="Batteria Degradata">
+                            <label for="prob2">La batteria dura poco / Si spegne all'improvviso</label>
+                        </div>
+                        <div class="checkbox-group" onclick="toggleCheckbox('prob3')">
+                            <input type="checkbox" id="prob3" value="Danni da Liquido">
+                            <label for="prob3">Danni da Liquidi / Caduta in acqua</label>
+                        </div>
+                        <div class="checkbox-group" onclick="toggleCheckbox('prob4')">
+                            <input type="checkbox" id="prob4" value="Problema di Carica">
+                            <label for="prob4">Non si carica / Connettore danneggiato</label>
+                        </div>
+                        
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label for="probAltro">Descrivi brevemente il problema (Opzionale):</label>
+                            <textarea id="probAltro" class="form-control" rows="3" placeholder="Es. Tasto accensione bloccato, fotocamera sfocata..."></textarea>
+                        </div>
+
+                        <div class="wizard-buttons clearfix">
+                            <button type="button" class="btn wizard-buttons btn-prev" onclick="goToStep(2)">Indietro</button>
+                            <button type="button" class="btn wizard-buttons btn-next" onclick="buildSummaryAndGo()">Avanti</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Dati di Contatto e Riepilogo -->
+                    <div class="wizard-step" id="w-step-4">
+                        <h3 style="margin-bottom: 20px;">Riepilogo e Dati di Contatto</h3>
+                        
+                        <div class="summary-box">
+                            <div class="summary-item" id="sumDevice"><strong>Dispositivo:</strong> -</div>
+                            <div class="summary-item" id="sumProblems"><strong>Problemi:</strong> -</div>
+                            <div class="summary-item"><strong>Stato Ricambi:</strong> <span style="color:#ff6b00;">● Verifica disponibilità immediata</span></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="clientName">Nome e Cognome *</label>
+                            <input type="text" id="clientName" class="form-control" required placeholder="Mario Rossi">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientEmail">Email *</label>
+                            <input type="email" id="clientEmail" class="form-control" required placeholder="mario.rossi@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientPhone">Telefono *</label>
+                            <input type="tel" id="clientPhone" class="form-control" required placeholder="333 1234567">
+                        </div>
+
+                        <div class="wizard-buttons clearfix">
+                            <button type="button" class="btn wizard-buttons btn-prev" onclick="goToStep(3)">Indietro</button>
+                            <button type="submit" class="btn wizard-buttons btn-next">Invia Richiesta</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 <span>OrangeFix</span> - Tutti i diritti riservati. I marchi Apple, iPhone, iPad, Mac e Apple Watch appartengono ad Apple Inc. OrangeFix è un centro di riparazioni indipendente.</p>
+    </footer>
+
+    <!-- LOGICA IN JAVASCRIPT (Senza librerie esterne) -->
+    <script>
+        // Database Modelli Apple Dinamici
+        const modelliData = {
+            'Mac': [
+                'MacBook Pro 14" / 16" (M1/M2/M3)',
+                'MacBook Pro 13" (Touch Bar / M1 / M2)',
+                'MacBook Air (M1 / M2 / M3)',
+                'MacBook Air (Intel Retina)',
+                'iMac 24" M-Series',
+                'iMac 21.5" / 27" Intel',
+                'Mac Mini / Mac Studio'
+            ],
+            'iPhone': [
+                'iPhone 15 / 15 Plus / 15 Pro / 15 Pro Max',
+                'iPhone 14 / 14 Plus / 14 Pro / 14 Pro Max',
+                'iPhone 13 / 13 Mini / 13 Pro / 13 Pro Max',
+                'iPhone 12 / 12 Mini / 12 Pro / 12 Pro Max',
+                'iPhone 11 / 11 Pro / 11 Pro Max',
+                'iPhone SE (Seconda e Terza Generazione)',
+                'iPhone X / XS / XR / XS Max'
+            ],
+            'iPad': [
+                'iPad Pro (Tutte le generazioni)',
+                'iPad Air (M1 / Generazioni precedenti)',
+                'iPad Standard (9a / 10a Generazione)',
+                'iPad Mini'
+            ],
+            'Watch': [
+                'Apple Watch Ultra / Ultra 2',
+                'Apple Watch Series 7 / 8 / 9',
+                'Apple Watch Series 4 / 5 / 6',
+                'Apple Watch SE'
+            ]
+        };
+
+        // Cambiare pagina principale della navigazione
+        function switchPage(pageId) {
+            // Rimuovi classe active da tutti i link
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => link.classList.remove('active'));
+
+            // Trova il link cliccato e rendilo active
+            const clickedLink = Array.from(links).find(link => link.getAttribute('onclick').includes(`'${pageId}'`));
+            if (clickedLink) clickedLink.classList.add('active');
+
+            // Mostra la sezione corretta
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active-section'));
+            
+            const targetSection = document.getElementById(`page-${pageId}`);
+            if (targetSection) {
+                targetSection.classList.add('active-section');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Apre direttamente il preventivatore forzando la categoria corretta
+        function openRiparazioneConCategoria(catName) {
+            switchPage('servizi');
+            selectCategory(catName);
+            goToStep(2);
+        }
+
+        // Logica Selezione Categoria nel Wizard dello Step 1
+        function selectCategory(category) {
+            document.getElementById('selectedCategory').value = category;
+            
+            // Aggiorna interfaccia scatole grafiche
+            const boxes = document.querySelectorAll('.selection-box');
+            boxes.forEach(box => {
+                box.classList.remove('selected');
+                if (box.querySelector('strong').innerText.toLowerCase() === category.toLowerCase()) {
+                    box.classList.add('selected');
+                }
+            });
+
+            // Popola dinamicamente il menu a tendina dei modelli dello Step 2
+            const modelSelect = document.getElementById('deviceModel');
+            const modelLabel = document.getElementById('modelLabel');
+            
+            modelLabel.innerText = 'Seleziona il modello di ' + category + ':';
+            modelSelect.innerHTML = '<option value="">-- Seleziona un modello --</option>';
+            
+            if (modelliData[category]) {
+                modelliData[category].forEach(modello => {
+                    let opt = document.createElement('option');
+                    opt.value = modello;
+                    opt.innerHTML = modello;
+                    modelSelect.appendChild(opt);
+                });
+            }
+        }
+
+        // Navigazione tra gli step del Wizard con validazione basilare
+        function goToStep(stepNumber) {
+            // Validazioni prima di avanzare
+            if (stepNumber === 2) {
+                const cat = document.getElementById('selectedCategory').value;
+                if (!cat) {
+                    alert('Seleziona prima una categoria di dispositivo!');
+                    return;
+                }
+            }
+            if (stepNumber === 3) {
+                const mod = document.getElementById('deviceModel').value;
+                if (!mod) {
+                    alert('Seleziona il modello specifico del tuo dispositivo per continuare.');
+                    return;
+                }
+            }
+
+            // Nascondi tutti gli step
+            const steps = document.querySelectorAll('.wizard-step');
+            steps.forEach(st => st.classList.remove('active-section', 'active-step'));
+
+            // Mostra lo step corrente
+            document.getElementById(`w-step-${stepNumber}`).classList.add('active-step');
+
+            // Aggiorna lo stato visivo della barra di progresso in alto
+            for (let i = 1; i <= 4; i++) {
+                const pStep = document.getElementById(`p-step-${i}`);
+                if (i === stepNumber) {
+                    pStep.className = 'progress-step active';
+                } else if (i < stepNumber) {
+                    pStep.className = 'progress-step completed';
+                } else {
+                    pStep.className = 'progress-step';
+                }
+            }
+        }
+
+        // Permette di selezionare le checkbox cliccando l'intera riga del box
+        function toggleCheckbox(id) {
+            const cb = document.getElementById(id);
+            cb.checked = !cb.checked;
+        }
+
+        // Costruisce il box di riepilogo prima dello step dei dati personali
+        function buildSummaryAndGo() {
+            const cat = document.getElementById('selectedCategory').value;
+            const mod = document.getElementById('deviceModel').value;
+            
+            // Raccogli problemi selezionati
+            let listProblemi = [];
+            for (let i = 1; i <= 4; i++) {
+                let cb = document.getElementById(`prob${i}`);
+                if (cb && cb.checked) {
+                    listProblemi.push(cb.value);
+                }
+            }
+            const notaAltro = document.getElementById('probAltro').value.trim();
+            if (notaAltro) {
+                listProblemi.push("Altro: " + notaAltro);
+            }
+
+            if (listProblemi.length === 0) {
+                alert('Seleziona o descrivi almeno un problema per ricevere assistenza.');
+                return;
+            }
+
+            // Scrivi nel riepilogo finale dello step 4
+            document.getElementById('sumDevice').innerHTML = `<strong>Dispositivo:</strong> ${cat} - ${mod}`;
+            document.getElementById('sumProblems').innerHTML = `<strong>Problemi segnalati:</strong> ${listProblemi.join(', ')}`;
+
+            // Avanza all'ultimo step
+            goToStep(4);
+        }
+
+        // Invio finale del Form simulato
+        function submitRepairForm(event) {
+            event.preventDefault();
+            const nome = document.getElementById('clientName').value;
+            
+            alert(`Grazie ${nome}! La tua richiesta di riparazione è stata presa in carico da OrangeFix. Ti contatteremo entro un'ora per confermare l'appuntamento.`);
+            
+            // Resetta il form e torna alla home
+            document.getElementById('repairForm').reset();
+            document.getElementById('selectedCategory').value = '';
+            const boxes = document.querySelectorAll('.selection-box');
+            boxes.forEach(box => box.classList.remove('selected'));
+            
+            goToStep(1);
+            switchPage('home');
+        }
+    </script>
+</body>
+</html>
