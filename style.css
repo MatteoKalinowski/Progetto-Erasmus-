@@ -1,0 +1,455 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Navigazione */
+header {
+    background-color: #0a0a0a;
+    border-bottom: 2px solid #ff6b00;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: table;
+    width: 100%;
+    padding: 15px 20px;
+}
+
+.logo {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 24px;
+    font-weight: 800;
+    color: #ff6b00;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #ffffff;
+}
+
+.nav-menu {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.nav-menu a {
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #ff6b00;
+}
+
+/* Layout Principale */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title span {
+    color: #ff6b00;
+}
+
+/* Sezione Pagina Attiva (Simulata con display block/none via JS per renderlo un'applicazione a pagina singola pulita) */
+.page-section {
+    display: none;
+}
+
+.page-section.active-section {
+    display: block;
+}
+
+/* HOME PAGE */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+    border-radius: 12px;
+    margin-bottom: 40px;
+    border: 1px solid #262626;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero h1 span {
+    color: #ff6b00;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #a0a0a0;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ff6b00;
+    color: #ffffff;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+}
+
+.btn:hover {
+    background-color: #e05e00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+}
+
+.grid-categories {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 20px;
+    margin-top: 20px;
+}
+
+.category-card {
+    display: table-cell;
+    background-color: #1a1a1a;
+    border: 1px solid #262626;
+    border-radius: 10px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+    border-color: #ff6b00;
+    transform: translateY(-5px);
+}
+
+.category-card .icon {
+    font-size: 40px;
+    color: #ff6b00;
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* ABOUT US */
+.about-placeholder {
+    text-align: center;
+    padding: 100px 20px;
+    border: 2px dashed #333333;
+    border-radius: 12px;
+    color: #a0a0a0;
+}
+
+/* PAGINE PRODOTTI / DISPOSITIVI */
+.products-grid {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+.product-item {
+    display: table-cell;
+    background-color: #1a1a1a;
+    border: 1px solid #262626;
+    border-radius: 10px;
+    padding: 25px;
+    position: relative;
+}
+
+.badge-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 11px;
+    background-color: rgba(255, 107, 0, 0.15);
+    color: #ff6b00;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 107, 0, 0.3);
+}
+
+.product-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.product-item p {
+    color: #a0a0a0;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.problems-list {
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #cccccc;
+}
+
+.problems-list li {
+    list-style: none;
+    margin-bottom: 6px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.problems-list li::before {
+    content: "•";
+    color: #ff6b00;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* WIZARD SERVIZI & RIPARAZIONI */
+.wizard-container {
+    background-color: #1a1a1a;
+    border: 1px solid #262626;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.wizard-progress {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #262626;
+    padding-bottom: 20px;
+}
+
+.progress-step {
+    display: table-cell;
+    text-align: center;
+    font-size: 13px;
+    color: #666666;
+    font-weight: 600;
+    position: relative;
+}
+
+.progress-step.active {
+    color: #ff6b00;
+}
+
+.progress-step.completed {
+    color: #ffffff;
+}
+
+.wizard-step {
+    display: none;
+}
+
+.wizard-step.active-step {
+    display: block;
+}
+
+/* Form ed Elementi di Selezione */
+.selection-grid {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 15px;
+    margin-bottom: 30px;
+}
+
+.selection-box {
+    display: table-cell;
+    background-color: #121212;
+    border: 2px solid #262626;
+    border-radius: 8px;
+    padding: 25px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.selection-box:hover {
+    border-color: #ff6b00;
+}
+
+.selection-box.selected {
+    border-color: #ff6b00;
+    background-color: rgba(255, 107, 0, 0.05);
+}
+
+.selection-box .icon {
+    font-size: 32px;
+    color: #ff6b00;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #cccccc;
+}
+
+.form-control {
+    width: 100%;
+    background-color: #121212;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 12px 15px;
+    color: #ffffff;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #ff6b00;
+}
+
+select.form-control {
+    cursor: pointer;
+}
+
+.checkbox-group {
+    background-color: #121212;
+    border: 1px solid #262626;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.checkbox-group input {
+    margin-right: 12px;
+    accent-color: #ff6b00;
+    transform: scale(1.2);
+    vertical-align: middle;
+}
+
+.checkbox-group label {
+    display: inline;
+    cursor: pointer;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.wizard-buttons {
+    margin-top: 30px;
+    border-top: 1px solid #262626;
+    padding-top: 20px;
+}
+
+.wizard-buttons .btn-prev {
+    background-color: transparent;
+    color: #a0a0a0;
+    border: 1px solid #333333;
+    box-shadow: none;
+    float: left;
+}
+
+.wizard-buttons .btn-prev:hover {
+    background-color: #262626;
+    color: #ffffff;
+}
+
+.wizard-buttons .btn-next {
+    float: right;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Riepilogo Finale */
+.summary-box {
+    background-color: #121212;
+    border: 1px solid #ff6b00;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.summary-item {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.summary-item strong {
+    color: #ff6b00;
+}
+
+/* Footer */
+footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid #262626;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 14px;
+    color: #666666;
+}
+
+footer span {
+    color: #ff6b00;
+}
