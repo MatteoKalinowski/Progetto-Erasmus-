@@ -385,3 +385,60 @@ function updateCableShop() {
 document.addEventListener("DOMContentLoaded", function () {
     updateCableShop();
 });
+
+function setRepairCategory(category) {
+    document.getElementById('selectedCategory').value = category;
+
+    // highlight UI selection
+    document.querySelectorAll('.selection-box').forEach(box => {
+        box.classList.remove('selected');
+        if (box.getAttribute('data-category') === category) {
+            box.classList.add('selected');
+        }
+    });
+
+    // populate models
+    const selectModels = document.getElementById('deviceModel');
+    const label = document.getElementById('modelLabel');
+
+    label.innerText = `Device: ${category}`;
+    selectModels.innerHTML = "";
+
+    if (modelsDatabase[category]) {
+        modelsDatabase[category].forEach(m => {
+            const opt = document.createElement("option");
+            opt.value = m;
+            opt.textContent = m;
+            selectModels.appendChild(opt);
+        });
+    }
+}
+
+function openRepairWithCategory(category) {
+    switchPage('services');
+
+    setTimeout(() => {
+        setRepairCategory(category);
+
+        // opzionale: passa automaticamente allo step 2
+        nextStep(2);
+    }, 200);
+}
+
+function nextStep(step) {
+    document.querySelectorAll('.wizard-step').forEach(s => s.classList.add('d-none'));
+    document.getElementById(`w-step-${step}`).classList.remove('d-none');
+
+    updateProgress(step);
+}
+
+function prevStep(step) {
+    nextStep(step);
+}
+
+function updateProgress(step) {
+    document.querySelectorAll('.progress-step').forEach(el => el.classList.remove('text-orange', 'active'));
+
+    const active = document.getElementById(`p-step-${step}`);
+    if (active) active.classList.add('text-orange', 'active');
+}
