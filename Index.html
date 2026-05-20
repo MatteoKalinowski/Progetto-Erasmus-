@@ -47,19 +47,89 @@
                     <a href="#" class="nav-link" data-page="iphone">iPhone</a>
                     <a href="#" class="nav-link" data-page="ipad">iPad</a>
                     <a href="#" class="nav-link" data-page="watch">Watch</a>
-                    <a href="#" class="nav-link" data-page="accessories">Accessories</a>
-                    
-                    <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="repairsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-page="services">
-                            Repairs
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark border-secondary shadow" aria-labelledby="repairsDropdown">
-                            <li><a class="dropdown-item cp" onclick="switchPage('services')">🛠️ Start Repair Wizard</a></li>
-                            <li><a class="dropdown-item cp" onclick="switchPage('prices')">💰 View Repair Costs</a></li>
-                        </ul>
-                    </div>
+<a href="#" class="nav-link" data-page="accessories">Accessories</a>
 
-                    <a href="#" class="nav-link" data-page="about">About Us</a>
+<!-- REPAIRS -->
+<div class="nav-item dropdown">
+
+    <a class="nav-link dropdown-toggle"
+       href="#"
+       id="repairsDropdown"
+       role="button"
+       data-bs-toggle="dropdown"
+       aria-expanded="false"
+       data-page="services">
+
+        Repairs
+
+    </a>
+
+    <ul class="dropdown-menu dropdown-menu-dark border-secondary shadow"
+        aria-labelledby="repairsDropdown">
+
+        <li>
+            <a class="dropdown-item cp"
+               onclick="switchPage('services')">
+
+               🛠️ Start Repair Wizard
+
+            </a>
+        </li>
+
+        <li>
+            <a class="dropdown-item cp"
+               onclick="switchPage('prices')">
+
+               💰 View Repair Costs
+
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- SHOP -->
+<div class="nav-item dropdown">
+
+    <a class="nav-link dropdown-toggle"
+       href="#"
+       id="shopDropdown"
+       role="button"
+       data-bs-toggle="dropdown"
+       aria-expanded="false">
+
+        Shop
+
+    </a>
+
+    <ul class="dropdown-menu dropdown-menu-dark border-secondary shadow"
+        aria-labelledby="shopDropdown">
+
+        <li>
+            <a class="dropdown-item cp"
+               onclick="switchPage('cables')">
+
+               🔌 Buy Cables
+
+            </a>
+        </li>
+
+        <li>
+            <a class="dropdown-item cp"
+               onclick="switchPage('upcoming')">
+
+               🍎 Buy Apple Devices
+
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- ABOUT -->
+<a href="#" class="nav-link" data-page="about">About Us</a>
                 </div>
             </nav>
         </div>
@@ -102,6 +172,170 @@
                 </div>
             </div>
         </section>
+
+        <!-- CABLES SHOP -->
+<section id="page-cables" class="page-section">
+
+    <h2 class="text-center mb-4 fw-bold section-title">
+        Buy <span class="text-orange">Cables</span>
+    </h2>
+
+    <div class="row g-4 justify-content-center">
+
+        <!-- Lightning -->
+        <div class="col-md-4">
+            <div class="card h-100 p-4 shadow-sm text-center">
+
+                <div class="display-3 mb-3">⚡</div>
+
+                <h3 class="fw-bold">Lightning Cable</h3>
+
+                <p class="text-muted">
+                    Fast charging cable for older iPhones and iPads.
+                </p>
+
+                <div class="fs-3 fw-bold text-orange mb-3">
+                    €19
+                </div>
+
+                <button class="btn btn-orange w-100">
+                    Buy Now
+                </button>
+
+            </div>
+        </div>
+
+        <!-- USB C -->
+        <div class="col-md-4">
+            <div class="card h-100 p-4 shadow-sm text-center">
+
+                <div class="display-3 mb-3">🔌</div>
+
+                <h3 class="fw-bold">USB-C Cable</h3>
+
+                <p class="text-muted">
+                    Braided USB-C cable compatible with iPhone 15 and MacBook.
+                </p>
+
+                <div class="fs-3 fw-bold text-orange mb-3">
+                    €25
+                </div>
+
+                <button class="btn btn-orange w-100">
+                    Buy Now
+                </button>
+
+            </div>
+        </div>
+
+        <!-- MagSafe -->
+        <div class="col-md-4">
+            <div class="card h-100 p-4 shadow-sm text-center">
+
+                <div class="display-3 mb-3">🧲</div>
+
+                <h3 class="fw-bold">MagSafe Charger</h3>
+
+                <p class="text-muted">
+                    Magnetic wireless charger for MagSafe compatible iPhones.
+                </p>
+
+                <div class="fs-3 fw-bold text-orange mb-3">
+                    €39
+                </div>
+
+                <button class="btn btn-orange w-100">
+                    Buy Now
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- APPLE DEVICES SHOP -->
+<section id="page-upcoming" class="page-section">
+
+    <h2 class="text-center mb-4 fw-bold section-title">
+        Buy Apple <span class="text-orange">Devices</span>
+    </h2>
+
+    <div class="row g-4 justify-content-center">
+
+        <!-- iPhone -->
+        <div class="col-md-4">
+            <div class="card h-100 p-4 shadow-sm text-center">
+
+                <div class="display-3 mb-3">📱</div>
+
+                <h3 class="fw-bold">iPhone 16 Pro</h3>
+
+                <p class="text-muted">
+                    Latest Apple smartphone with titanium design and AI features.
+                </p>
+
+                <div class="fs-3 fw-bold text-orange mb-3">
+                    Starting at €1299
+                </div>
+
+                <button class="btn btn-orange w-100">
+                    Buy iPhone
+                </button>
+
+            </div>
+        </div>
+
+        <!-- MacBook -->
+        <div class="col-md-4">
+            <div class="card h-100 p-4 shadow-sm text-center">
+
+                <div class="display-3 mb-3">💻</div>
+
+                <h3 class="fw-bold">MacBook Pro M4</h3>
+
+                <p class="text-muted">
+                    Professional Apple laptop with M4 performance chip.
+                </p>
+
+                <div class="fs-3 fw-bold text-orange mb-3">
+                    Starting at €2499
+                </div>
+
+                <button class="btn btn-orange w-100">
+                    Buy MacBook
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Apple Watch -->
+        <div class="col-md-4">
+            <div class="card h-100 p-4 shadow-sm text-center">
+
+                <div class="display-3 mb-3">⌚</div>
+
+                <h3 class="fw-bold">Apple Watch Ultra</h3>
+
+                <p class="text-muted">
+                    Premium Apple smartwatch for sports and outdoor activities.
+                </p>
+
+                <div class="fs-3 fw-bold text-orange mb-3">
+                    Starting at €899
+                </div>
+
+                <button class="btn btn-orange w-100">
+                    Buy Watch
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
 
         <section id="page-about" class="page-section">
             <h2 class="text-center mb-4 fw-bold section-title">About <span class="text-orange">Us</span></h2>
@@ -282,71 +516,95 @@
         </section>
 
         <section id="page-prices" class="page-section">
-            <h2 class="text-center mb-4 fw-bold section-title">iPhone <span class="text-orange">Repair Prices</span></h2>
-            
-            <div class="card shadow p-4 mb-5 max-w-700 mx-auto bg-dark text-white">
-                <div class="form-group text-center">
-                    <label for="priceModelSelect" class="form-label fw-semibold mb-2 text-muted">Select an iPhone Model to View Costs:</label>
-                    <select id="priceModelSelect" class="form-select bg-light text-dark mx-auto border-0 fw-bold" style="max-width: 350px; height: 45px;" onchange="updatePriceLayoutData()">
-                        <option value="iphone15pm">iPhone 15 Pro Max</option>
-                        <option value="iphone15p">iPhone 15 Pro</option>
-                        <option value="iphone15">iPhone 15</option>
-                        <option value="iphone14pm">iPhone 14 Pro Max</option>
-                        <option value="iphone14">iPhone 14</option>
-                        <option value="iphone13">iPhone 13</option>
-                    </select>
-                </div>
-            </div>
+    <h2 class="text-center mb-4 fw-bold section-title">
+        Repair <span class="text-orange">Prices</span>
+    </h2>
 
-            <div class="row row-cols-2 row-cols-md-3 g-4 justify-content-center text-center">
-                <div class="col" style="max-width: 210px;">
-                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                        <div class="display-5 mb-2 text-orange">📱</div>
-                        <h4 class="h6 fw-bold text-secondary mb-3">Substituição Equipamento</h4>
-                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-swap">€ 749</div>
-                    </div>
-                </div>
-                <div class="col" style="max-width: 210px;">
-                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                        <div class="display-5 mb-2 text-orange">📲</div>
-                        <h4 class="h6 fw-bold text-secondary mb-3">Substituição Ecrã</h4>
-                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-screen">€ 399</div>
-                    </div>
-                </div>
-                <div class="col" style="max-width: 210px;">
-                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                        <div class="display-5 mb-2 text-orange">🔋</div>
-                        <h4 class="h6 fw-bold text-secondary mb-3">Substituição Bateria</h4>
-                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-battery">€ 109</div>
-                    </div>
-                </div>
-                <div class="col" style="max-width: 210px;">
-                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                        <div class="display-5 mb-2 text-orange">📷</div>
-                        <h4 class="h6 fw-bold text-secondary mb-3">Substituição Câmera Traseira</h4>
-                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-camera">€ 219</div>
-                    </div>
-                </div>
-                <div class="col" style="max-width: 210px;">
-                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                        <div class="display-5 mb-2 text-orange">💎</div>
-                        <h4 class="h6 fw-bold text-secondary mb-3">Substituição Vidro Traseiro</h4>
-                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-backglass">€ 199</div>
-                    </div>
-                </div>
-                <div class="col" style="max-width: 210px;">
-                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                        <div class="display-5 mb-2 text-orange">🆔</div>
-                        <h4 class="h6 fw-bold text-secondary mb-3">Substituição Face ID</h4>
-                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-faceid">€ 279</div>
-                    </div>
-                </div>
-            </div>
+    <div class="card shadow p-4 mb-4 max-w-700 mx-auto bg-dark text-white text-center">
 
-            <div class="text-center mt-5">
-                <button class="btn btn-dark btn-lg px-5 shadow-sm border-secondary text-orange fw-bold" onclick="switchPage('services')">Book a Repair Now</button>
+        <!-- CATEGORY SELECT -->
+        <label class="form-label text-muted mb-2">Select Device Type:</label>
+        <select id="priceCategorySelect"
+            class="form-select bg-light text-dark mx-auto border-0 fw-bold mb-3"
+            style="max-width: 350px; height: 45px;"
+            onchange="updatePriceModels()">
+
+            <option value="iphone">iPhone</option>
+            <option value="mac">Mac</option>
+            <option value="ipad">iPad</option>
+            <option value="watch">Apple Watch</option>
+        </select>
+
+        <!-- MODEL SELECT -->
+        <label class="form-label text-muted mb-2">Select Model:</label>
+        <select id="priceModelSelect"
+            class="form-select bg-light text-dark mx-auto border-0 fw-bold"
+            style="max-width: 350px; height: 45px;"
+            onchange="updatePriceLayoutData()">
+        </select>
+
+    </div>
+
+    <div class="row row-cols-2 row-cols-md-3 g-4 justify-content-center text-center">
+
+        <div class="col" style="max-width: 210px;">
+            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                <div class="display-5 mb-2 text-orange">📱</div>
+                <h4 class="h6 fw-bold text-secondary mb-3">Device Replacement</h4>
+                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-swap">€ --</div>
             </div>
-        </section>
+        </div>
+
+        <div class="col" style="max-width: 210px;">
+            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                <div class="display-5 mb-2 text-orange">📲</div>
+                <h4 class="h6 fw-bold text-secondary mb-3">Screen</h4>
+                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-screen">€ --</div>
+            </div>
+        </div>
+
+        <div class="col" style="max-width: 210px;">
+            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                <div class="display-5 mb-2 text-orange">🔋</div>
+                <h4 class="h6 fw-bold text-secondary mb-3">Battery</h4>
+                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-battery">€ --</div>
+            </div>
+        </div>
+
+        <div class="col" style="max-width: 210px;">
+            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                <div class="display-5 mb-2 text-orange">📷</div>
+                <h4 class="h6 fw-bold text-secondary mb-3">Camera</h4>
+                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-camera">€ --</div>
+            </div>
+        </div>
+
+        <div class="col" style="max-width: 210px;">
+            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                <div class="display-5 mb-2 text-orange">💎</div>
+                <h4 class="h6 fw-bold text-secondary mb-3">Back Glass</h4>
+                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-backglass">€ --</div>
+            </div>
+        </div>
+
+        <div class="col" style="max-width: 210px;">
+            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                <div class="display-5 mb-2 text-orange">🆔</div>
+                <h4 class="h6 fw-bold text-secondary mb-3">Face / System</h4>
+                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-faceid">€ --</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-5">
+        <button class="btn btn-dark btn-lg px-5 shadow-sm border-secondary text-orange fw-bold"
+            onclick="switchPage('services')">
+            Book a Repair Now
+        </button>
+    </div>
+</section>
+
 
         <section id="page-services" class="page-section">
             <h2 class="text-center mb-4 fw-bold section-title">Repair & <span class="text-orange">Support Center</span></h2>
@@ -478,35 +736,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
     
-    <script>
-        // Funzione JS per caricare dinamicamente i prezzi allineati al mercato retail attuale
-        function updatePriceLayoutData() {
-            const currentSelectedModel = document.getElementById("priceModelSelect").value;
-            
-            const retailMarketPriceMatrix = {
-                iphone15pm: { swap: "€ 799", screen: "€ 439", battery: "€ 109", camera: "€ 249", backglass: "€ 229", faceid: "€ 299" },
-                iphone15p:  { swap: "€ 749", screen: "€ 399", battery: "€ 109", camera: "€ 219", backglass: "€ 199", faceid: "€ 279" },
-                iphone15:   { swap: "€ 649", screen: "€ 319", battery: "€ 109", camera: "€ 189", backglass: "€ 169", faceid: "€ 249" },
-                iphone14pm: { swap: "€ 739", screen: "€ 419", battery: "€ 105", camera: "€ 229", backglass: "€ 209", faceid: "€ 289" },
-                iphone14:   { swap: "€ 599", screen: "€ 299", battery: "€ 105", camera: "€ 179", backglass: "€ 159", faceid: "€ 239" },
-                iphone13:   { swap: "€ 499", screen: "€ 259", battery: "€ 99",  camera: "€ 149", backglass: "€ 129", faceid: "€ 219" }
-            };
-
-            const dataSet = retailMarketPriceMatrix[currentSelectedModel];
-            
-            document.getElementById("cost-swap").innerText = dataSet.swap;
-            document.getElementById("cost-screen").innerText = dataSet.screen;
-            document.getElementById("cost-battery").innerText = dataSet.battery;
-            document.getElementById("cost-camera").innerText = dataSet.camera;
-            document.getElementById("cost-backglass").innerText = dataSet.backglass;
-            document.getElementById("cost-faceid").innerText = dataSet.faceid;
-        }
-        
-        // Esecuzione immediata al caricamento per non lasciare campi vuoti
-        document.addEventListener("DOMContentLoaded", function() {
-            updatePriceLayoutData();
-        });
-    </script>
 </body>
 
 </html>

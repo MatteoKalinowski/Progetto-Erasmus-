@@ -45,7 +45,7 @@ function switchPage(pageId) {
     // Handle structural display of single page layout views
     const sections = document.querySelectorAll('.page-section');
     sections.forEach(section => section.classList.remove('active-section'));
-    
+
     const targetSection = document.getElementById(`page-${pageId}`);
     if (targetSection) {
         targetSection.classList.add('active-section');
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         group.addEventListener('click', (e) => {
             const checkId = group.getAttribute('data-checkbox');
             const checkbox = document.getElementById(checkId);
-            
+
             if (e.target.tagName !== 'INPUT') {
                 if (checkbox) {
                     checkbox.checked = !checkbox.checked;
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Deep redirection automation from explicit marketing components straight into wizard configuration
 function openRepairWithCategory(categoryName) {
-    switchPage('services'); 
+    switchPage('services');
     setRepairCategory(categoryName);
     nextStep(2);
 }
@@ -109,7 +109,7 @@ function openRepairWithCategory(categoryName) {
 // 3. WIZARD INTERACTIVE ENGINE PIPELINE
 function setRepairCategory(category) {
     document.getElementById('selectedCategory').value = category;
-    
+
     const boxes = document.querySelectorAll('.selection-box');
     boxes.forEach(box => {
         box.classList.remove('selected');
@@ -121,10 +121,10 @@ function setRepairCategory(category) {
     // Clear and build the dynamic option elements on runtime view updates
     const selectModels = document.getElementById('deviceModel');
     const labelModels = document.getElementById('modelLabel');
-    
+
     labelModels.innerText = `Select the specific model for your ${category}:`;
     selectModels.innerHTML = '<option value="">-- Select a model from the list --</option>';
-    
+
     if (modelsDatabase[category]) {
         modelsDatabase[category].forEach(model => {
             const option = document.createElement('option');
@@ -153,6 +153,10 @@ function nextStep(nextStepNumber) {
     }
 
     showSpecificStep(nextStepNumber);
+}
+function toggleCardVisibility(id, value) {
+    const el = document.getElementById(id).parentElement;
+    el.style.display = (value === "€ 0") ? "none" : "block";
 }
 
 function prevStep(prevStepNumber) {
@@ -184,17 +188,17 @@ function showSpecificStep(stepNumber) {
 function prepareContactSummary() {
     const category = document.getElementById('selectedCategory').value;
     const model = document.getElementById('deviceModel').value;
-    
+
     let selectedIssues = [];
     // Corrected bug from index.html IDs reference targeting (issue instead of prob)
     for (let i = 1; i <= 4; i++) {
-        const cb = document.getElementById(`issue${i}`); 
+        const cb = document.getElementById(`issue${i}`);
         if (cb && cb.checked) {
             selectedIssues.push(cb.value);
         }
     }
-    
-    const otherText = document.getElementById('issueOther').value.trim(); 
+
+    const otherText = document.getElementById('issueOther').value.trim();
     if (otherText) {
         selectedIssues.push(`Other issue: "${otherText}"`);
     }
@@ -212,23 +216,88 @@ function prepareContactSummary() {
 
 // Verification simulation output processing execution
 function handleFormSubmit(event) {
-    event.preventDefault(); 
-    
+    event.preventDefault();
+
     const clientName = document.getElementById('clientName').value;
-    
+
     alert(`Thank you for your request, ${clientName}!
 The OrangeFix technical team has received your ticket. We will get back to you via email or phone within an hour.`);
-    
+
     // Cleaning structure data logs reset operations
     document.getElementById('repairForm').reset();
     document.getElementById('selectedCategory').value = '';
-    
+
     const boxes = document.querySelectorAll('.selection-box');
     boxes.forEach(box => box.classList.remove('selected'));
-    
+
     const checkboxGroups = document.querySelectorAll('.checkbox-group');
     checkboxGroups.forEach(group => group.classList.remove('selected'));
-    
+
     showSpecificStep(1);
     switchPage('home');
 }
+
+const priceData = {
+    iphone: {
+        iphone15pm: { swap: "€ 799", screen: "€ 439", battery: "€ 109", camera: "€ 249", backglass: "€ 229", faceid: "€ 299" },
+        iphone15p: { swap: "€ 749", screen: "€ 399", battery: "€ 109", camera: "€ 219", backglass: "€ 199", faceid: "€ 279" },
+        iphone15: { swap: "€ 649", screen: "€ 319", battery: "€ 109", camera: "€ 189", backglass: "€ 169", faceid: "€ 249" }
+    },
+
+    mac: {
+        macbookpro: { swap: "€ 1299", screen: "€ 599", battery: "€ 249", camera: "€ 0", backglass: "€ 0", faceid: "€ 0" },
+        macbookair: { swap: "€ 999", screen: "€ 499", battery: "€ 199", camera: "€ 0", backglass: "€ 0", faceid: "€ 0" },
+        imac: { swap: "€ 1199", screen: "€ 699", battery: "€ 0", camera: "€ 0", backglass: "€ 0", faceid: "€ 0" }
+    },
+
+    ipad: {
+        ipadpro: { swap: "€ 899", screen: "€ 399", battery: "€ 179", camera: "€ 199", backglass: "€ 199", faceid: "€ 0" },
+        ipadair: { swap: "€ 699", screen: "€ 299", battery: "€ 149", camera: "€ 149", backglass: "€ 149", faceid: "€ 0" }
+    },
+
+    watch: {
+        series9: { swap: "€ 499", screen: "€ 249", battery: "€ 129", camera: "€ 0", backglass: "€ 199", faceid: "€ 0" },
+        ultra2: { swap: "€ 699", screen: "€ 349", battery: "€ 179", camera: "€ 0", backglass: "€ 249", faceid: "€ 0" }
+    }
+};
+
+function updatePriceModels() {
+    const category = document.getElementById("priceCategorySelect").value;
+    const modelSelect = document.getElementById("priceModelSelect");
+
+    modelSelect.innerHTML = "";
+
+    Object.keys(priceData[category]).forEach(model => {
+        const option = document.createElement("option");
+        option.value = model;
+        option.textContent = model;
+        modelSelect.appendChild(option);
+    });
+
+    updatePriceLayoutData();
+}
+
+function updatePriceLayoutData() {
+    const category = document.getElementById("priceCategorySelect").value;
+    const model = document.getElementById("priceModelSelect").value;
+
+    const data = priceData[category][model];
+
+    if (!data) return;
+
+    document.getElementById("cost-swap").innerText = data.swap;
+    document.getElementById("cost-screen").innerText = data.screen;
+    document.getElementById("cost-battery").innerText = data.battery;
+    document.getElementById("cost-camera").innerText = data.camera;
+    document.getElementById("cost-backglass").innerText = data.backglass;
+    document.getElementById("cost-faceid").innerText = data.faceid;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    updatePriceModels();
+});
+
+// Esecuzione immediata al caricamento per non lasciare campi vuoti
+document.addEventListener("DOMContentLoaded", function () {
+    updatePriceLayoutData();
+});
