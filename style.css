@@ -24,7 +24,7 @@
     transition: color 0.2s ease-in-out;
 }
 
-.navbar-nav .nav-link.active, 
+.navbar-nav .nav-link.active,
 .navbar-nav .nav-link:hover {
     color: var(--brand-orange) !important;
 }
@@ -38,7 +38,8 @@
     transition: background-color 0.2s ease-in-out, transform 0.1s ease;
 }
 
-.btn-orange:hover, .btn-orange:focus {
+.btn-orange:hover,
+.btn-orange:focus {
     background-color: var(--brand-orange-hover);
     color: #ffffff;
 }
@@ -50,18 +51,18 @@
 /* --- Home Hero --- */
 .hero h1.text-gradient {
     color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* --- Cards UI --- */
 .category-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid rgba(0,0,0,0.08);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .category-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
     border-color: var(--brand-orange);
 }
 
@@ -71,11 +72,13 @@
 
 /* --- Single Page Section Layout Handling --- */
 .page-section {
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
 }
 
 .page-section.active-section {
-    display: block !important; /* Visible when triggered by script.js */
+    display: block !important;
+    /* Visible when triggered by script.js */
     animation: fadeIn 0.4s ease-in-out forwards;
 }
 
@@ -88,6 +91,7 @@
 .wizard-step.d-none {
     display: none !important;
 }
+
 .wizard-step.active-step {
     display: block !important;
 }
@@ -111,7 +115,8 @@
 }
 
 /* Active selection class dynamically added via script */
-.selection-box.selected, .checkbox-group.selected {
+.selection-box.selected,
+.checkbox-group.selected {
     border-color: var(--brand-orange) !important;
     background-color: rgba(255, 107, 0, 0.05) !important;
     box-shadow: 0 0 0 1px var(--brand-orange);
@@ -123,8 +128,37 @@
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+    background-color: #2b3035;
+    color: #ff6b00 !important;
+}
+
+.text-orange {
+    color: #ff6b00 !important;
+}
+
+.btn-orange {
+    background-color: #ff6b00 !important;
+    color: white !important;
+    border: none;
+}
+
+.btn-orange:hover {
+    background-color: #e05e00 !important;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
 }

@@ -7,37 +7,17 @@
     <title>ARL - Apple Support and Repairs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Sincronizzazione hover e stili per il dropdown in stile Bootstrap dark */
-        .dropdown-menu-dark .dropdown-item:hover {
-            background-color: #2b3035;
-            color: #ff6b00 !important;
-        }
-        .text-orange {
-            color: #ff6b00 !important;
-        }
-        .btn-orange {
-            background-color: #ff6b00 !important;
-            color: white !important;
-            border: none;
-        }
-        .btn-orange:hover {
-            background-color: #e05e00 !important;
-        }
-        .cp {
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body class="bg-light text-dark">
-    
+
     <header class="bg-dark navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
         <div class="container nav-container">
             <div class="logo navbar-brand cp" onclick="switchPage('home')">
                 <img src="Images/ARL.png" alt="ARL Logo" class="logo-img" style="max-height: 40px;">
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <nav class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -47,89 +27,76 @@
                     <a href="#" class="nav-link" data-page="iphone">iPhone</a>
                     <a href="#" class="nav-link" data-page="ipad">iPad</a>
                     <a href="#" class="nav-link" data-page="watch">Watch</a>
-<a href="#" class="nav-link" data-page="accessories">Accessories</a>
+                    <a href="#" class="nav-link" data-page="accessories">Accessories</a>
 
-<!-- REPAIRS -->
-<div class="nav-item dropdown">
+                    <!-- REPAIRS -->
+                    <div class="nav-item dropdown">
 
-    <a class="nav-link dropdown-toggle"
-       href="#"
-       id="repairsDropdown"
-       role="button"
-       data-bs-toggle="dropdown"
-       aria-expanded="false"
-       data-page="services">
+                        <a class="nav-link dropdown-toggle" href="#" id="repairsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-page="services">
 
-        Repairs
+                            Repairs
 
-    </a>
+                        </a>
 
-    <ul class="dropdown-menu dropdown-menu-dark border-secondary shadow"
-        aria-labelledby="repairsDropdown">
+                        <ul class="dropdown-menu dropdown-menu-dark border-secondary shadow"
+                            aria-labelledby="repairsDropdown">
 
-        <li>
-            <a class="dropdown-item cp"
-               onclick="switchPage('services')">
+                            <li>
+                                <a class="dropdown-item cp" onclick="switchPage('services')">
 
-               🛠️ Start Repair Wizard
+                                    🛠️ Start Repair Wizard
 
-            </a>
-        </li>
+                                </a>
+                            </li>
 
-        <li>
-            <a class="dropdown-item cp"
-               onclick="switchPage('prices')">
+                            <li>
+                                <a class="dropdown-item cp" onclick="switchPage('prices')">
 
-               💰 View Repair Costs
+                                    💰 View Repair Costs
 
-            </a>
-        </li>
+                                </a>
+                            </li>
 
-    </ul>
+                        </ul>
 
-</div>
+                    </div>
 
-<!-- SHOP -->
-<div class="nav-item dropdown">
+                    <!-- SHOP -->
+                    <div class="nav-item dropdown">
 
-    <a class="nav-link dropdown-toggle"
-       href="#"
-       id="shopDropdown"
-       role="button"
-       data-bs-toggle="dropdown"
-       aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
 
-        Shop
+                            Shop
 
-    </a>
+                        </a>
 
-    <ul class="dropdown-menu dropdown-menu-dark border-secondary shadow"
-        aria-labelledby="shopDropdown">
+                        <ul class="dropdown-menu dropdown-menu-dark border-secondary shadow"
+                            aria-labelledby="shopDropdown">
 
-        <li>
-            <a class="dropdown-item cp"
-               onclick="switchPage('cables')">
+                            <li>
+                                <a class="dropdown-item cp" onclick="switchPage('cables')">
 
-               🔌 Buy Cables
+                                    🔌 Buy Cables
 
-            </a>
-        </li>
+                                </a>
+                            </li>
 
-        <li>
-            <a class="dropdown-item cp"
-               onclick="switchPage('upcoming')">
+                            <li>
+                                <a class="dropdown-item cp" onclick="switchPage('upcoming')">
 
-               🍎 Buy Apple Devices
+                                    🍎 Buy Apple Devices
 
-            </a>
-        </li>
+                                </a>
+                            </li>
 
-    </ul>
+                        </ul>
 
-</div>
+                    </div>
 
-<!-- ABOUT -->
-<a href="#" class="nav-link" data-page="about">About Us</a>
+                    <!-- ABOUT -->
+                    <a href="#" class="nav-link" data-page="about">About Us</a>
                 </div>
             </nav>
         </div>
@@ -141,216 +108,230 @@
             <div class="p-5 mb-5 bg-dark text-white rounded-3 hero shadow">
                 <div class="container-fluid py-3 text-center text-lg-start">
                     <h1 class="display-5 fw-bold text-gradient">Is your device broken?<br>We can fix that!</h1>
-                    <p class="col-lg-8 fs-5 text-muted">Specialists in hardware and software repairs for iPhone, Mac, iPad, and Apple Watch. Fast, transparent, and accessible services for everyone.</p>
+                    <p class="col-lg-8 fs-5 text-muted">Specialists in hardware and software repairs for iPhone, Mac,
+                        iPad, and Apple Watch. Fast, transparent, and accessible services for everyone.</p>
                     <button class="btn btn-orange btn-lg mt-3" onclick="switchPage('services')">Start a Repair</button>
                 </div>
             </div>
 
-            <h2 class="text-center mb-4 fw-bold section-title">How can we <span class="text-orange">help you today?</span></h2>
-            
+            <h2 class="text-center mb-4 fw-bold section-title">How can we <span class="text-orange">help you
+                    today?</span></h2>
+
             <div class="row g-4 grid-categories justify-content-center">
                 <div class="col-md-4">
-                    <div class="card h-100 text-center p-4 shadow-sm category-card cp" onclick="openRepairWithCategory('iPhone')">
-                        <div class="display-4 mb-3 icon">📱</div>
+                    <div class="card h-100 text-center p-4 shadow-sm category-card cp"
+                        onclick="openRepairWithCategory('iPhone')">
+                        <img src="Images/Iphone_riparazione.jpg" alt="Iphone repair" class="card-img-top" />
                         <h3 class="h5 fw-bold">iPhone Repair</h3>
                         <p class="text-muted mb-0">Screens, batteries, and connectors replaced in record time.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100 text-center p-4 shadow-sm category-card cp" onclick="openRepairWithCategory('Mac')">
-                        <div class="display-4 mb-3 icon">💻</div>
+                    <div class="card h-100 text-center p-4 shadow-sm category-card cp"
+                        onclick="openRepairWithCategory('Mac')">
+                        <img src="Images/Mac_repair.jpg" alt="Mac repair" class="card-img-top" />
                         <h3 class="h5 fw-bold">Mac Repair</h3>
                         <p class="text-muted mb-0">Repairs on motherboards, keyboards, batteries, and screens.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 text-center p-4 shadow-sm category-card cp" onclick="switchPage('prices')">
-                        <div class="display-4 mb-3 icon">💰</div>
+                        <img src="Images/Wiew_Repair_cost.jpg" alt="Price list" class="card-img-top" />
                         <h3 class="h5 fw-bold">View Repair Costs</h3>
-                        <p class="text-muted mb-0">Select your iPhone model and check standard market price estimates instantly.</p>
+                        <p class="text-muted mb-0">Select your iPhone model and check standard market price estimates
+                            instantly.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CABLES SHOP -->
-<section id="page-cables" class="page-section">
+        <section id="page-cables" class="page-section">
 
-    <h2 class="text-center mb-4 fw-bold section-title">
-        Buy <span class="text-orange">Cables</span>
-    </h2>
+            <h2 class="text-center mb-4 fw-bold section-title">
+                Buy <span class="text-orange">Cables</span>
+            </h2>
 
-    <div class="row g-4 justify-content-center">
+            <div class="row g-4 justify-content-center">
 
-        <!-- Lightning -->
-        <div class="col-md-4">
-            <div class="card h-100 p-4 shadow-sm text-center">
+                <!-- Lightning -->
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 shadow-sm text-center">
 
-                <div class="display-3 mb-3">⚡</div>
+                        <div class="display-3 mb-3">⚡</div>
 
-                <h3 class="fw-bold">Lightning Cable</h3>
+                        <h3 class="fw-bold">Lightning Cable</h3>
 
-                <p class="text-muted">
-                    Fast charging cable for older iPhones and iPads.
-                </p>
+                        <p class="text-muted">
+                            Fast charging cable for older iPhones and iPads.
+                        </p>
 
-                <div class="fs-3 fw-bold text-orange mb-3">
-                    €19
+                        <div class="fs-3 fw-bold text-orange mb-3">
+                            €19
+                        </div>
+
+                        <button class="btn btn-orange w-100">
+                            Buy Now
+                        </button>
+
+                    </div>
                 </div>
 
-                <button class="btn btn-orange w-100">
-                    Buy Now
-                </button>
+                <!-- USB C -->
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 shadow-sm text-center">
 
-            </div>
-        </div>
+                        <div class="display-3 mb-3">🔌</div>
 
-        <!-- USB C -->
-        <div class="col-md-4">
-            <div class="card h-100 p-4 shadow-sm text-center">
+                        <h3 class="fw-bold">USB-C Cable</h3>
 
-                <div class="display-3 mb-3">🔌</div>
+                        <p class="text-muted">
+                            Braided USB-C cable compatible with iPhone 15 and MacBook.
+                        </p>
 
-                <h3 class="fw-bold">USB-C Cable</h3>
+                        <div class="fs-3 fw-bold text-orange mb-3">
+                            €25
+                        </div>
 
-                <p class="text-muted">
-                    Braided USB-C cable compatible with iPhone 15 and MacBook.
-                </p>
+                        <button class="btn btn-orange w-100">
+                            Buy Now
+                        </button>
 
-                <div class="fs-3 fw-bold text-orange mb-3">
-                    €25
+                    </div>
                 </div>
 
-                <button class="btn btn-orange w-100">
-                    Buy Now
-                </button>
+                <!-- MagSafe -->
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 shadow-sm text-center">
 
-            </div>
-        </div>
+                        <div class="display-3 mb-3">🧲</div>
 
-        <!-- MagSafe -->
-        <div class="col-md-4">
-            <div class="card h-100 p-4 shadow-sm text-center">
+                        <h3 class="fw-bold">MagSafe Charger</h3>
 
-                <div class="display-3 mb-3">🧲</div>
+                        <p class="text-muted">
+                            Magnetic wireless charger for MagSafe compatible iPhones.
+                        </p>
 
-                <h3 class="fw-bold">MagSafe Charger</h3>
+                        <div class="fs-3 fw-bold text-orange mb-3">
+                            €39
+                        </div>
 
-                <p class="text-muted">
-                    Magnetic wireless charger for MagSafe compatible iPhones.
-                </p>
+                        <button class="btn btn-orange w-100">
+                            Buy Now
+                        </button>
 
-                <div class="fs-3 fw-bold text-orange mb-3">
-                    €39
+                    </div>
                 </div>
 
-                <button class="btn btn-orange w-100">
-                    Buy Now
-                </button>
-
             </div>
-        </div>
 
-    </div>
+        </section>
 
-</section>
+        <!-- APPLE DEVICES SHOP -->
+        <section id="page-upcoming" class="page-section">
 
-<!-- APPLE DEVICES SHOP -->
-<section id="page-upcoming" class="page-section">
+            <h2 class="text-center mb-4 fw-bold section-title">
+                Buy Apple <span class="text-orange">Devices</span>
+            </h2>
 
-    <h2 class="text-center mb-4 fw-bold section-title">
-        Buy Apple <span class="text-orange">Devices</span>
-    </h2>
+            <div class="row g-4 justify-content-center">
 
-    <div class="row g-4 justify-content-center">
+                <!-- iPhone -->
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 shadow-sm text-center">
 
-        <!-- iPhone -->
-        <div class="col-md-4">
-            <div class="card h-100 p-4 shadow-sm text-center">
+                        <div class="display-3 mb-3">📱</div>
 
-                <div class="display-3 mb-3">📱</div>
+                        <h3 class="fw-bold">iPhone 16 Pro</h3>
 
-                <h3 class="fw-bold">iPhone 16 Pro</h3>
+                        <p class="text-muted">
+                            Latest Apple smartphone with titanium design and AI features.
+                        </p>
 
-                <p class="text-muted">
-                    Latest Apple smartphone with titanium design and AI features.
-                </p>
+                        <div class="fs-3 fw-bold text-orange mb-3">
+                            Starting at €1299
+                        </div>
 
-                <div class="fs-3 fw-bold text-orange mb-3">
-                    Starting at €1299
+                        <button class="btn btn-orange w-100">
+                            Buy iPhone
+                        </button>
+
+                    </div>
                 </div>
 
-                <button class="btn btn-orange w-100">
-                    Buy iPhone
-                </button>
+                <!-- MacBook -->
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 shadow-sm text-center">
 
-            </div>
-        </div>
+                        <div class="display-3 mb-3">💻</div>
 
-        <!-- MacBook -->
-        <div class="col-md-4">
-            <div class="card h-100 p-4 shadow-sm text-center">
+                        <h3 class="fw-bold">MacBook Pro M4</h3>
 
-                <div class="display-3 mb-3">💻</div>
+                        <p class="text-muted">
+                            Professional Apple laptop with M4 performance chip.
+                        </p>
 
-                <h3 class="fw-bold">MacBook Pro M4</h3>
+                        <div class="fs-3 fw-bold text-orange mb-3">
+                            Starting at €2499
+                        </div>
 
-                <p class="text-muted">
-                    Professional Apple laptop with M4 performance chip.
-                </p>
+                        <button class="btn btn-orange w-100">
+                            Buy MacBook
+                        </button>
 
-                <div class="fs-3 fw-bold text-orange mb-3">
-                    Starting at €2499
+                    </div>
                 </div>
 
-                <button class="btn btn-orange w-100">
-                    Buy MacBook
-                </button>
+                <!-- Apple Watch -->
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 shadow-sm text-center">
 
-            </div>
-        </div>
+                        <div class="display-3 mb-3">⌚</div>
 
-        <!-- Apple Watch -->
-        <div class="col-md-4">
-            <div class="card h-100 p-4 shadow-sm text-center">
+                        <h3 class="fw-bold">Apple Watch Ultra</h3>
 
-                <div class="display-3 mb-3">⌚</div>
+                        <p class="text-muted">
+                            Premium Apple smartwatch for sports and outdoor activities.
+                        </p>
 
-                <h3 class="fw-bold">Apple Watch Ultra</h3>
+                        <div class="fs-3 fw-bold text-orange mb-3">
+                            Starting at €899
+                        </div>
 
-                <p class="text-muted">
-                    Premium Apple smartwatch for sports and outdoor activities.
-                </p>
+                        <button class="btn btn-orange w-100">
+                            Buy Watch
+                        </button>
 
-                <div class="fs-3 fw-bold text-orange mb-3">
-                    Starting at €899
+                    </div>
                 </div>
 
-                <button class="btn btn-orange w-100">
-                    Buy Watch
-                </button>
-
             </div>
-        </div>
 
-    </div>
-
-</section>
+        </section>
 
         <section id="page-about" class="page-section">
             <h2 class="text-center mb-4 fw-bold section-title">About <span class="text-orange">Us</span></h2>
-            
+
             <div class="card bg-dark text-white border-0 rounded-3 p-4 p-md-5 mb-5 shadow">
                 <h3 class="text-orange mb-3 fw-bold">30 Years of Experience</h3>
-                
+
                 <p class="lead mb-3">
-                    Founded in 1993 in the city of Coimbra, <strong>ARL – Assistência, Redes e Computação, Lda</strong> (VAT / Tax ID: 502990031) provides information and communication technology services, standing out as a center of excellence in technical support. With over 30 years of knowledge and experience, you can fully trust us to resolve any issues with your equipment.
+                    Founded in 1993 in the city of Coimbra, <strong>ARL – Assistência, Redes e Computação, Lda</strong>
+                    (VAT / Tax ID: 502990031) provides information and communication technology services, standing out
+                    as a center of excellence in technical support. With over 30 years of knowledge and experience, you
+                    can fully trust us to resolve any issues with your equipment.
                 </p>
                 <p class="text-white-50 mb-3 lh-lg">
-                    Our assistance and repair services cover all IT equipment. We provide support both at our walk-in local store in Coimbra and directly at our clients' premises. We offer quick repairs for the general public, as well as specialized services for small, medium, and large corporations, both nationwide and internationally.
+                    Our assistance and repair services cover all IT equipment. We provide support both at our walk-in
+                    local store in Coimbra and directly at our clients' premises. We offer quick repairs for the general
+                    public, as well as specialized services for small, medium, and large corporations, both nationwide
+                    and internationally.
                 </p>
                 <p class="text-white-50 mb-4 lh-lg">
-                    Our wide range of services includes equipment installation, repair, and maintenance, network design and management, and website development. Crucially, all repairs are manufacturer-certified. For your convenience, your devices can be picked up from your home via courier services, adhering to all necessary security procedures, and delivered back directly to your preferred location.
+                    Our wide range of services includes equipment installation, repair, and maintenance, network design
+                    and management, and website development. Crucially, all repairs are manufacturer-certified. For your
+                    convenience, your devices can be picked up from your home via courier services, adhering to all
+                    necessary security procedures, and delivered back directly to your preferred location.
                 </p>
 
                 <div class="row g-4 border-top border-secondary pt-4 mt-2">
@@ -363,20 +344,20 @@
                             3030-328 Coimbra
                         </p>
                     </div>
-                    
+
                     <div class="col-md-4">
                         <h4 class="h5 text-orange mb-3 fw-bold">📞 Contacts</h4>
                         <p class="text-white-50 mb-2">
-                            <strong>Landline:</strong> 239 703 553 
+                            <strong>Landline:</strong> 239 703 553
                             <span class="d-block small text-muted">National fixed network</span>
                         </p>
                         <p class="text-white-50 mb-2">
-                            <strong>Mobile:</strong> 960 313 883 
+                            <strong>Mobile:</strong> 960 313 883
                             <span class="d-block small text-muted">National mobile network</span>
                         </p>
                         <p class="text-white-50 mb-0"><strong>Email:</strong> arl@arl.pt</p>
                     </div>
-                    
+
                     <div class="col-md-4">
                         <h4 class="h5 text-orange mb-3 fw-bold">🕒 Working Hours</h4>
                         <p class="text-white-50 mb-1"><strong>Monday to Friday</strong></p>
@@ -394,28 +375,39 @@
                     <div class="card h-100 p-4 shadow-sm product-item">
                         <span class="badge bg-success align-self-start mb-3 badge-status">● Parts Ready on Site</span>
                         <h3 class="fw-bold">MacBook Pro & Air</h3>
-                        <p class="text-muted">We fix battery issues, damaged screens, or software slowdowns on both Intel models and the new Apple Silicon chips.</p>
+                        <p class="text-muted">We fix battery issues, damaged screens, or software slowdowns on both
+                            Intel models and the new Apple Silicon chips.</p>
                         <ul class="list-group list-group-flush mb-4 problems-list">
                             <li class="list-group-item bg-transparent px-0 text-muted">✓ Retina Screen Replacement</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Exhausted Battery Replacement</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Liquid damage repair (e.g., coffee or water on keyboard)</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Internal cleaning and OS optimization</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Exhausted Battery Replacement
+                            </li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Liquid damage repair (e.g.,
+                                coffee or water on keyboard)</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Internal cleaning and OS
+                                optimization</li>
                         </ul>
-                        <button class="btn btn-orange mt-auto w-100 font-adjust" onclick="openRepairWithCategory('Mac')">Request Mac Support</button>
+                        <button class="btn btn-orange mt-auto w-100 font-adjust"
+                            onclick="openRepairWithCategory('Mac')">Request Mac Support</button>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card h-100 p-4 shadow-sm product-item">
                         <span class="badge bg-info text-dark align-self-start mb-3 badge-status">● Free Diagnosis</span>
                         <h3 class="fw-bold">iMac & Mac Mini</h3>
-                        <p class="text-muted">Hardware support and performance upgrades for Apple desktop computers, serving both individual users and professionals.</p>
+                        <p class="text-muted">Hardware support and performance upgrades for Apple desktop computers,
+                            serving both individual users and professionals.</p>
                         <ul class="list-group list-group-flush mb-4 problems-list">
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ High-speed SSD installation or upgrade</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Internal power supply repairs</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Boot loop or startup issue fixes (black or frozen screen)</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Lost data recovery and safety backups</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ High-speed SSD installation or
+                                upgrade</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Internal power supply repairs
+                            </li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Boot loop or startup issue
+                                fixes (black or frozen screen)</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Lost data recovery and safety
+                                backups</li>
                         </ul>
-                        <button class="btn btn-orange mt-auto w-100 font-adjust" onclick="openRepairWithCategory('Mac')">Request Mac Support</button>
+                        <button class="btn btn-orange mt-auto w-100 font-adjust"
+                            onclick="openRepairWithCategory('Mac')">Request Mac Support</button>
                     </div>
                 </div>
             </div>
@@ -428,28 +420,41 @@
                     <div class="card h-100 p-4 shadow-sm product-item">
                         <span class="badge bg-success align-self-start mb-3 badge-status">● Ready in 30 Minutes</span>
                         <h3 class="fw-bold">Express Repairs</h3>
-                        <p class="text-muted">The most common iPhone faults are resolved immediately on-site inside our laboratory.</p>
+                        <p class="text-muted">The most common iPhone faults are resolved immediately on-site inside our
+                            laboratory.</p>
                         <ul class="list-group list-group-flush mb-4 problems-list">
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Broken Screen or Glass Replacement</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Battery Replacement (Battery Health returns to 100%)</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Charging Port repair for loose connections</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Rear camera module or scratched glass shield replacement</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Broken Screen or Glass
+                                Replacement</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Battery Replacement (Battery
+                                Health returns to 100%)</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Charging Port repair for loose
+                                connections</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Rear camera module or scratched
+                                glass shield replacement</li>
                         </ul>
-                        <button class="btn btn-orange mt-auto w-100 font-adjust" onclick="openRepairWithCategory('iPhone')">Repair Your iPhone</button>
+                        <button class="btn btn-orange mt-auto w-100 font-adjust"
+                            onclick="openRepairWithCategory('iPhone')">Repair Your iPhone</button>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card h-100 p-4 shadow-sm product-item">
-                        <span class="badge bg-warning text-dark align-self-start mb-3 badge-status">● Advanced Laboratory</span>
+                        <span class="badge bg-warning text-dark align-self-start mb-3 badge-status">● Advanced
+                            Laboratory</span>
                         <h3 class="fw-bold">Complex Operations</h3>
-                        <p class="text-muted">We handle delicate micro-soldering tasks targeting internal failures deeply on the phone's logic board.</p>
+                        <p class="text-muted">We handle delicate micro-soldering tasks targeting internal failures
+                            deeply on the phone's logic board.</p>
                         <ul class="list-group list-group-flush mb-4 problems-list">
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Restoration of broken Face ID or Touch ID modules</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Power IC management and audio codec repairs</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Advanced anti-oxidation treatments for liquid exposure</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ System freeze fixes (iPhone stuck on Apple Logo boot loop)</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Restoration of broken Face ID
+                                or Touch ID modules</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Power IC management and audio
+                                codec repairs</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Advanced anti-oxidation
+                                treatments for liquid exposure</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ System freeze fixes (iPhone
+                                stuck on Apple Logo boot loop)</li>
                         </ul>
-                        <button class="btn btn-orange mt-auto w-100 font-adjust" onclick="openRepairWithCategory('iPhone')">Repair Your iPhone</button>
+                        <button class="btn btn-orange mt-auto w-100 font-adjust"
+                            onclick="openRepairWithCategory('iPhone')">Repair Your iPhone</button>
                     </div>
                 </div>
             </div>
@@ -462,14 +467,20 @@
                     <div class="card p-4 shadow-sm product-item">
                         <span class="badge bg-primary align-self-start mb-3 badge-status">● Top Quality</span>
                         <h3 class="fw-bold">iPad, Air, Pro & Mini Range</h3>
-                        <p class="text-muted">Comprehensive technical support for any Apple tablet model, ranging from educational devices to professional deployments.</p>
+                        <p class="text-muted">Comprehensive technical support for any Apple tablet model, ranging from
+                            educational devices to professional deployments.</p>
                         <ul class="list-group list-group-flush mb-4 problems-list">
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Replacement of the touch digitizer glass or internal LCD screen</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Internal battery renewal for degraded health issues</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Fixing charge port blocks or jammed physical structural buttons</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Precision alignment structural repair for bent aluminum housings</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Replacement of the touch
+                                digitizer glass or internal LCD screen</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Internal battery renewal for
+                                degraded health issues</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Fixing charge port blocks or
+                                jammed physical structural buttons</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Precision alignment structural
+                                repair for bent aluminum housings</li>
                         </ul>
-                        <button class="btn btn-orange w-100 font-adjust" onclick="openRepairWithCategory('iPad')">Select Your iPad</button>
+                        <button class="btn btn-orange w-100 font-adjust" onclick="openRepairWithCategory('iPad')">Select
+                            Your iPad</button>
                     </div>
                 </div>
             </div>
@@ -480,138 +491,150 @@
             <div class="row products-grid justify-content-center">
                 <div class="col-md-8">
                     <div class="card p-4 shadow-sm product-item">
-                        <span class="badge bg-info text-dark align-self-start mb-3 badge-status">● Precision Repairs</span>
+                        <span class="badge bg-info text-dark align-self-start mb-3 badge-status">● Precision
+                            Repairs</span>
                         <h3 class="fw-bold">Apple Watch SE, Series & Ultra</h3>
-                        <p class="text-muted">Millimeter-precise servicing of displays and intricate modules mounted on the internal layout of the smartwatch.</p>
+                        <p class="text-muted">Millimeter-precise servicing of displays and intricate modules mounted on
+                            the internal layout of the smartwatch.</p>
                         <ul class="list-group list-group-flush mb-4 problems-list">
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Replacement of shattered, deeply scratched, or detached panels</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Internal small form-factor cell battery replacement</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Troubleshooting biological tracking sensor functionality</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Sorting continuous system boot faults or dead circuits</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Replacement of shattered,
+                                deeply scratched, or detached panels</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Internal small form-factor cell
+                                battery replacement</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Troubleshooting biological
+                                tracking sensor functionality</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Sorting continuous system boot
+                                faults or dead circuits</li>
                         </ul>
-                        <button class="btn btn-orange w-100 font-adjust" onclick="openRepairWithCategory('Watch')">Repair Your Apple Watch</button>
+                        <button class="btn btn-orange w-100 font-adjust"
+                            onclick="openRepairWithCategory('Watch')">Repair Your Apple Watch</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="page-accessories" class="page-section">
-            <h2 class="text-center mb-4 fw-bold section-title">Accessories & <span class="text-orange">Protection</span></h2>
+            <h2 class="text-center mb-4 fw-bold section-title">Accessories & <span class="text-orange">Protection</span>
+            </h2>
             <div class="row products-grid justify-content-center">
                 <div class="col-md-8">
                     <div class="card p-4 shadow-sm product-item">
                         <span class="badge bg-success align-self-start mb-3 badge-status">● Available in Store</span>
                         <h3 class="fw-bold">Essential Extras</h3>
-                        <p class="text-muted">Safeguard and power your Apple ecosystems securely with premium components picked out directly by our testing staff.</p>
+                        <p class="text-muted">Safeguard and power your Apple ecosystems securely with premium components
+                            picked out directly by our testing staff.</p>
                         <ul class="list-group list-group-flush mb-4 problems-list">
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Application of high-strength tempered glass armor plates</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Certified fast chargers and brick adapters safely supporting iPhone/iPad currents</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Heavy-duty armored split-resistant connection wire cables</li>
-                            <li class="list-group-item bg-transparent px-0 text-muted">✓ High shock-absorption ruggedized protective bumpers and hulls</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Application of high-strength
+                                tempered glass armor plates</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Certified fast chargers and
+                                brick adapters safely supporting iPhone/iPad currents</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ Heavy-duty armored
+                                split-resistant connection wire cables</li>
+                            <li class="list-group-item bg-transparent px-0 text-muted">✓ High shock-absorption
+                                ruggedized protective bumpers and hulls</li>
                         </ul>
-                        <button class="btn btn-orange w-100 font-adjust" onclick="switchPage('services')">Visit Us in Store</button>
+                        <button class="btn btn-orange w-100 font-adjust" onclick="switchPage('services')">Visit Us in
+                            Store</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="page-prices" class="page-section">
-    <h2 class="text-center mb-4 fw-bold section-title">
-        Repair <span class="text-orange">Prices</span>
-    </h2>
+            <h2 class="text-center mb-4 fw-bold section-title">
+                Repair <span class="text-orange">Prices</span>
+            </h2>
 
-    <div class="card shadow p-4 mb-4 max-w-700 mx-auto bg-dark text-white text-center">
+            <div class="card shadow p-4 mb-4 max-w-700 mx-auto bg-dark text-white text-center">
 
-        <!-- CATEGORY SELECT -->
-        <label class="form-label text-muted mb-2">Select Device Type:</label>
-        <select id="priceCategorySelect"
-            class="form-select bg-light text-dark mx-auto border-0 fw-bold mb-3"
-            style="max-width: 350px; height: 45px;"
-            onchange="updatePriceModels()">
+                <!-- CATEGORY SELECT -->
+                <label class="form-label text-muted mb-2">Select Device Type:</label>
+                <select id="priceCategorySelect" class="form-select bg-light text-dark mx-auto border-0 fw-bold mb-3"
+                    style="max-width: 350px; height: 45px;" onchange="updatePriceModels()">
 
-            <option value="iphone">iPhone</option>
-            <option value="mac">Mac</option>
-            <option value="ipad">iPad</option>
-            <option value="watch">Apple Watch</option>
-        </select>
+                    <option value="iphone">iPhone</option>
+                    <option value="mac">Mac</option>
+                    <option value="ipad">iPad</option>
+                    <option value="watch">Apple Watch</option>
+                </select>
 
-        <!-- MODEL SELECT -->
-        <label class="form-label text-muted mb-2">Select Model:</label>
-        <select id="priceModelSelect"
-            class="form-select bg-light text-dark mx-auto border-0 fw-bold"
-            style="max-width: 350px; height: 45px;"
-            onchange="updatePriceLayoutData()">
-        </select>
+                <!-- MODEL SELECT -->
+                <label class="form-label text-muted mb-2">Select Model:</label>
+                <select id="priceModelSelect" class="form-select bg-light text-dark mx-auto border-0 fw-bold"
+                    style="max-width: 350px; height: 45px;" onchange="updatePriceLayoutData()">
+                </select>
 
-    </div>
-
-    <div class="row row-cols-2 row-cols-md-3 g-4 justify-content-center text-center">
-
-        <div class="col" style="max-width: 210px;">
-            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                <div class="display-5 mb-2 text-orange">📱</div>
-                <h4 class="h6 fw-bold text-secondary mb-3">Device Replacement</h4>
-                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-swap">€ --</div>
             </div>
-        </div>
 
-        <div class="col" style="max-width: 210px;">
-            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                <div class="display-5 mb-2 text-orange">📲</div>
-                <h4 class="h6 fw-bold text-secondary mb-3">Screen</h4>
-                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-screen">€ --</div>
+            <div class="row row-cols-2 row-cols-md-3 g-4 justify-content-center text-center">
+
+                <div class="col" style="max-width: 210px;">
+                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                        <div class="display-5 mb-2 text-orange">📱</div>
+                        <h4 class="h6 fw-bold text-secondary mb-3">Device Replacement</h4>
+                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-swap">€ --</div>
+                    </div>
+                </div>
+
+                <div class="col" style="max-width: 210px;">
+                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                        <div class="display-5 mb-2 text-orange">📲</div>
+                        <h4 class="h6 fw-bold text-secondary mb-3">Screen</h4>
+                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-screen">€ --</div>
+                    </div>
+                </div>
+
+                <div class="col" style="max-width: 210px;">
+                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                        <div class="display-5 mb-2 text-orange">🔋</div>
+                        <h4 class="h6 fw-bold text-secondary mb-3">Battery</h4>
+                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-battery">€ --</div>
+                    </div>
+                </div>
+
+                <div class="col" style="max-width: 210px;">
+                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                        <div class="display-5 mb-2 text-orange">📷</div>
+                        <h4 class="h6 fw-bold text-secondary mb-3">Camera</h4>
+                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-camera">€ --</div>
+                    </div>
+                </div>
+
+                <div class="col" style="max-width: 210px;">
+                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                        <div class="display-5 mb-2 text-orange">💎</div>
+                        <h4 class="h6 fw-bold text-secondary mb-3">Back Glass</h4>
+                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-backglass">€ --</div>
+                    </div>
+                </div>
+
+                <div class="col" style="max-width: 210px;">
+                    <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
+                        <div class="display-5 mb-2 text-orange">🆔</div>
+                        <h4 class="h6 fw-bold text-secondary mb-3">Face / System</h4>
+                        <div class="fs-4 fw-bold text-dark mt-auto" id="cost-faceid">€ --</div>
+                    </div>
+                </div>
+
             </div>
-        </div>
 
-        <div class="col" style="max-width: 210px;">
-            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                <div class="display-5 mb-2 text-orange">🔋</div>
-                <h4 class="h6 fw-bold text-secondary mb-3">Battery</h4>
-                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-battery">€ --</div>
+            <div class="text-center mt-5">
+                <button class="btn btn-dark btn-lg px-5 shadow-sm border-secondary text-orange fw-bold"
+                    onclick="switchPage('services')">
+                    Book a Repair Now
+                </button>
             </div>
-        </div>
-
-        <div class="col" style="max-width: 210px;">
-            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                <div class="display-5 mb-2 text-orange">📷</div>
-                <h4 class="h6 fw-bold text-secondary mb-3">Camera</h4>
-                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-camera">€ --</div>
-            </div>
-        </div>
-
-        <div class="col" style="max-width: 210px;">
-            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                <div class="display-5 mb-2 text-orange">💎</div>
-                <h4 class="h6 fw-bold text-secondary mb-3">Back Glass</h4>
-                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-backglass">€ --</div>
-            </div>
-        </div>
-
-        <div class="col" style="max-width: 210px;">
-            <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                <div class="display-5 mb-2 text-orange">🆔</div>
-                <h4 class="h6 fw-bold text-secondary mb-3">Face / System</h4>
-                <div class="fs-4 fw-bold text-dark mt-auto" id="cost-faceid">€ --</div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="text-center mt-5">
-        <button class="btn btn-dark btn-lg px-5 shadow-sm border-secondary text-orange fw-bold"
-            onclick="switchPage('services')">
-            Book a Repair Now
-        </button>
-    </div>
-</section>
+        </section>
 
 
         <section id="page-services" class="page-section">
-            <h2 class="text-center mb-4 fw-bold section-title">Repair & <span class="text-orange">Support Center</span></h2>
+            <h2 class="text-center mb-4 fw-bold section-title">Repair & <span class="text-orange">Support Center</span>
+            </h2>
 
             <div class="card shadow wizard-container p-4 max-w-700 mx-auto">
                 <div class="d-flex justify-content-between mb-4 border-bottom pb-3 wizard-progress flex-wrap gap-2">
-                    <div class="progress-step fw-bold px-3 py-1 rounded text-orange active" id="p-step-1">1. Device</div>
+                    <div class="progress-step fw-bold px-3 py-1 rounded text-orange active" id="p-step-1">1. Device
+                    </div>
                     <div class="progress-step fw-bold px-3 py-1 rounded text-muted" id="p-step-2">2. Model</div>
                     <div class="progress-step fw-bold px-3 py-1 rounded text-muted" id="p-step-3">3. Issue</div>
                     <div class="progress-step fw-bold px-3 py-1 rounded text-muted" id="p-step-4">4. Contact</div>
@@ -623,13 +646,16 @@
                         <div class="row g-3 mb-3 selection-grid">
                             <div class="col-6">
                                 <div class="card h-100 text-center p-3 selection-box cp border-2" data-category="Mac">
-                                    <img src="Images/Mac.jpg" alt="Mac Device Icon" class="mx-auto mb-2 device-icon" style="height: 60px; object-fit: contain;">
+                                    <img src="Images/Mac.jpg" alt="Mac Device Icon" class="mx-auto mb-2 device-icon"
+                                        style="height: 60px; object-fit: contain;">
                                     <strong>Mac</strong>
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="card h-100 text-center p-3 selection-box cp border-2" data-category="iPhone">
-                                    <img src="Images/Iphones.jpg" alt="iPhone Device Icon" class="mx-auto mb-2 device-icon" style="height: 60px; object-fit: contain;">
+                                <div class="card h-100 text-center p-3 selection-box cp border-2"
+                                    data-category="iPhone">
+                                    <img src="Images/Iphones.jpg" alt="iPhone Device Icon"
+                                        class="mx-auto mb-2 device-icon" style="height: 60px; object-fit: contain;">
                                     <strong>iPhone</strong>
                                 </div>
                             </div>
@@ -637,62 +663,79 @@
                         <div class="row g-3 mb-4 selection-grid">
                             <div class="col-6">
                                 <div class="card h-100 text-center p-3 selection-box cp border-2" data-category="iPad">
-                                    <img src="Images/iPad.jpg" alt="iPad Device Icon" class="mx-auto mb-2 device-icon" style="height: 60px; object-fit: contain;">
+                                    <img src="Images/iPad.jpg" alt="iPad Device Icon" class="mx-auto mb-2 device-icon"
+                                        style="height: 60px; object-fit: contain;">
                                     <strong>iPad</strong>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="card h-100 text-center p-3 selection-box cp border-2" data-category="Watch">
-                                    <img src="Images/Watch.jpg" alt="Watch Device Icon" class="mx-auto mb-2 device-icon" style="height: 60px; object-fit: contain;">
+                                    <img src="Images/Watch.jpg" alt="Watch Device Icon" class="mx-auto mb-2 device-icon"
+                                        style="height: 60px; object-fit: contain;">
                                     <strong>Watch</strong>
                                 </div>
                             </div>
                         </div>
                         <input type="hidden" id="selectedCategory" required>
                         <div class="d-flex justify-content-end wizard-buttons border-top pt-3">
-                            <button type="button" class="btn btn-orange btn-next px-4" onclick="nextStep(2)">Next</button>
+                            <button type="button" class="btn btn-orange btn-next px-4"
+                                onclick="nextStep(2)">Next</button>
                         </div>
                     </div>
 
                     <div class="wizard-step d-none" id="w-step-2">
                         <h3 class="h5 fw-bold mb-3 step-title">Select your specific model:</h3>
                         <div class="mb-4 form-group">
-                            <label id="modelLabel" for="deviceModel" class="form-label fw-semibold text-secondary">Device: None</label>
+                            <label id="modelLabel" for="deviceModel"
+                                class="form-label fw-semibold text-secondary">Device: None</label>
                             <select id="deviceModel" class="form-select form-control" required>
                                 <option value="">-- Choose a category in step 1 first --</option>
                             </select>
                         </div>
                         <div class="d-flex justify-content-between wizard-buttons border-top pt-3">
-                            <button type="button" class="btn btn-secondary btn-prev px-4" onclick="prevStep(1)">Back</button>
-                            <button type="button" class="btn btn-orange btn-next px-4" onclick="nextStep(3)">Next</button>
+                            <button type="button" class="btn btn-secondary btn-prev px-4"
+                                onclick="prevStep(1)">Back</button>
+                            <button type="button" class="btn btn-orange btn-next px-4"
+                                onclick="nextStep(3)">Next</button>
                         </div>
                     </div>
 
                     <div class="wizard-step d-none" id="w-step-3">
                         <h3 class="h5 fw-bold mb-3 step-title">What issue are you experiencing with your device?</h3>
                         <div class="mb-2 p-2 border rounded bg-white form-check checkbox-group" data-checkbox="issue1">
-                            <input class="form-check-input ms-1 me-2" type="checkbox" id="issue1" value="Damaged Screen / Glass">
-                            <label class="form-check-label text-dark" for="issue1">Damaged Screen or Glass Replacement</label>
+                            <input class="form-check-input ms-1 me-2" type="checkbox" id="issue1"
+                                value="Damaged Screen / Glass">
+                            <label class="form-check-label text-dark" for="issue1">Damaged Screen or Glass
+                                Replacement</label>
                         </div>
                         <div class="mb-2 p-2 border rounded bg-white form-check checkbox-group" data-checkbox="issue2">
-                            <input class="form-check-input ms-1 me-2" type="checkbox" id="issue2" value="Degraded Battery">
-                            <label class="form-check-label text-dark" for="issue2">Battery drains quickly or shuts down unexpectedly</label>
+                            <input class="form-check-input ms-1 me-2" type="checkbox" id="issue2"
+                                value="Degraded Battery">
+                            <label class="form-check-label text-dark" for="issue2">Battery drains quickly or shuts down
+                                unexpectedly</label>
                         </div>
                         <div class="mb-2 p-2 border rounded bg-white form-check checkbox-group" data-checkbox="issue3">
                             <input class="form-check-input ms-1 me-2" type="checkbox" id="issue3" value="Liquid Damage">
-                            <label class="form-check-label text-dark" for="issue3">Contact with water, coffee, or other liquids</label>
+                            <label class="form-check-label text-dark" for="issue3">Contact with water, coffee, or other
+                                liquids</label>
                         </div>
                         <div class="mb-3 p-2 border rounded bg-white form-check checkbox-group" data-checkbox="issue4">
-                            <input class="form-check-input ms-1 me-2" type="checkbox" id="issue4" value="Charging Issue">
-                            <label class="form-check-label text-dark" for="issue4">The device does not charge properly</label>
+                            <input class="form-check-input ms-1 me-2" type="checkbox" id="issue4"
+                                value="Charging Issue">
+                            <label class="form-check-label text-dark" for="issue4">The device does not charge
+                                properly</label>
                         </div>
                         <div class="mb-4 form-group">
-                            <label for="issueOther" class="form-label fw-semibold text-secondary">Describe the issue in your own words (Optional):</label>
-                            <textarea id="issueOther" class="form-control" rows="3" placeholder="E.g., the side button is stuck, the camera won't focus..."></textarea>
+                            <label for="issueOther" class="form-label fw-semibold text-secondary">Describe the issue in
+                                your own words (Optional):</label>
+                            <textarea id="issueOther" class="form-control" rows="3"
+                                placeholder="E.g., the side button is stuck, the camera won't focus..."></textarea>
                         </div>
                         <div class="d-flex justify-content-between wizard-buttons border-top pt-3">
-                            <button type="button" class="btn btn-secondary btn-prev px-4" onclick="prevStep(2)">Back</button>
-                            <button type="button" class="btn btn-orange btn-next px-4" onclick="prepareContactSummary()">Next</button>
+                            <button type="button" class="btn btn-secondary btn-prev px-4"
+                                onclick="prevStep(2)">Back</button>
+                            <button type="button" class="btn btn-orange btn-next px-4"
+                                onclick="prepareContactSummary()">Next</button>
                         </div>
                     </div>
 
@@ -701,22 +744,27 @@
                         <div class="alert alert-dark p-3 bg-dark text-light border-0 rounded mb-4 summary-box">
                             <div class="mb-1 summary-item" id="sumDevice"><strong>Selected device:</strong> -</div>
                             <div class="mb-1 summary-item" id="sumProblems"><strong>Selected issues:</strong> -</div>
-                            <div class="summary-item"><strong>Parts availability check:</strong> <span class="text-orange fw-bold">● Immediate check-in store</span></div>
+                            <div class="summary-item"><strong>Parts availability check:</strong> <span
+                                    class="text-orange fw-bold">● Immediate check-in store</span></div>
                         </div>
                         <div class="mb-3 form-group">
                             <label for="clientName" class="form-label fw-semibold">Full Name *</label>
-                            <input type="text" id="clientName" class="form-control" required placeholder="E.g., John Doe">
+                            <input type="text" id="clientName" class="form-control" required
+                                placeholder="E.g., John Doe">
                         </div>
                         <div class="mb-3 form-group">
                             <label for="clientEmail" class="form-label fw-semibold">Email Address *</label>
-                            <input type="email" id="clientEmail" class="form-control" required placeholder="E.g., john.doe@email.com">
+                            <input type="email" id="clientEmail" class="form-control" required
+                                placeholder="E.g., john.doe@email.com">
                         </div>
                         <div class="mb-4 form-group">
                             <label for="clientPhone" class="form-label fw-semibold">Phone Number *</label>
-                            <input type="tel" id="clientPhone" class="form-control" required placeholder="E.g., +1 555-0199">
+                            <input type="tel" id="clientPhone" class="form-control" required
+                                placeholder="E.g., +1 555-0199">
                         </div>
                         <div class="d-flex justify-content-between wizard-buttons border-top pt-3">
-                            <button type="button" class="btn btn-secondary btn-prev px-4" onclick="prevStep(3)">Back</button>
+                            <button type="button" class="btn btn-secondary btn-prev px-4"
+                                onclick="prevStep(3)">Back</button>
                             <button type="submit" class="btn btn-orange px-4">Submit Request for Assistance</button>
                         </div>
                     </div>
@@ -728,14 +776,16 @@
 
     <footer class="bg-dark text-muted text-center py-4 mt-5 border-top border-secondary">
         <div class="container">
-            <p class="mb-0 small text-white">&copy; 2026 <span class="text-orange fw-bold">ARL</span> - All rights reserved.<br>
-            Apple, iPhone, iPad, Mac, and Watch trademarks belong to Apple Inc. ARL is an independent technical support and repair center.</p>
+            <p class="mb-0 small text-white">&copy; 2026 <span class="text-orange fw-bold">ARL</span> - All rights
+                reserved.<br>
+                Apple, iPhone, iPad, Mac, and Watch trademarks belong to Apple Inc. ARL is an independent technical
+                support and repair center.</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
-    
+
 </body>
 
 </html>
