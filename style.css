@@ -5,18 +5,22 @@
     --brand-dark: #212529;
 }
 
+
 .text-orange {
     color: var(--brand-orange) !important;
 }
+
 
 .bg-orange {
     background-color: var(--brand-orange) !important;
 }
 
+
 /* Helper for clickable items */
 .cp {
     cursor: pointer;
 }
+
 
 /* --- Navigation & Links --- */
 .navbar-nav .nav-link {
@@ -24,10 +28,12 @@
     transition: color 0.2s ease-in-out;
 }
 
+
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link:hover {
     color: var(--brand-orange) !important;
 }
+
 
 /* --- Brand Custom Buttons --- */
 .btn-orange {
@@ -38,15 +44,18 @@
     transition: background-color 0.2s ease-in-out, transform 0.1s ease;
 }
 
+
 .btn-orange:hover,
 .btn-orange:focus {
     background-color: var(--brand-orange-hover);
     color: #ffffff;
 }
 
+
 .btn-orange:active {
     transform: scale(0.98);
 }
+
 
 /* --- Home Hero --- */
 .hero h1.text-gradient {
@@ -54,11 +63,13 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+
 /* --- Cards UI --- */
 .category-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     border: 1px solid rgba(0, 0, 0, 0.08);
 }
+
 
 .category-card:hover {
     transform: translateY(-5px);
@@ -66,9 +77,11 @@
     border-color: var(--brand-orange);
 }
 
+
 .about-placeholder {
     border: 2px dashed #dee2e6;
 }
+
 
 /* --- Single Page Section Layout Handling --- */
 .page-section {
@@ -76,25 +89,30 @@
     /* Hidden by default */
 }
 
+
 .page-section.active-section {
     display: block !important;
     /* Visible when triggered by script.js */
     animation: fadeIn 0.4s ease-in-out forwards;
 }
 
+
 /* --- Wizard Setup --- */
 .max-w-700 {
     max-width: 700px;
 }
+
 
 /* Custom visibility override matching bootstrap structures */
 .wizard-step.d-none {
     display: none !important;
 }
 
+
 .wizard-step.active-step {
     display: block !important;
 }
+
 
 .progress-step {
     font-size: 0.9rem;
@@ -103,16 +121,19 @@
     transition: all 0.3s ease;
 }
 
+
 /* Selection Box Layout */
 .selection-box {
     transition: all 0.2s ease;
     border-color: #dee2e6;
 }
 
+
 .selection-box:hover {
     border-color: var(--brand-orange);
     background-color: rgba(255, 107, 0, 0.02);
 }
+
 
 /* Active selection class dynamically added via script */
 .selection-box.selected,
@@ -122,6 +143,7 @@
     box-shadow: 0 0 0 1px var(--brand-orange);
 }
 
+
 /* Keyframe for smooth transition between menus */
 @keyframes fadeIn {
     from {
@@ -129,20 +151,24 @@
         transform: translateY(10px);
     }
 
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+
 .dropdown-menu-dark .dropdown-item:hover {
     background-color: #2b3035;
     color: #ff6b00 !important;
 }
 
+
 .text-orange {
     color: #ff6b00 !important;
 }
+
 
 .btn-orange {
     background-color: #ff6b00 !important;
@@ -150,15 +176,27 @@
     border: none;
 }
 
+
 .btn-orange:hover {
     background-color: #e05e00 !important;
 }
+
 
 .cp {
     cursor: pointer;
 }
 
+
 .card-img-top {
     height: 200px;
     object-fit: cover;
 }
+
+
+.not-available {
+    color: #999;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+

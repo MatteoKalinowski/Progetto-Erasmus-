@@ -2,6 +2,7 @@
    ORIGINAL DATABASES
 ========================= */
 
+
 const modelsDatabase = {
     'Mac': [
         'MacBook Pro 14" / 16" (M1/M2/M3 Chip)',
@@ -35,9 +36,11 @@ const modelsDatabase = {
     ]
 };
 
+
 /* =========================
    SHOP DEVICES (NEW)
 ========================= */
+
 
 const shopDevices = {
     iphone: [
@@ -71,9 +74,11 @@ const shopDevices = {
     ]
 };
 
+
 /* =========================
    CABLES SHOP (NEW FIXED)
 ========================= */
+
 
 const cablesShop = {
     lightning: { name: "Lightning Cable (1m)", price: 19 },
@@ -83,11 +88,14 @@ const cablesShop = {
     thunderbolt: { name: "Thunderbolt 4 Cable", price: 79 }
 };
 
+
 /* =========================
    NAVIGATION SYSTEM
 ========================= */
 
+
 function switchPage(pageId) {
+
 
     const links = document.querySelectorAll('.navbar-nav .nav-link');
     links.forEach(link => {
@@ -97,8 +105,10 @@ function switchPage(pageId) {
         }
     });
 
+
     const sections = document.querySelectorAll('.page-section');
     sections.forEach(section => section.classList.remove('active-section'));
+
 
     const target = document.getElementById(`page-${pageId}`);
     if (target) {
@@ -106,16 +116,20 @@ function switchPage(pageId) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+
     // INIT SHOP PAGES
     if (pageId === "upcoming") initShopDevices();
     if (pageId === "cables") initCablesShop();
 }
 
+
 /* =========================
    WIZARD INIT (unchanged core)
 ========================= */
 
+
 document.addEventListener('DOMContentLoaded', () => {
+
 
     document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
@@ -124,31 +138,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
     document.querySelectorAll('.selection-box').forEach(box => {
         box.addEventListener('click', () => {
             setRepairCategory(box.getAttribute('data-category'));
         });
     });
 
-    const form = document.getElementById('repairForm');
-    if (form) form.addEventListener('submit', handleFormSubmit);
 
-    updatePriceModels();
-    updatePriceLayoutData();
+    const form = document.getElementById('repairForm');
+
+
+    if (form) {
+        form.addEventListener('submit', handleFormSubmit);
+    }
+
+
+    // VIEW REPAIR COST FIX
+    const categorySelect = document.getElementById("priceCategorySelect");
+    const modelSelect = document.getElementById("priceModelSelect");
+
+
+    if (categorySelect) {
+        categorySelect.addEventListener("change", updatePriceModels);
+    }
+
+
+    if (modelSelect) {
+        modelSelect.addEventListener("change", updatePriceLayoutData);
+    }
 });
 
-/* =========================
-   SHOP DEVICES RENDER
-========================= */
+
+
 
 function initShopDevices() {
     const container = document.getElementById("page-upcoming");
     if (!container) return;
 
+
     const grid = container.querySelector(".row");
     if (!grid) return;
 
+
     let html = "";
+
 
     Object.keys(shopDevices).forEach(cat => {
         shopDevices[cat].forEach(product => {
@@ -165,21 +199,22 @@ function initShopDevices() {
         });
     });
 
+
     grid.innerHTML = html;
 }
 
-/* =========================
-   CABLE SHOP FIXED
-========================= */
 
 function initCablesShop() {
     const container = document.getElementById("page-cables");
     if (!container) return;
 
+
     const grid = container.querySelector(".row");
     if (!grid) return;
 
+
     let html = "";
+
 
     Object.values(cablesShop).forEach(cable => {
         html += `
@@ -194,21 +229,22 @@ function initCablesShop() {
         </div>`;
     });
 
+
     grid.innerHTML = html;
 }
 
-/* =========================
-   REPAIR WIZARD (UNCHANGED CORE)
-========================= */
 
 function setRepairCategory(category) {
     document.getElementById('selectedCategory').value = category;
 
+
     const selectModels = document.getElementById('deviceModel');
     const label = document.getElementById('modelLabel');
 
+
     label.innerText = `Select model for ${category}`;
     selectModels.innerHTML = "";
+
 
     if (modelsDatabase[category]) {
         modelsDatabase[category].forEach(m => {
@@ -220,81 +256,365 @@ function setRepairCategory(category) {
     }
 }
 
-/* =========================
-   PRICE SYSTEM FIX (IMPORTANT BUG FIX)
-========================= */
 
 function updatePriceModels() {
+
+
     const category = document.getElementById("priceCategorySelect").value;
     const modelSelect = document.getElementById("priceModelSelect");
 
+
     modelSelect.innerHTML = "";
+   
+    if (!category || !priceData[category]) {
+
+
+        const placeholder = document.createElement("option");
+        placeholder.textContent = "Select Model";
+        placeholder.disabled = true;
+        placeholder.selected = true;
+
+
+        modelSelect.appendChild(placeholder);
+
+
+        return;
+    }
+
 
     const models = Object.keys(priceData[category]);
-    models.forEach(model => {
+
+
+    models.forEach((model, index) => {
+
+
         const opt = document.createElement("option");
+
+
         opt.value = model;
         opt.textContent = model;
+
+
+        if (index === 0) {
+            opt.selected = true;
+        }
+
+
         modelSelect.appendChild(opt);
     });
 
-    modelSelect.selectedIndex = 0;
+
     updatePriceLayoutData();
 }
 
+
 function updatePriceLayoutData() {
+
+
     const category = document.getElementById("priceCategorySelect").value;
     const model = document.getElementById("priceModelSelect").value;
 
-    if (!priceData[category] || !priceData[category][model]) return;
 
     const data = priceData[category][model];
 
-    document.getElementById("cost-swap").innerText = data.swap;
-    document.getElementById("cost-screen").innerText = data.screen;
-    document.getElementById("cost-battery").innerText = data.battery;
-    document.getElementById("cost-camera").innerText = data.camera;
-    document.getElementById("cost-backglass").innerText = data.backglass;
-    document.getElementById("cost-faceid").innerText = data.faceid;
+
+    updatePriceField("cost-swap", data.swap);
+    updatePriceField("cost-screen", data.screen);
+    updatePriceField("cost-battery", data.battery);
+    updatePriceField("cost-camera", data.camera);
+    updatePriceField("cost-backglass", data.backglass);
+    updatePriceField("cost-faceid", data.faceid);
 }
+
+
+function updatePriceField(id, value) {
+
+
+    const element = document.getElementById(id);
+
+
+    if (value === null || value === undefined) {
+
+
+        element.innerHTML = `
+            <span class="not-available">
+                Not Available
+            </span>
+        `;
+
+
+    } else {
+
+
+        element.innerHTML = value;
+    }
+}
+
 
 /* =========================
    PRICE DATABASE (UNCHANGED)
 ========================= */
 
+
 const priceData = {
+
+
     iphone: {
-        iphone15pm: { swap: "€ 799", screen: "€ 439", battery: "€ 109", camera: "€ 249", backglass: "€ 229", faceid: "€ 299" },
-        iphone15p: { swap: "€ 749", screen: "€ 399", battery: "€ 109", camera: "€ 219", backglass: "€ 199", faceid: "€ 279" },
-        iphone15: { swap: "€ 649", screen: "€ 319", battery: "€ 109", camera: "€ 189", backglass: "€ 169", faceid: "€ 249" }
+
+
+        'iPhone 15 / 15 Plus / 15 Pro / 15 Pro Max': {
+            swap: "€ 799",
+            screen: "€ 439",
+            battery: "€ 109",
+            camera: "€ 249",
+            backglass: "€ 229",
+            faceid: "€ 299"
+        },
+
+
+        'iPhone 14 / 14 Plus / 14 Pro / 14 Pro Max': {
+            swap: "€ 699",
+            screen: "€ 399",
+            battery: "€ 99",
+            camera: "€ 219",
+            backglass: "€ 199",
+            faceid: "€ 279"
+        },
+
+
+        'iPhone 13 / 13 Mini / 13 Pro / 13 Pro Max': {
+            swap: "€ 649",
+            screen: "€ 349",
+            battery: "€ 95",
+            camera: "€ 199",
+            backglass: "€ 179",
+            faceid: "€ 249"
+        },
+
+
+        'iPhone 12 / 12 Mini / 12 Pro / 12 Pro Max': {
+            swap: "€ 599",
+            screen: "€ 299",
+            battery: "€ 89",
+            camera: "€ 179",
+            backglass: "€ 159",
+            faceid: "€ 229"
+        },
+
+
+        'iPhone 11 / 11 Pro / 11 Pro Max': {
+            swap: "€ 499",
+            screen: "€ 249",
+            battery: "€ 79",
+            camera: "€ 149",
+            backglass: "€ 139",
+            faceid: "€ 199"
+        },
+
+
+        'iPhone SE (2nd & 3rd Generation)': {
+            swap: "€ 349",
+            screen: "€ 149",
+            battery: "€ 69",
+            camera: "€ 119",
+            backglass: null,
+            faceid: null
+        },
+
+
+        'iPhone X / XS / XR / XS Max': {
+            swap: "€ 399",
+            screen: "€ 219",
+            battery: "€ 79",
+            camera: "€ 129",
+            backglass: "€ 119",
+            faceid: "€ 179"
+        }
     },
+
+
     mac: {
-        macbookpro: { swap: "€ 1299", screen: "€ 599", battery: "€ 249", camera: "€ 0", backglass: "€ 0", faceid: "€ 0" },
-        macbookair: { swap: "€ 999", screen: "€ 499", battery: "€ 199", camera: "€ 0", backglass: "€ 0", faceid: "€ 0" },
-        imac: { swap: "€ 1199", screen: "€ 699", battery: "€ 0", camera: "€ 0", backglass: "€ 0", faceid: "€ 0" }
+
+
+        'MacBook Pro 14" / 16" (M1/M2/M3 Chip)': {
+            swap: "€ 1299",
+            screen: "€ 599",
+            battery: "€ 249",
+            camera: null,
+            backglass: null,
+            faceid: null
+        },
+
+
+        'MacBook Pro 13" (Touch Bar / M1 / M2 Models)': {
+            swap: "€ 1099",
+            screen: "€ 499",
+            battery: "€ 229",
+            camera: null,
+            backglass: null,
+            faceid: null
+        },
+
+
+        'MacBook Air (M1 / M2 / M3 Chip)': {
+            swap: "€ 999",
+            screen: "€ 449",
+            battery: "€ 199",
+            camera: null,
+            backglass: null,
+            faceid: null
+        },
+
+
+        'MacBook Air (Intel Retina Models)': {
+            swap: "€ 799",
+            screen: "€ 399",
+            battery: "€ 179",
+            camera: null,
+            backglass: null,
+            faceid: null
+        },
+
+
+        'iMac 24" (Apple Silicon Chip)': {
+            swap: "€ 1199",
+            screen: "€ 699",
+            battery: null,
+            camera: null,
+            backglass: null,
+            faceid: null
+        },
+
+
+        'iMac 21.5" / 27" (Intel Models)': {
+            swap: "€ 999",
+            screen: "€ 649",
+            battery: null,
+            camera: null,
+            backglass: null,
+            faceid: null
+        },
+
+
+        'Mac Mini / Mac Studio / Mac Pro': {
+            swap: "€ 1499",
+            screen: null,
+            battery: null,
+            camera: null,
+            backglass: null,
+            faceid: null
+        }
     },
+
+
     ipad: {
-        ipadpro: { swap: "€ 899", screen: "€ 399", battery: "€ 179", camera: "€ 199", backglass: "€ 199", faceid: "€ 0" },
-        ipadair: { swap: "€ 699", screen: "€ 299", battery: "€ 149", camera: "€ 149", backglass: "€ 149", faceid: "€ 0" }
+
+
+        'iPad Pro (All generations)': {
+            swap: "€ 899",
+            screen: "€ 399",
+            battery: "€ 179",
+            camera: "€ 199",
+            backglass: null,
+            faceid: "€ 199"
+        },
+
+
+        'iPad Air (M1 Chip / Previous generations)': {
+            swap: "€ 699",
+            screen: "€ 299",
+            battery: "€ 149",
+            camera: "€ 149",
+            backglass: null,
+            faceid: null
+        },
+
+
+        'iPad Classic (9th / 10th Generation)': {
+            swap: "€ 499",
+            screen: "€ 219",
+            battery: "€ 119",
+            camera: "€ 99",
+            backglass: null,
+            faceid: null
+        },
+
+
+        'iPad Mini': {
+            swap: "€ 599",
+            screen: "€ 249",
+            battery: "€ 129",
+            camera: "€ 119",
+            backglass: null,
+            faceid: null
+        }
     },
+
+
     watch: {
-        series9: { swap: "€ 499", screen: "€ 249", battery: "€ 129", camera: "€ 0", backglass: "€ 199", faceid: "€ 0" },
-        ultra2: { swap: "€ 699", screen: "€ 349", battery: "€ 179", camera: "€ 0", backglass: "€ 249", faceid: "€ 0" }
+
+
+        'Apple Watch Ultra / Ultra 2': {
+            swap: "€ 699",
+            screen: "€ 349",
+            battery: "€ 179",
+            camera: null,
+            backglass: null,
+            faceid: null
+        },
+
+
+        'Apple Watch Series 7 / 8 / 9': {
+            swap: "€ 499",
+            screen: "€ 249",
+            battery: "€ 129",
+            camera: null,
+            backglass: null,
+            faceid: null
+        },
+
+
+        'Apple Watch Series 4 / 5 / 6': {
+            swap: "€ 399",
+            screen: "€ 199",
+            battery: "€ 99",
+            camera: null,
+            backglass: null,
+            faceid: null
+        },
+
+
+        'Apple Watch SE': {
+            swap: "€ 299",
+            screen: "€ 149",
+            battery: "€ 89",
+            camera: null,
+            backglass: null,
+            faceid: null
+        }
     }
 };
 
+
+
+
 function updateShopPrice(type, value, targetId) {
 
+
     const target = document.getElementById(targetId);
+
 
     if (!value) {
         target.innerText = "€ --";
         return;
     }
 
+
     target.innerText = `€ ${value}`;
 
+
 }
+
 
 const cableData = {
     "lightning": [
@@ -312,6 +632,7 @@ const cableData = {
         }
     ],
 
+
     "usb-c": [
         {
             name: "Apple USB-C to USB-C Cable (1m)",
@@ -327,6 +648,7 @@ const cableData = {
         }
     ],
 
+
     "magsafe": [
         {
             name: "MagSafe Charger (1st Gen)",
@@ -341,6 +663,7 @@ const cableData = {
             icon: "⚡"
         }
     ],
+
 
     "thunderbolt": [
         {
@@ -358,15 +681,19 @@ const cableData = {
     ]
 };
 
+
 function updateCableShop() {
     const type = document.getElementById("cableSelect").value;
     const grid = document.getElementById("cableGrid");
 
+
     grid.innerHTML = "";
+
 
     cableData[type].forEach(item => {
         const card = document.createElement("div");
         card.className = "col-md-4";
+
 
         card.innerHTML = `
             <div class="card h-100 p-4 shadow-sm text-center">
@@ -378,16 +705,20 @@ function updateCableShop() {
             </div>
         `;
 
+
         grid.appendChild(card);
     });
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     updateCableShop();
 });
 
+
 function setRepairCategory(category) {
     document.getElementById('selectedCategory').value = category;
+
 
     // highlight UI selection
     document.querySelectorAll('.selection-box').forEach(box => {
@@ -397,12 +728,15 @@ function setRepairCategory(category) {
         }
     });
 
+
     // populate models
     const selectModels = document.getElementById('deviceModel');
     const label = document.getElementById('modelLabel');
 
+
     label.innerText = `Device: ${category}`;
     selectModels.innerHTML = "";
+
 
     if (modelsDatabase[category]) {
         modelsDatabase[category].forEach(m => {
@@ -414,31 +748,40 @@ function setRepairCategory(category) {
     }
 }
 
+
 function openRepairWithCategory(category) {
     switchPage('services');
 
+
     setTimeout(() => {
         setRepairCategory(category);
+
 
         // opzionale: passa automaticamente allo step 2
         nextStep(2);
     }, 200);
 }
 
+
 function nextStep(step) {
     document.querySelectorAll('.wizard-step').forEach(s => s.classList.add('d-none'));
     document.getElementById(`w-step-${step}`).classList.remove('d-none');
 
+
     updateProgress(step);
 }
+
 
 function prevStep(step) {
     nextStep(step);
 }
 
+
 function updateProgress(step) {
     document.querySelectorAll('.progress-step').forEach(el => el.classList.remove('text-orange', 'active'));
+
 
     const active = document.getElementById(`p-step-${step}`);
     if (active) active.classList.add('text-orange', 'active');
 }
+
