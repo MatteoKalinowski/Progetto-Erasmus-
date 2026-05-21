@@ -437,7 +437,7 @@ const cableData = {
             name: "Apple Lightning to USB-C Cable (1m)",
             price: "€25",
             desc: "Standard fast charging cable for iPhone (older models).",
-            image: "Images/Apple_USB-C_to_USB-C_Cable_(2m).jpg"
+            image: "Images/Apple_Lightning_to_USB-C_Cable_(1m).jpg"
         },
         {
             name: "Apple Lightning to USB-A Cable (1m)",
@@ -457,7 +457,7 @@ const cableData = {
             name: "Apple USB-C to USB-C Cable (2m)",
             price: "€35",
             desc: "Longer cable for MacBook and fast charging setups.",
-            image: "Images/Apple_USB-C_to_USB-C_Cable_(2m).jpg"
+            image: "Images/Apple USB-C_to_USB-C_Cable_(2m).jpg"
         }
     ],
     "magsafe": [
@@ -465,13 +465,13 @@ const cableData = {
             name: "MagSafe Charger (1st Gen)",
             price: "€45",
             desc: "Wireless magnetic charging for iPhone 12 and newer.",
-            image: "Images/Apple_MagSafe_Charger.jpg"
+            image: "Images/MagSafe_Charger_(1st Gen).jpg"
         },
         {
             name: "MagSafe Duo Charger",
             price: "€149",
             desc: "Charge iPhone + Apple Watch at the same time.",
-            image: "Images/Apple_MagSafe_Duo_Charger.jpg"
+            image: "Images/MagSafe_Duo_Charger.jpg"
         }
     ],
     "thunderbolt": [
@@ -485,7 +485,7 @@ const cableData = {
             name: "Apple USB-C Charge Cable (2m - 240W)",
             price: "€39",
             desc: "High power cable for MacBook Pro charging.",
-            image: "Images/Apple_USB-C_Charge_Cable_(2m_-_240W).jpg"
+            image: "Images/Apple_USB-C_Charge_Cable_(2m - 240W).jpg"
         }
     ]
 };
