@@ -200,3 +200,10 @@
     letter-spacing: 0.5px;
 }
 
+.shop-item img {
+    transition: transform 0.2s ease-in-out;
+}
+
+.shop-item:hover img {
+    transform: scale(1.05);
+}
