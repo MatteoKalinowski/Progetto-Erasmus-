@@ -1,4 +1,3 @@
-/* --- Core Brand Colors & Settings --- */
 :root {
     --brand-orange: #ff6b00;
     --brand-orange-hover: #e05e00;
@@ -15,14 +14,10 @@
     background-color: var(--brand-orange) !important;
 }
 
-
-/* Helper for clickable items */
 .cp {
     cursor: pointer;
 }
 
-
-/* --- Navigation & Links --- */
 .navbar-nav .nav-link {
     font-weight: 500;
     transition: color 0.2s ease-in-out;
@@ -34,8 +29,6 @@
     color: var(--brand-orange) !important;
 }
 
-
-/* --- Brand Custom Buttons --- */
 .btn-orange {
     background-color: var(--brand-orange);
     color: #ffffff;
@@ -44,66 +37,43 @@
     transition: background-color 0.2s ease-in-out, transform 0.1s ease;
 }
 
-
 .btn-orange:hover,
 .btn-orange:focus {
     background-color: var(--brand-orange-hover);
     color: #ffffff;
 }
-
-
 .btn-orange:active {
     transform: scale(0.98);
 }
-
-
-/* --- Home Hero --- */
 .hero h1.text-gradient {
     color: #ffffff;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-
-
-/* --- Cards UI --- */
 .category-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     border: 1px solid rgba(0, 0, 0, 0.08);
 }
-
-
 .category-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
     border-color: var(--brand-orange);
 }
 
-
 .about-placeholder {
     border: 2px dashed #dee2e6;
 }
-
-
-/* --- Single Page Section Layout Handling --- */
 .page-section {
     display: none;
-    /* Hidden by default */
 }
 
 
 .page-section.active-section {
     display: block !important;
-    /* Visible when triggered by script.js */
     animation: fadeIn 0.4s ease-in-out forwards;
 }
-
-
-/* --- Wizard Setup --- */
 .max-w-700 {
     max-width: 700px;
 }
-
-
-/* Custom visibility override matching bootstrap structures */
 .wizard-step.d-none {
     display: none !important;
 }
@@ -120,9 +90,6 @@
     border: 1px solid #dee2e6;
     transition: all 0.3s ease;
 }
-
-
-/* Selection Box Layout */
 .selection-box {
     transition: all 0.2s ease;
     border-color: #dee2e6;
@@ -133,18 +100,12 @@
     border-color: var(--brand-orange);
     background-color: rgba(255, 107, 0, 0.02);
 }
-
-
-/* Active selection class dynamically added via script */
 .selection-box.selected,
 .checkbox-group.selected {
     border-color: var(--brand-orange) !important;
     background-color: rgba(255, 107, 0, 0.05) !important;
     box-shadow: 0 0 0 1px var(--brand-orange);
 }
-
-
-/* Keyframe for smooth transition between menus */
 @keyframes fadeIn {
     from {
         opacity: 0;

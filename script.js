@@ -549,9 +549,6 @@ function openRepairWithCategory(category) {
 
     setTimeout(() => {
         setRepairCategory(category);
-
-
-        // opzionale: passa automaticamente allo step 2
         nextStep(2);
     }, 200);
 }
