@@ -17,7 +17,7 @@
     <header class="bg-dark navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
         <div class="container nav-container">
             <div class="logo navbar-brand cp" onclick="switchPage('home')">
-                <img src="Images/ARL.png" alt="ARL Logo" class="logo-img" style="max-height: 40px;">
+                <img src="Images/ARL-removebg.png" alt="ARL Logo" class="logo-img" style="max-height: 40px;">
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -139,10 +139,22 @@
         <section id="page-home" class="page-section active-section">
             <div class="p-5 mb-5 bg-dark text-white rounded-3 hero shadow">
                 <div class="container-fluid py-3 text-center text-lg-start">
-                    <h1 class="display-5 fw-bold text-gradient">Is your device broken?<br>We can fix that!</h1>
-                    <p class="col-lg-8 fs-5 text-muted">Specialists in hardware and software repairs for iPhone, Mac,
-                        iPad, and Apple Watch. Fast, transparent, and accessible services for everyone.</p>
-                    <button class="btn btn-orange btn-lg mt-3" onclick="switchPage('services')">Start a Repair</button>
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-8">
+                            <h1 class="display-5 fw-bold text-gradient">Is your device broken?<br>We can fix that!</h1>
+                            <p class="fs-5 text-muted">Specialists in hardware and software repairs for iPhone, Mac,
+                                iPad, and Apple Watch. Fast, transparent, and accessible services for everyone.</p>
+                            <button class="btn btn-orange btn-lg mt-3" onclick="switchPage('services')">Start a
+                                Repair</button>
+                        </div>
+
+                        <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                            <img src="Images/ARL-removebg.png" alt="Device Repair Assistance" class="img-fluid rounded"
+                                style="max-height: 250px; object-fit: contain;">
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
@@ -155,7 +167,7 @@
                 <div class="col-md-4">
                     <div class="card h-100 text-center p-4 shadow-sm category-card cp"
                         onclick="openRepairWithCategory('iPhone')">
-                        <img src="Images/Iphone_riparazione.jpg" alt="Iphone repair" class="card-img-top" />
+                        <img src="Images/Iphone_riparazione.jpg" alt="Iphone repair" class="card-img-top mb-2" />
                         <h3 class="h5 fw-bold">iPhone Repair</h3>
                         <p class="text-muted mb-0">Screens, batteries, and connectors replaced in record time.</p>
                     </div>
@@ -163,14 +175,14 @@
                 <div class="col-md-4">
                     <div class="card h-100 text-center p-4 shadow-sm category-card cp"
                         onclick="openRepairWithCategory('Mac')">
-                        <img src="Images/Mac_repair.jpg" alt="Mac repair" class="card-img-top" />
+                        <img src="Images/Mac_repair.jpg" alt="Mac repair" class="card-img-top mb-2" />
                         <h3 class="h5 fw-bold">Mac Repair</h3>
                         <p class="text-muted mb-0">Repairs on motherboards, keyboards, batteries, and screens.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 text-center p-4 shadow-sm category-card cp" onclick="switchPage('prices')">
-                        <img src="Images/Wiew_Repair_cost.jpg" alt="Price list" class="card-img-top" />
+                        <img src="Images/Wiew_Repair_cost.jpg" alt="Price list" class="card-img-top mb-2" />
                         <h3 class="h5 fw-bold">View Repair Costs</h3>
                         <p class="text-muted mb-0">Select your iPhone model and check standard market price estimates
                             instantly.</p>
@@ -180,267 +192,263 @@
         </section>
 
 
-      <!-- CABLES SHOP (REDESIGNED) -->
-<section id="page-cables" class="page-section">
+        <!-- CABLES SHOP (REDESIGNED) -->
+        <section id="page-cables" class="page-section">
 
 
-    <h2 class="text-center mb-4 fw-bold section-title">
-        Apple <span class="text-orange">Cables & Charging</span>
-    </h2>
+            <h2 class="text-center mb-4 fw-bold section-title">
+                Apple <span class="text-orange">Cables & Charging</span>
+            </h2>
 
 
-    <!-- CATEGORY FILTER -->
-    <div class="card shadow p-4 mb-4 max-w-700 mx-auto text-center">
+            <!-- CATEGORY FILTER -->
+            <div class="card shadow p-4 mb-4 max-w-700 mx-auto text-center">
 
 
-        <label class="form-label text-muted mb-2">Select Cable Type:</label>
+                <label class="form-label text-muted mb-2">Select Cable Type:</label>
 
 
-        <select id="cableSelect" class="form-select bg-light text-dark mx-auto fw-bold border-0"
-            style="max-width: 400px; height: 45px;" onchange="updateCableShop()">
+                <select id="cableSelect" class="form-select bg-light text-dark mx-auto fw-bold border-0"
+                    style="max-width: 400px; height: 45px;" onchange="updateCableShop()">
 
 
-            <option value="lightning">Lightning Cables</option>
-            <option value="usb-c">USB-C Cables</option>
-            <option value="magsafe">MagSafe Charging</option>
-            <option value="thunderbolt">Thunderbolt / Pro Cables</option>
+                    <option value="lightning">Lightning Cables</option>
+                    <option value="usb-c">USB-C Cables</option>
+                    <option value="magsafe">MagSafe Charging</option>
+                    <option value="thunderbolt">Thunderbolt / Pro Cables</option>
 
 
-        </select>
+                </select>
 
 
-    </div>
+            </div>
 
 
-    <!-- PRODUCTS GRID -->
-    <div class="row g-4 justify-content-center" id="cableGrid">
+            <!-- PRODUCTS GRID -->
+            <div class="row g-4 justify-content-center" id="cableGrid">
 
 
-        <!-- populated by JS -->
+                <!-- populated by JS -->
 
 
-    </div>
+            </div>
         </section>
 
 
-<section id="page-upcoming" class="page-section">
+        <section id="page-upcoming" class="page-section">
 
 
-    <h2 class="text-center mb-5 fw-bold section-title">
-        Apple <span class="text-orange">Store</span>
-    </h2>
+            <h2 class="text-center mb-5 fw-bold section-title">
+                Apple <span class="text-orange">Store</span>
+            </h2>
 
 
-    <div class="row g-4">
+            <div class="row g-4">
 
 
-        <!-- iPhone -->
-        <div class="col-md-6">
-            <div class="card p-4 shadow-sm h-100">
+                <!-- iPhone -->
+                <div class="col-md-6">
+                    <div class="card p-4 shadow-sm h-100">
 
 
-                <h3 class="fw-bold mb-3">📱 iPhone</h3>
+                        <h3 class="fw-bold mb-3">📱 iPhone</h3>
 
 
-                <select class="form-select mb-3"
-                    onchange="updateShopPrice('iphone', this.value, 'iphonePrice')">
+                        <select class="form-select mb-3"
+                            onchange="updateShopPrice('iphone', this.value, 'iphonePrice')">
 
 
-                    <option value="">Select iPhone</option>
+                            <option value="">Select iPhone</option>
 
 
-                    <option value="499">iPhone X - €499</option>
-                    <option value="599">iPhone 11 - €599</option>
-                    <option value="699">iPhone 12 - €699</option>
-                    <option value="799">iPhone 13 - €799</option>
-                    <option value="899">iPhone 14 - €899</option>
-                    <option value="1099">iPhone 15 Pro - €1099</option>
-                    <option value="1299">iPhone 16 Pro - €1299</option>
+                            <option value="499">iPhone X - €499</option>
+                            <option value="599">iPhone 11 - €599</option>
+                            <option value="699">iPhone 12 - €699</option>
+                            <option value="799">iPhone 13 - €799</option>
+                            <option value="899">iPhone 14 - €899</option>
+                            <option value="1099">iPhone 15 Pro - €1099</option>
+                            <option value="1299">iPhone 16 Pro - €1299</option>
 
 
-                </select>
+                        </select>
 
 
-                <div class="fs-3 fw-bold text-orange mb-3" id="iphonePrice">
-                    € --
+                        <div class="fs-3 fw-bold text-orange mb-3" id="iphonePrice">
+                            € --
+                        </div>
+
+
+                        <button class="btn btn-orange w-100">
+                            Buy iPhone
+                        </button>
+
+
+                    </div>
                 </div>
 
 
-                <button class="btn btn-orange w-100">
-                    Buy iPhone
-                </button>
+                <!-- Mac -->
+                <div class="col-md-6">
+                    <div class="card p-4 shadow-sm h-100">
 
 
-            </div>
-        </div>
+                        <h3 class="fw-bold mb-3">Mac</h3>
 
 
-        <!-- Mac -->
-        <div class="col-md-6">
-            <div class="card p-4 shadow-sm h-100">
+                        <select class="form-select mb-3" onchange="updateShopPrice('mac', this.value, 'macPrice')">
 
 
-                <h3 class="fw-bold mb-3">Mac</h3>
+                            <option value="">Select Mac</option>
 
 
-                <select class="form-select mb-3"
-                    onchange="updateShopPrice('mac', this.value, 'macPrice')">
+                            <option value="999">MacBook Air 2019 - €999</option>
+                            <option value="1299">MacBook Air M1 - €1299</option>
+                            <option value="1599">MacBook Pro M1 - €1599</option>
+                            <option value="1999">MacBook Pro M2 - €1999</option>
+                            <option value="2499">MacBook Pro M4 - €2499</option>
+                            <option value="1799">iMac 24” - €1799</option>
 
 
-                    <option value="">Select Mac</option>
+                        </select>
 
 
-                    <option value="999">MacBook Air 2019 - €999</option>
-                    <option value="1299">MacBook Air M1 - €1299</option>
-                    <option value="1599">MacBook Pro M1 - €1599</option>
-                    <option value="1999">MacBook Pro M2 - €1999</option>
-                    <option value="2499">MacBook Pro M4 - €2499</option>
-                    <option value="1799">iMac 24” - €1799</option>
+                        <div class="fs-3 fw-bold text-orange mb-3" id="macPrice">
+                            € --
+                        </div>
 
 
-                </select>
+                        <button class="btn btn-orange w-100">
+                            Buy Mac
+                        </button>
 
 
-                <div class="fs-3 fw-bold text-orange mb-3" id="macPrice">
-                    € --
+                    </div>
                 </div>
 
 
-                <button class="btn btn-orange w-100">
-                    Buy Mac
-                </button>
+                <!-- iPad -->
+                <div class="col-md-6">
+                    <div class="card p-4 shadow-sm h-100">
 
 
-            </div>
-        </div>
+                        <h3 class="fw-bold mb-3">iPad</h3>
 
 
-        <!-- iPad -->
-        <div class="col-md-6">
-            <div class="card p-4 shadow-sm h-100">
+                        <select class="form-select mb-3" onchange="updateShopPrice('ipad', this.value, 'ipadPrice')">
 
 
-                <h3 class="fw-bold mb-3">iPad</h3>
+                            <option value="">Select iPad</option>
 
 
-                <select class="form-select mb-3"
-                    onchange="updateShopPrice('ipad', this.value, 'ipadPrice')">
+                            <option value="499">iPad 9th Gen - €499</option>
+                            <option value="699">iPad Air M1 - €699</option>
+                            <option value="899">iPad Pro 11 - €899</option>
+                            <option value="1299">iPad Pro 13 M4 - €1299</option>
 
 
-                    <option value="">Select iPad</option>
+                        </select>
 
 
-                    <option value="499">iPad 9th Gen - €499</option>
-                    <option value="699">iPad Air M1 - €699</option>
-                    <option value="899">iPad Pro 11 - €899</option>
-                    <option value="1299">iPad Pro 13 M4 - €1299</option>
+                        <div class="fs-3 fw-bold text-orange mb-3" id="ipadPrice">
+                            € --
+                        </div>
 
 
-                </select>
+                        <button class="btn btn-orange w-100">
+                            Buy iPad
+                        </button>
 
 
-                <div class="fs-3 fw-bold text-orange mb-3" id="ipadPrice">
-                    € --
+                    </div>
                 </div>
 
 
-                <button class="btn btn-orange w-100">
-                    Buy iPad
-                </button>
+                <!-- Watch -->
+                <div class="col-md-6">
+                    <div class="card p-4 shadow-sm h-100">
 
 
-            </div>
-        </div>
+                        <h3 class="fw-bold mb-3">Apple Watch</h3>
 
 
-        <!-- Watch -->
-        <div class="col-md-6">
-            <div class="card p-4 shadow-sm h-100">
+                        <select class="form-select mb-3" onchange="updateShopPrice('watch', this.value, 'watchPrice')">
 
 
-                <h3 class="fw-bold mb-3">Apple Watch</h3>
+                            <option value="">Select Watch</option>
 
 
-                <select class="form-select mb-3"
-                    onchange="updateShopPrice('watch', this.value, 'watchPrice')">
+                            <option value="299">Series 5 - €299</option>
+                            <option value="399">Series 7 - €399</option>
+                            <option value="499">Series 9 - €499</option>
+                            <option value="899">Ultra 2 - €899</option>
 
 
-                    <option value="">Select Watch</option>
+                        </select>
 
 
-                    <option value="299">Series 5 - €299</option>
-                    <option value="399">Series 7 - €399</option>
-                    <option value="499">Series 9 - €499</option>
-                    <option value="899">Ultra 2 - €899</option>
+                        <div class="fs-3 fw-bold text-orange mb-3" id="watchPrice">
+                            € --
+                        </div>
 
 
-                </select>
+                        <button class="btn btn-orange w-100">
+                            Buy Watch
+                        </button>
 
 
-                <div class="fs-3 fw-bold text-orange mb-3" id="watchPrice">
-                    € --
+                    </div>
                 </div>
 
 
-                <button class="btn btn-orange w-100">
-                    Buy Watch
-                </button>
+                <!-- AirPods -->
+                <div class="col-md-6 mx-auto">
+                    <div class="card p-4 shadow-sm h-100">
 
 
-            </div>
-        </div>
+                        <h3 class="fw-bold mb-3">AirPods & Headphones</h3>
 
 
-        <!-- AirPods -->
-        <div class="col-md-6 mx-auto">
-            <div class="card p-4 shadow-sm h-100">
+                        <select class="form-select mb-3"
+                            onchange="updateShopPrice('airpods', this.value, 'airpodsPrice')">
 
 
-                <h3 class="fw-bold mb-3">AirPods & Headphones</h3>
+                            <option value="">Select Audio Device</option>
 
 
-                <select class="form-select mb-3"
-                    onchange="updateShopPrice('airpods', this.value, 'airpodsPrice')">
+                            <option value="149">AirPods 2 - €149</option>
+                            <option value="199">AirPods 3 - €199</option>
+                            <option value="279">AirPods Pro 2 - €279</option>
+                            <option value="579">AirPods Max - €579</option>
 
 
-                    <option value="">Select Audio Device</option>
+                        </select>
 
 
-                    <option value="149">AirPods 2 - €149</option>
-                    <option value="199">AirPods 3 - €199</option>
-                    <option value="279">AirPods Pro 2 - €279</option>
-                    <option value="579">AirPods Max - €579</option>
+                        <div class="fs-3 fw-bold text-orange mb-3" id="airpodsPrice">
+                            € --
+                        </div>
 
 
-                </select>
+                        <button class="btn btn-orange w-100">
+                            Buy Audio Device
+                        </button>
 
 
-                <div class="fs-3 fw-bold text-orange mb-3" id="airpodsPrice">
-                    € --
+                    </div>
                 </div>
 
 
-                <button class="btn btn-orange w-100">
-                    Buy Audio Device
-                </button>
-
-
             </div>
-        </div>
 
 
-    </div>
-
-
-</section>
+        </section>
 
 
         </section>
 
 
         <section id="page-about" class="page-section">
-            <h2
-            class="text-center mb-4 fw-bold section-title">About <span class="text-orange">Us</span></h2>
+            <h2 class="text-center mb-4 fw-bold section-title">About <span class="text-orange">Us</span></h2>
 
 
             <div class="card bg-dark text-white border-0 rounded-3 p-4 p-md-5 mb-5 shadow">
@@ -691,13 +699,11 @@
 
 
                 <!-- CATEGORY SELECT -->
-               <label class="form-label text-muted mb-2">Select Device Type:</label>
+                <label class="form-label text-muted mb-2">Select Device Type:</label>
 
 
-                <select id="priceCategorySelect"
-                    class="form-select bg-light text-dark mx-auto border-0 fw-bold mb-3"
-                    style="max-width: 350px; height: 45px;"
-                    onchange="updatePriceModels()">
+                <select id="priceCategorySelect" class="form-select bg-light text-dark mx-auto border-0 fw-bold mb-3"
+                    style="max-width: 350px; height: 45px;" onchange="updatePriceModels()">
 
 
                     <option value="" selected disabled>Select Device</option>
@@ -727,7 +733,8 @@
 
                 <div class="col" style="max-width: 210px;">
                     <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                        <img src="Images/Device_Replacement_repair.jpg" alt="Device Replacement Icon" class="display-5 mb-2" />
+                        <img src="Images/Device_Replacement_repair.jpg" alt="Device Replacement Icon"
+                            class="display-5 mb-2" />
                         <h4 class="h6 fw-bold text-secondary mb-3">Device Replacement</h4>
                         <div class="fs-4 fw-bold text-dark mt-auto" id="cost-swap">€ --</div>
                     </div>
@@ -736,7 +743,8 @@
 
                 <div class="col" style="max-width: 210px;">
                     <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                        <img src="Images/Schreen_replacement_repair.jpg" alt="Device Replacement Icon" class="display-5 mb-2" />
+                        <img src="Images/Schreen_replacement_repair.jpg" alt="Device Replacement Icon"
+                            class="display-5 mb-2" />
                         <h4 class="h6 fw-bold text-secondary mb-3">Screen</h4>
                         <div class="fs-4 fw-bold text-dark mt-auto" id="cost-screen">€ --</div>
                     </div>
@@ -745,7 +753,8 @@
 
                 <div class="col" style="max-width: 210px;">
                     <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                        <img src="Images/Battery_Replacemnt_repair.jpg" alt="Device Replacement Icon" class="display-5 mb-2" />
+                        <img src="Images/Battery_Replacemnt_repair.jpg" alt="Device Replacement Icon"
+                            class="display-5 mb-2" />
                         <h4 class="h6 fw-bold text-secondary mb-3">Battery</h4>
                         <div class="fs-4 fw-bold text-dark mt-auto" id="cost-battery">€ --</div>
                     </div>
@@ -754,7 +763,8 @@
 
                 <div class="col" style="max-width: 210px;">
                     <div class="card h-100 shadow-sm border-0 p-3 bg-white text-dark rounded-3">
-                        <img src="Images/Camera_Replacement_repair.jpg" alt="Device Replacement Icon" class="display-5 mb-2" />
+                        <img src="Images/Camera_Replacement_repair.jpg" alt="Device Replacement Icon"
+                            class="display-5 mb-2" />
                         <h4 class="h6 fw-bold text-secondary mb-3">Camera</h4>
                         <div class="fs-4 fw-bold text-dark mt-auto" id="cost-camera">€ --</div>
                     </div>
@@ -965,4 +975,3 @@
 
 
 </html>
-
