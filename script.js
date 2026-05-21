@@ -477,7 +477,7 @@ const cableData = {
     "thunderbolt": [
         {
             name: "Apple Thunderbolt 4 Pro Cable (1.8m)",
-            price: "€149",
+            price: "€129",
             desc: "Ultra-fast data transfer + pro display support.",
             image: "Images/Apple_Thunderbolt_4_Pro_Cable_(1.8m).jpg"
         },
@@ -572,20 +572,120 @@ function updateProgress(step) {
     const active = document.getElementById(`p-step-${step}`);
     if (active) active.classList.add('text-orange', 'active');
 }
+
+const issuePriceMap = {
+    "Damaged Screen / Glass": {
+        label: "Screen Repair",
+        field: "screen"
+    },
+
+    "Degraded Battery": {
+        label: "Battery Replacement",
+        field: "battery"
+    },
+
+    "Liquid Damage": {
+        label: "Liquid Damage Repair",
+        field: "swap"
+    },
+
+    "Charging Issue": {
+        label: "Charging Port / Power Repair",
+        field: "swap"
+    }
+};
 function prepareContactSummary() {
+
     const category = document.getElementById("selectedCategory").value;
     const model = document.getElementById("deviceModel").value;
+
     const checkedIssues = Array.from(
         document.querySelectorAll("#w-step-3 input[type='checkbox']:checked")
     ).map(cb => cb.value);
 
-    const customIssue = document.getElementById("issueOther").value;
+    const customIssue = document.getElementById("issueOther").value.trim();
+
+    // DEVICE SUMMARY
     document.getElementById("sumDevice").innerHTML =
         `<strong>Selected device:</strong> ${category} - ${model}`;
 
+    // PROBLEMS SUMMARY
     document.getElementById("sumProblems").innerHTML =
         `<strong>Selected issues:</strong> ${
             checkedIssues.length ? checkedIssues.join(", ") : "None selected"
         } ${customIssue ? " | " + customIssue : ""}`;
+
+    // PRICE CALCULATION
+    let estimatedPrices = [];
+
+    const categoryKey = category.toLowerCase();
+
+    const modelData = priceData[categoryKey]?.[model];
+
+    if (modelData) {
+
+        checkedIssues.forEach(issue => {
+
+            let repairName = "";
+            let repairPrice = "";
+
+            switch(issue) {
+
+                case "Damaged Screen / Glass":
+                    repairName = "Screen Repair";
+                    repairPrice = modelData.screen;
+                    break;
+
+                case "Degraded Battery":
+                    repairName = "Battery Replacement";
+                    repairPrice = modelData.battery;
+                    break;
+
+                case "Liquid Damage":
+                    repairName = "Liquid Damage Repair";
+                    repairPrice = modelData.swap;
+                    break;
+
+                case "Charging Issue":
+                    repairName = "Charging Port Repair";
+                    repairPrice = modelData.swap;
+                    break;
+            }
+
+            estimatedPrices.push(`
+                <div class="mb-2">
+                    <strong>${repairName}:</strong>
+                    <span class="text-orange fw-bold">
+                        ${repairPrice ? repairPrice : "Not Available"}
+                    </span>
+                </div>
+            `);
+
+        });
+    }
+
+    // CUSTOM ISSUE
+    if (customIssue !== "") {
+
+        estimatedPrices.push(`
+            <div class="alert alert-warning mt-3 mb-0">
+                <strong>Custom Issue:</strong><br>
+                For pricing please contact us directly:<br><br>
+
+                📞 <strong>960 313 883</strong><br>
+                ✉️ <strong>arl@arl.pt</strong>
+            </div>
+        `);
+    }
+
+    // FINAL OUTPUT
+    document.getElementById("sumPrice").innerHTML =
+        `
+        <strong>Estimated repair cost:</strong>
+        <div class="mt-3">
+            ${estimatedPrices.length ? estimatedPrices.join("") : "No repair selected"}
+        </div>
+        `;
+
     nextStep(4);
 }
