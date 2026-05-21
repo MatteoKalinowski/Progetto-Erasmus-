@@ -151,7 +151,7 @@ function initCablesShop() {
                 <h3 class="fw-bold">${cable.name}</h3>
                 <p class="text-muted">Apple certified high quality accessory.</p>
                 <div class="fs-3 fw-bold text-orange mb-3">€${cable.price}</div>
-                <button class="btn btn-orange w-100">Buy Now</button>
+                <button id="buyCableBtn" class="btn btn-orange w-100">Buy Now</button>
             </div>
         </div>`;
     });
@@ -436,7 +436,7 @@ const cableData = {
         {
             name: "Apple Lightning to USB-C Cable (1m)",
             price: "€25",
-            desc: "Standard fast charging cable for iPhone (older models).",
+            desc: "Standard fast charging cable for iPhone.",
             image: "Images/Apple_Lightning_to_USB-C_Cable_(1m).jpg"
         },
         {
@@ -450,13 +450,13 @@ const cableData = {
         {
             name: "Apple USB-C to USB-C Cable (1m)",
             price: "€25",
-            desc: "Standard fast charging cable for iPhone 15 and MacBook.",
+            desc: "Standard fast charging cable for iPhone and MacBook.",
             image: "Images/Apple_USB-C_to_USB-C_Cable_(1m).jpg"
         },
         {
             name: "Apple USB-C to USB-C Cable (2m)",
             price: "€35",
-            desc: "Longer cable for MacBook and fast charging setups.",
+            desc: "Longer cable for MacBook and iPhone and fast charging setups.",
             image: "Images/Apple USB-C_to_USB-C_Cable_(2m).jpg"
         }
     ],
@@ -470,7 +470,7 @@ const cableData = {
         {
             name: "MagSafe Duo Charger",
             price: "€149",
-            desc: "Charge iPhone + Apple Watch at the same time.",
+            desc: "Charge iPhone 12 and newer while charging Apple Watch at the same time.",
             image: "Images/MagSafe_Duo_Charger.jpg"
         }
     ],

@@ -168,3 +168,12 @@
 .shop-item:hover img {
     transform: scale(1.05);
 }
+
+#buyCableBtn {
+    background-color: var(--brand-orange);
+    color: #ffffff;
+    border: none;
+    vertical-align: end !important;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
