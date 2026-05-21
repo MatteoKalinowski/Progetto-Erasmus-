@@ -572,3 +572,20 @@ function updateProgress(step) {
     const active = document.getElementById(`p-step-${step}`);
     if (active) active.classList.add('text-orange', 'active');
 }
+function prepareContactSummary() {
+    const category = document.getElementById("selectedCategory").value;
+    const model = document.getElementById("deviceModel").value;
+    const checkedIssues = Array.from(
+        document.querySelectorAll("#w-step-3 input[type='checkbox']:checked")
+    ).map(cb => cb.value);
+
+    const customIssue = document.getElementById("issueOther").value;
+    document.getElementById("sumDevice").innerHTML =
+        `<strong>Selected device:</strong> ${category} - ${model}`;
+
+    document.getElementById("sumProblems").innerHTML =
+        `<strong>Selected issues:</strong> ${
+            checkedIssues.length ? checkedIssues.join(", ") : "None selected"
+        } ${customIssue ? " | " + customIssue : ""}`;
+    nextStep(4);
+}
