@@ -1,5 +1,4 @@
 const modelsDatabase = {
-    // This is a sample database of models for each category. In a real application, this would likely come from an API or backend service.
     'Mac': [
         'MacBook Pro 14" / 16" (M1/M2/M3 Chip)',
         'MacBook Pro 13" (Touch Bar / M1 / M2 Models)',
@@ -513,7 +512,7 @@ function updateCableShop() {
         grid.appendChild(card);
     });
 }
-// Initialize the cable shop on page load
+
 document.addEventListener("DOMContentLoaded", function () {
     updateCableShop();
 });
@@ -596,7 +595,7 @@ const issuePriceMap = {
     }
 };
 function prepareContactSummary() {
-    // GATHER DATA
+
     const category = document.getElementById("selectedCategory").value;
     const model = document.getElementById("deviceModel").value;
 
@@ -669,12 +668,12 @@ function prepareContactSummary() {
     if (customIssue !== "") {
 
         estimatedPrices.push(`
-            <div class="alert alert-warning mt-3 mb-0">
+            <div class="alert alert-dark mt-3 mb-0 text-light border-0 custom-issue-box">
                 <strong>Custom Issue:</strong><br>
                 For pricing please contact us directly:<br><br>
 
-                📞 <strong>960 313 883</strong><br>
-                ✉️ <strong>arl@arl.pt</strong>
+                📞 <a href="tel:960313883" class="text-orange fw-bold text-decoration-none">960 313 883</a><br>
+                ✉️ <a href="mailto:arl@arl.pt" class="text-orange fw-bold text-decoration-none">arl@arl.pt</a>
             </div>
         `);
     }
@@ -690,3 +689,4 @@ function prepareContactSummary() {
 
     nextStep(4);
 }
+ 

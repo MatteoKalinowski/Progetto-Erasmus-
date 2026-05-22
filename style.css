@@ -1,117 +1,350 @@
 :root {
     --brand-orange: #ff6b00;
-    --brand-orange-hover: #e05e00;
-    --brand-dark: #212529;
+    --brand-orange-hover: #ff8533;
+
+    --bg-primary: #0f0f11;
+    --bg-secondary: #18181b;
+    --card-bg: rgba(255,255,255,0.06);
+
+    --text-primary: #ffffff;
+    --text-secondary: #b5b5b5;
+
+    --border-color: rgba(255,255,255,0.08);
+
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.25);
+    --shadow-hover: 0 20px 40px rgba(0,0,0,0.35);
+
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
 }
 
-
-.text-orange {
-    color: var(--brand-orange) !important;
+body {
+    background:
+        radial-gradient(circle at top left, #1d1d20 0%, #0f0f11 40%),
+        #0f0f11;
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "Segoe UI", sans-serif;
+    overflow-x: hidden;
 }
 
-
-.bg-orange {
-    background-color: var(--brand-orange) !important;
-}
+/* =========================
+   GLOBAL
+========================= */
 
 .cp {
     cursor: pointer;
 }
 
-.navbar-nav .nav-link {
-    font-weight: 500;
-    transition: color 0.2s ease-in-out;
-}
-
-
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link:hover {
+.text-orange {
     color: var(--brand-orange) !important;
 }
 
-.btn-orange {
-    background-color: var(--brand-orange);
-    color: #ffffff;
-    border: none;
-    font-weight: 600;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+.section-title {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+    margin-bottom: 2rem;
 }
 
-.btn-orange:hover,
-.btn-orange:focus {
-    background-color: var(--brand-orange-hover);
-    color: #ffffff;
-}
-.btn-orange:active {
-    transform: scale(0.98);
-}
-.hero h1.text-gradient {
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-.category-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-}
-.category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
-    border-color: var(--brand-orange);
-}
-
-.about-placeholder {
-    border: 2px dashed #dee2e6;
-}
 .page-section {
     display: none;
 }
 
-
 .page-section.active-section {
     display: block !important;
-    animation: fadeIn 0.4s ease-in-out forwards;
+    animation: fadeIn 0.45s ease;
 }
+
 .max-w-700 {
     max-width: 700px;
 }
-.wizard-step.d-none {
-    display: none !important;
+
+/* =========================
+   NAVBAR
+========================= */
+
+header.navbar {
+    backdrop-filter: blur(18px);
+    background: rgba(15,15,17,0.75) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-
-.wizard-step.active-step {
-    display: block !important;
+.navbar-nav .nav-link {
+    color: rgba(255,255,255,0.75) !important;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    position: relative;
 }
 
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: white !important;
+}
+
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--brand-orange);
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: calc(100% - 16px);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,107,0,0.15),
+            rgba(255,255,255,0.03)
+        ),
+        #151518 !important;
+
+    border: 1px solid var(--border-color);
+    border-radius: 34px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1;
+    letter-spacing: -2px;
+    font-weight: 800;
+}
+
+.hero p {
+    color: var(--text-secondary) !important;
+    max-width: 700px;
+}
+
+.hero img {
+    filter: drop-shadow(0 15px 30px rgba(255,107,0,0.2));
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-orange {
+    background: linear-gradient(
+        135deg,
+        var(--brand-orange),
+        #ff8533
+    ) !important;
+
+    border: none !important;
+    color: white !important;
+
+    font-weight: 700;
+    border-radius: 14px;
+    padding: 12px 24px;
+
+    transition: all 0.25s ease;
+    box-shadow: 0 10px 25px rgba(255,107,0,0.25);
+}
+
+.btn-orange:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 35px rgba(255,107,0,0.35);
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+
+    border-radius: var(--radius-lg) !important;
+
+    backdrop-filter: blur(16px);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,107,0,0.35) !important;
+    box-shadow: var(--shadow-hover);
+}
+
+/* =========================
+   TEXT FIX
+========================= */
+
+.card p,
+.text-muted,
+.list-group-item,
+.form-label,
+.summary-item {
+    color: var(--text-secondary) !important;
+}
+
+.card h3,
+.card h4,
+.card strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: white !important;
+}
+
+/* =========================
+   IMAGES FIX
+========================= */
+
+.card-img-top {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 18px;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.03);
+}
+
+.device-icon {
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.3));
+}
+
+/* =========================
+   CATEGORY CARDS
+========================= */
+
+.category-card {
+    overflow: hidden;
+    position: relative;
+}
+
+.category-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(255,107,0,0.12),
+        transparent
+    );
+
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.category-card:hover::before {
+    opacity: 1;
+}
+
+/* =========================
+   FORMS
+========================= */
+
+.form-control,
+.form-select {
+    background: rgba(255,255,255,0.05) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    color: white !important;
+
+    border-radius: 14px;
+    min-height: 50px;
+}
+
+.form-control::placeholder {
+    color: rgba(255,255,255,0.45);
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 4px rgba(255,107,0,0.15) !important;
+    border-color: var(--brand-orange) !important;
+}
+
+/* =========================
+   WIZARD
+========================= */
 
 .progress-step {
-    font-size: 0.9rem;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    transition: all 0.3s ease;
-}
-.selection-box {
-    transition: all 0.2s ease;
-    border-color: #dee2e6;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: var(--text-secondary);
+
+    border-radius: 999px;
 }
 
+.progress-step.active {
+    background: rgba(255,107,0,0.15);
+    border-color: rgba(255,107,0,0.4);
+
+    color: white;
+}
+
+.selection-box {
+    background: rgba(255,255,255,0.03);
+    border-radius: 20px;
+    transition: 0.25s ease;
+}
 
 .selection-box:hover {
-    border-color: var(--brand-orange);
-    background-color: rgba(255, 107, 0, 0.02);
+    border-color: var(--brand-orange) !important;
+    background: rgba(255,107,0,0.08);
 }
+
 .selection-box.selected,
 .checkbox-group.selected {
     border-color: var(--brand-orange) !important;
-    background-color: rgba(255, 107, 0, 0.05) !important;
+    background: rgba(255,107,0,0.12) !important;
     box-shadow: 0 0 0 1px var(--brand-orange);
 }
+
+/* =========================
+   LIST GROUP
+========================= */
+
+.list-group-item {
+    background: transparent !important;
+    border-color: rgba(255,255,255,0.05) !important;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #0a0a0c !important;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(15px);
     }
-
 
     to {
         opacity: 1;
@@ -119,61 +352,156 @@
     }
 }
 
+/* =========================
+   MOBILE
+========================= */
 
-.dropdown-menu-dark .dropdown-item:hover {
-    background-color: #2b3035;
-    color: #ff6b00 !important;
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 2.7rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .card-img-top {
+        height: 180px;
+    }
+
 }
 
-
-.text-orange {
-    color: #ff6b00 !important;
+/* DARK SELECT MENUS */
+select.form-select {
+    background-color: #0f1115 !important;
+    color: #ffffff !important;
+    border: 1px solid #2b2f36 !important;
 }
 
-
-.btn-orange {
-    background-color: #ff6b00 !important;
-    color: white !important;
-    border: none;
+/* option dentro il dropdown */
+select.form-select option {
+    background-color: #0f1115 !important;
+    color: #ffffff !important;
 }
 
-
-.btn-orange:hover {
-    background-color: #e05e00 !important;
+/* focus effetto */
+select.form-select:focus {
+    background-color: #0f1115 !important;
+    color: #ffffff !important;
+    border-color: var(--brand-orange) !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 0, 0.25);
+}
+/* ISSUE CHECKBOXES - DARK STYLE */
+.checkbox-group {
+    background-color: #0f1115 !important;
+    border: 1px solid #2b2f36 !important;
+    color: #ffffff !important;
+    transition: all 0.2s ease;
 }
 
-
-.cp {
-    cursor: pointer;
+/* testo interno */
+.checkbox-group label {
+    color: #ffffff !important;
 }
 
-
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
+/* hover */
+.checkbox-group:hover {
+    border-color: var(--brand-orange) !important;
+    background-color: #141820 !important;
 }
 
-
-.not-available {
-    color: #999;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+/* selected state già esistente ma reso più coerente */
+.checkbox-group.selected {
+    background-color: #1a1f2a !important;
+    border-color: var(--brand-orange) !important;
 }
-
-.shop-item img {
-    transition: transform 0.2s ease-in-out;
+.checkbox-group input[type="checkbox"] {
+    accent-color: var(--brand-orange);
 }
-
-.shop-item:hover img {
-    transform: scale(1.05);
-}
-
-#buyCableBtn {
-    background-color: var(--brand-orange);
+/* ABOUT US PREMIUM STYLE */
+.about-card{
+    background: linear-gradient(135deg, #0f1115, #1a1f2a);
     color: #ffffff;
-    border: none;
-    vertical-align: end !important;
-    font-weight: 600;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    border: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+    position: relative;
+}
+
+/* effetto glow arancione soft */
+.about-card::before{
+    content:"";
+    position:absolute;
+    top:-100px;
+    right:-100px;
+    width:250px;
+    height:250px;
+    background: radial-gradient(circle, rgba(255,107,0,0.25), transparent 70%);
+    filter: blur(10px);
+}
+
+/* titoli più premium */
+.about-card h3,
+.about-card h4{
+    letter-spacing:-1px;
+}
+
+/* paragrafi più leggibili */
+.about-card p{
+    line-height:1.7;
+    color: rgba(255,255,255,0.75);
+}
+
+/* separatore superiore più elegante */
+.about-card .border-top{
+    border-color: rgba(255,255,255,0.08) !important;
+}
+/* PREZZI PIÙ LEGGIBILI */
+.fs-3.fw-bold.text-orange,
+#cost-swap,
+#cost-screen,
+#cost-battery,
+#cost-camera,
+#cost-backglass,
+#cost-faceid,
+#iphonePrice,
+#macPrice,
+#ipadPrice,
+#watchPrice,
+#airpodsPrice{
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.5px;
+}
+
+/* stile prezzo generale */
+.text-orange.fs-3,
+.text-orange.fs-4{
+    letter-spacing: -1px;
+}
+/* PREZZI PIÙ VIVIDI E PREMIUM */
+.text-orange.fs-3,
+.text-orange.fs-4,
+[id$="Price"],
+#cost-swap,
+#cost-screen,
+#cost-battery,
+#cost-camera,
+#cost-backglass,
+#cost-faceid{
+    color: #ff7a1a !important;
+    font-weight: 800;
+    text-shadow: 0 2px 10px rgba(255, 107, 0, 0.25);
+}
+
+/* effetto “glow” leggero sui prezzi */
+.text-orange.fs-3,
+.text-orange.fs-4,
+[id$="Price"]{
+    filter: drop-shadow(0 0 6px rgba(255, 122, 26, 0.35));
+}
+.custom-issue-box {
+    background-color: #0b0b0b !important;
+    border: 1px solid rgba(255, 107, 0, 0.25) !important;
+    border-radius: 12px;
+    padding: 16px;
 }

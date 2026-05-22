@@ -7,11 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARL - Apple Support and Repairs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 
-<body class="bg-light text-dark">
+<body>
 
 
     <header class="bg-dark navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
@@ -80,52 +85,63 @@
     </header>
     <main class="container my-5">
         <section id="page-home" class="page-section active-section">
-            <div class="p-5 mb-5 bg-dark text-white rounded-3 hero shadow">
-                <div class="container-fluid py-3 text-center text-lg-start">
-                    <div class="row align-items-center">
-                        <div class="col-lg-8">
-                            <h1 class="display-5 fw-bold text-gradient">Is your device broken?<br>We can fix that!</h1>
-                            <p class="fs-5 text-muted">Specialists in hardware and software repairs for iPhone, Mac,
-                                iPad, and Apple Watch. Fast, transparent, and accessible services for everyone.</p>
-                            <button class="btn btn-orange btn-lg mt-3" onclick="switchPage('services')">Start a
-                                Repair</button>
-                        </div>
-                        <div class="col-lg-4 text-center mt-4 mt-lg-0">
-                            <img src="Images/ARL-removebg.png" alt="Device Repair Assistance" class="img-fluid rounded"
-                                style="max-height: 250px; object-fit: contain;">
-                        </div>
+
+    <div class="hero-modern position-relative overflow-hidden rounded-4">
+
+        <div class="container py-5">
+
+            <div class="row align-items-center min-vh-75">
+
+                <div class="col-lg-6 text-white">
+
+                    <span class="hero-badge">
+                        Premium Apple Repair Center
+                    </span>
+
+                    <h1 class="display-2 fw-bold mt-4 hero-title">
+                        We Fix Your
+                        <span class="text-orange">Apple Devices</span>
+                    </h1>
+
+                    <p class="lead mt-4 text-light">
+                        Fast repairs, premium parts and expert support for
+                        iPhone, Mac, iPad and Apple Watch.
+                    </p>
+
+                    <div class="d-flex gap-3 mt-5 flex-wrap">
+
+                        <button class="btn btn-orange btn-lg px-5 rounded-pill"
+                            onclick="switchPage('services')">
+
+                            Start Repair
+
+                        </button>
+
+                        <button class="btn btn-outline-light btn-lg px-5 rounded-pill"
+                            onclick="switchPage('prices')">
+
+                            View Prices
+
+                        </button>
+
                     </div>
+
                 </div>
+
+                <div class="col-lg-6 text-center">
+
+                    <img src="Images/ARL-removebg.png"
+                        class="hero-device-img img-fluid">
+
+                </div>
+
             </div>
-            <h2 class="text-center mb-4 fw-bold section-title">How can we <span class="text-orange">help you
-                    today?</span></h2>
-            <div class="row g-4 grid-categories justify-content-center">
-                <div class="col-md-4">
-                    <div class="card h-100 text-center p-4 shadow-sm category-card cp"
-                        onclick="openRepairWithCategory('iPhone')">
-                        <img src="Images/Iphone_riparazione.jpg" alt="Iphone repair" class="card-img-top mb-2" />
-                        <h3 class="h5 fw-bold">iPhone Repair</h3>
-                        <p class="text-muted mb-0">Screens, batteries, and connectors replaced in record time.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 text-center p-4 shadow-sm category-card cp"
-                        onclick="openRepairWithCategory('Mac')">
-                        <img src="Images/Mac_repair.jpg" alt="Mac repair" class="card-img-top mb-2" />
-                        <h3 class="h5 fw-bold">Mac Repair</h3>
-                        <p class="text-muted mb-0">Repairs on motherboards, keyboards, batteries, and screens.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 text-center p-4 shadow-sm category-card cp" onclick="switchPage('prices')">
-                        <img src="Images/Wiew_Repair_cost.jpg" alt="Price list" class="card-img-top mb-2" />
-                        <h3 class="h5 fw-bold">View Repair Costs</h3>
-                        <p class="text-muted mb-0">Select your iPhone model and check standard market price estimates
-                            instantly.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
+        </div>
+
+    </div>
+
+</section>
         <section id="page-cables" class="page-section">
             <h2 class="text-center mb-4 fw-bold section-title">
                 Apple <span class="text-orange">Cables & Charging</span>
@@ -249,8 +265,10 @@
         </section>
         <section id="page-about" class="page-section">
             <h2 class="text-center mb-4 fw-bold section-title">About <span class="text-orange">Us</span></h2>
-            <div class="card bg-dark text-white border-0 rounded-3 p-4 p-md-5 mb-5 shadow">
-                <h3 class="text-orange mb-3 fw-bold">30 Years of Experience</h3>
+            <div class="card about-card border-0 rounded-4 p-4 p-md-5 mb-5 shadow-lg">
+                <h3 class="text-orange mb-3 fw-bold display-6">
+                    30 Years of Experience
+                </h3>
                 <p class="lead mb-3">
                     Founded in 1993 in the city of Coimbra, <strong>ARL – Assistência, Redes e Computação, Lda</strong>
                     (VAT / Tax ID: 502990031) provides information and communication technology services, standing out
@@ -272,24 +290,37 @@
                 <div class="row g-4 border-top border-secondary pt-4 mt-2">
                     <div class="col-md-4">
                         <h4 class="h5 text-orange mb-3 fw-bold">Address</h4>
-                        <p class="text-white-50 lh-base mb-0">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Av.+João+de+Deus+Ramos+Coimbra"
+                        target="_blank"
+                        class="text-white-50 text-decoration-none d-block lh-base mb-0 cp">
                             Av. João de Deus Ramos,<br>
-                            C.c Girasolum, R. Joao de Deus Ramos 1º,<br>
+                            C.c Girasolum, R. João de Deus Ramos 1º,<br>
                             andar loja 111,<br>
                             3030-328 Coimbra
-                        </p>
+                        </a>
                     </div>
                     <div class="col-md-4">
                         <h4 class="h5 text-orange mb-3 fw-bold">Contacts</h4>
                         <p class="text-white-50 mb-2">
-                            <strong>Landline:</strong> 239 703 553
+                            <strong>Landline:</strong>
+                            <a href="tel:+351239703553" class="text-white text-decoration-none cp">
+                                239 703 553
+                            </a>
                             <span class="d-block small text-muted">National fixed network</span>
                         </p>
                         <p class="text-white-50 mb-2">
-                            <strong>Mobile:</strong> 960 313 883
+                            <strong>Mobile:</strong>
+                            <a href="tel:+351960313883" class="text-white text-decoration-none cp">
+                                960 313 883
+                            </a>
                             <span class="d-block small text-muted">National mobile network</span>
                         </p>
-                        <p class="text-white-50 mb-0"><strong>Email:</strong> arl@arl.pt</p>
+                        <p class="text-white-50 mb-0">
+                        <strong>Email:</strong>
+                        <a href="mailto:arl@arl.pt" class="text-white text-decoration-none cp">
+                            arl@arl.pt
+                        </a>
+                    </p>
                     </div>
                     <div class="col-md-4">
                         <h4 class="h5 text-orange mb-3 fw-bold">Working Hours</h4>
