@@ -505,3 +505,232 @@ select.form-select:focus {
     border-radius: 12px;
     padding: 16px;
 }
+/* ========================================
+   HOMEPAGE REPAIRS LAYOUT IMPROVEMENTS
+======================================== */
+
+/* spacing generale sezioni homepage */
+#page-home h2.section-title{
+    margin-top: 7rem !important;
+    margin-bottom: 2.5rem !important;
+    position: relative;
+}
+
+/* linea premium sotto i titoli */
+#page-home h2.section-title::after{
+    content:"";
+    width:80px;
+    height:4px;
+
+    background: linear-gradient(
+        90deg,
+        var(--brand-orange),
+        transparent
+    );
+
+    position:absolute;
+    left:50%;
+    bottom:-14px;
+
+    transform:translateX(-50%);
+    border-radius:999px;
+}
+
+/* separazione visiva tra sezioni */
+.products-grid{
+    margin-bottom: 5rem;
+}
+
+/* cards più premium */
+.product-item{
+    overflow:hidden;
+    position:relative;
+    min-height:100%;
+}
+
+/* glow arancione */
+.product-item::before{
+    content:"";
+
+    position:absolute;
+    top:-120px;
+    right:-120px;
+
+    width:240px;
+    height:240px;
+
+    background: radial-gradient(
+        circle,
+        rgba(255,107,0,0.14),
+        transparent 70%
+    );
+
+    opacity:0;
+    transition:0.45s ease;
+}
+
+/* hover premium */
+.product-item:hover::before{
+    opacity:1;
+}
+
+.product-item:hover{
+    transform: translateY(-8px) scale(1.01);
+}
+
+/* badge migliorati */
+.badge-status{
+    padding:10px 14px;
+    border-radius:999px;
+    font-size:0.8rem;
+    font-weight:700;
+    letter-spacing:0.3px;
+}
+
+/* liste più eleganti */
+.problems-list .list-group-item{
+    padding-top:12px;
+    padding-bottom:12px;
+
+    font-size:0.97rem;
+
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+/* bottoni repair più belli */
+.font-adjust{
+    margin-top:auto;
+
+    min-height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:0.95rem;
+    letter-spacing:0.2px;
+}
+
+/* migliora spacing homepage */
+#page-home .card{
+    backdrop-filter: blur(18px);
+}
+
+/* map section */
+iframe{
+    border:none;
+    filter:
+        grayscale(1)
+        contrast(1.05)
+        brightness(0.9);
+
+    transition:0.4s ease;
+}
+
+iframe:hover{
+    filter:
+        grayscale(0.2)
+        contrast(1.08)
+        brightness(1);
+}
+
+/* mobile optimization */
+@media(max-width:768px){
+
+    #page-home h2.section-title{
+        margin-top:5rem !important;
+    }
+
+    .products-grid{
+        margin-bottom:3.5rem;
+    }
+
+    .product-item{
+        padding:1.4rem !important;
+    }
+
+}
+/* =========================
+   PREMIUM IMAGE BLENDING
+========================= */
+
+.card img,
+.hero img,
+.device-icon {
+    position: relative;
+
+    /* blend più naturale */
+    mix-blend-mode: lighten;
+
+    /* leggero fade */
+    opacity: 0.96;
+
+    /* glow arancione morbido */
+    filter:
+        drop-shadow(0 15px 30px rgba(255,107,0,0.18))
+        drop-shadow(0 5px 12px rgba(0,0,0,0.35));
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease,
+        opacity 0.35s ease;
+}
+
+/* hover più premium */
+.card:hover img,
+.hero:hover img {
+    transform: scale(1.03);
+
+    filter:
+        drop-shadow(0 20px 35px rgba(255,107,0,0.28))
+        drop-shadow(0 8px 18px rgba(0,0,0,0.45));
+
+    opacity: 1;
+}
+
+/* contenitore immagine */
+.card .img-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/* glow dietro immagine */
+.card .img-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,107,0,0.12),
+            transparent 70%
+        );
+
+    z-index: 0;
+    filter: blur(25px);
+}
+
+/* immagine sopra glow */
+.card .img-wrapper img {
+    position: relative;
+    z-index: 1;
+}
+
+/* fade inferiore per "fondere" col bg */
+.card img {
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,1) 82%,
+        rgba(0,0,0,0.75) 92%,
+        transparent 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,1) 82%,
+        rgba(0,0,0,0.75) 92%,
+        transparent 100%
+    );
+}
