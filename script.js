@@ -620,18 +620,14 @@ function prepareContactSummary() {
     ).map(cb => cb.value);
 
     const customIssue = document.getElementById("issueOther").value.trim();
-
-    // DEVICE SUMMARY
     document.getElementById("sumDevice").innerHTML =
         `<strong>Selected device:</strong> ${category} - ${model}`;
 
-    // PROBLEMS SUMMARY
     document.getElementById("sumProblems").innerHTML =
         `<strong>Selected issues:</strong> ${
             checkedIssues.length ? checkedIssues.join(", ") : "None selected"
         } ${customIssue ? " | " + customIssue : ""}`;
 
-    // PRICE CALCULATION
     let estimatedPrices = [];
 
     const categoryKey = category.toLowerCase();
@@ -680,7 +676,6 @@ function prepareContactSummary() {
         });
     }
 
-    // CUSTOM ISSUE
     if (customIssue !== "") {
 
         estimatedPrices.push(`
@@ -694,7 +689,6 @@ function prepareContactSummary() {
         `);
     }
 
-    // FINAL OUTPUT
     document.getElementById("sumPrice").innerHTML =
         `
         <strong>Estimated repair cost:</strong>

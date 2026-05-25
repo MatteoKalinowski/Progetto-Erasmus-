@@ -29,10 +29,6 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================
-   GLOBAL
-========================= */
-
 .cp {
     cursor: pointer;
 }
@@ -60,9 +56,6 @@ body {
     max-width: 700px;
 }
 
-/* =========================
-   NAVBAR
-========================= */
 
 header.navbar {
     backdrop-filter: blur(18px);
@@ -98,10 +91,6 @@ header.navbar {
     width: calc(100% - 16px);
 }
 
-/* =========================
-   HERO
-========================= */
-
 .hero {
     background:
         linear-gradient(
@@ -133,9 +122,6 @@ header.navbar {
     filter: drop-shadow(0 15px 30px rgba(255,107,0,0.2));
 }
 
-/* =========================
-   BUTTONS
-========================= */
 
 .btn-orange {
     background: linear-gradient(
@@ -160,10 +146,6 @@ header.navbar {
     box-shadow: 0 18px 35px rgba(255,107,0,0.35);
 }
 
-/* =========================
-   CARDS
-========================= */
-
 .card {
     background: var(--card-bg) !important;
     border: 1px solid var(--border-color) !important;
@@ -183,10 +165,6 @@ header.navbar {
     border-color: rgba(255,107,0,0.35) !important;
     box-shadow: var(--shadow-hover);
 }
-
-/* =========================
-   TEXT FIX
-========================= */
 
 .card p,
 .text-muted,
@@ -208,9 +186,6 @@ h6 {
     color: white !important;
 }
 
-/* =========================
-   IMAGES FIX
-========================= */
 
 .card-img-top {
     width: 100%;
@@ -228,9 +203,6 @@ h6 {
     filter: drop-shadow(0 8px 15px rgba(0,0,0,0.3));
 }
 
-/* =========================
-   CATEGORY CARDS
-========================= */
 
 .category-card {
     overflow: hidden;
@@ -256,10 +228,6 @@ h6 {
     opacity: 1;
 }
 
-/* =========================
-   FORMS
-========================= */
-
 .form-control,
 .form-select {
     background: rgba(255,255,255,0.05) !important;
@@ -280,9 +248,6 @@ h6 {
     border-color: var(--brand-orange) !important;
 }
 
-/* =========================
-   WIZARD
-========================= */
 
 .progress-step {
     background: rgba(255,255,255,0.04);
@@ -318,27 +283,17 @@ h6 {
     box-shadow: 0 0 0 1px var(--brand-orange);
 }
 
-/* =========================
-   LIST GROUP
-========================= */
 
 .list-group-item {
     background: transparent !important;
     border-color: rgba(255,255,255,0.05) !important;
 }
 
-/* =========================
-   FOOTER
-========================= */
 
 footer {
     background: #0a0a0c !important;
     border-top: 1px solid rgba(255,255,255,0.05);
 }
-
-/* =========================
-   ANIMATIONS
-========================= */
 
 @keyframes fadeIn {
     from {
@@ -352,9 +307,6 @@ footer {
     }
 }
 
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 768px) {
 
@@ -372,27 +324,23 @@ footer {
 
 }
 
-/* DARK SELECT MENUS */
 select.form-select {
     background-color: #0f1115 !important;
     color: #ffffff !important;
     border: 1px solid #2b2f36 !important;
 }
 
-/* option dentro il dropdown */
 select.form-select option {
     background-color: #0f1115 !important;
     color: #ffffff !important;
 }
 
-/* focus effetto */
 select.form-select:focus {
     background-color: #0f1115 !important;
     color: #ffffff !important;
     border-color: var(--brand-orange) !important;
     box-shadow: 0 0 0 0.2rem rgba(255, 107, 0, 0.25);
 }
-/* ISSUE CHECKBOXES - DARK STYLE */
 .checkbox-group {
     background-color: #0f1115 !important;
     border: 1px solid #2b2f36 !important;
@@ -400,18 +348,15 @@ select.form-select:focus {
     transition: all 0.2s ease;
 }
 
-/* testo interno */
 .checkbox-group label {
     color: #ffffff !important;
 }
 
-/* hover */
 .checkbox-group:hover {
     border-color: var(--brand-orange) !important;
     background-color: #141820 !important;
 }
 
-/* selected state già esistente ma reso più coerente */
 .checkbox-group.selected {
     background-color: #1a1f2a !important;
     border-color: var(--brand-orange) !important;
@@ -419,7 +364,6 @@ select.form-select:focus {
 .checkbox-group input[type="checkbox"] {
     accent-color: var(--brand-orange);
 }
-/* ABOUT US PREMIUM STYLE */
 .about-card{
     background: linear-gradient(135deg, #0f1115, #1a1f2a);
     color: #ffffff;
@@ -428,7 +372,6 @@ select.form-select:focus {
     position: relative;
 }
 
-/* effetto glow arancione soft */
 .about-card::before{
     content:"";
     position:absolute;
@@ -440,23 +383,18 @@ select.form-select:focus {
     filter: blur(10px);
 }
 
-/* titoli più premium */
 .about-card h3,
 .about-card h4{
     letter-spacing:-1px;
 }
-
-/* paragrafi più leggibili */
 .about-card p{
     line-height:1.7;
     color: rgba(255,255,255,0.75);
 }
 
-/* separatore superiore più elegante */
 .about-card .border-top{
     border-color: rgba(255,255,255,0.08) !important;
 }
-/* PREZZI PIÙ LEGGIBILI */
 .fs-3.fw-bold.text-orange,
 #cost-swap,
 #cost-screen,
@@ -473,12 +411,10 @@ select.form-select:focus {
     letter-spacing: -0.5px;
 }
 
-/* stile prezzo generale */
 .text-orange.fs-3,
 .text-orange.fs-4{
     letter-spacing: -1px;
 }
-/* PREZZI PIÙ VIVIDI E PREMIUM */
 .text-orange.fs-3,
 .text-orange.fs-4,
 [id$="Price"],
@@ -493,7 +429,6 @@ select.form-select:focus {
     text-shadow: 0 2px 10px rgba(255, 107, 0, 0.25);
 }
 
-/* effetto “glow” leggero sui prezzi */
 .text-orange.fs-3,
 .text-orange.fs-4,
 [id$="Price"]{
@@ -505,18 +440,11 @@ select.form-select:focus {
     border-radius: 12px;
     padding: 16px;
 }
-/* ========================================
-   HOMEPAGE REPAIRS LAYOUT IMPROVEMENTS
-======================================== */
-
-/* spacing generale sezioni homepage */
 #page-home h2.section-title{
     margin-top: 7rem !important;
     margin-bottom: 2.5rem !important;
     position: relative;
 }
-
-/* linea premium sotto i titoli */
 #page-home h2.section-title::after{
     content:"";
     width:80px;
@@ -536,19 +464,15 @@ select.form-select:focus {
     border-radius:999px;
 }
 
-/* separazione visiva tra sezioni */
 .products-grid{
     margin-bottom: 5rem;
 }
 
-/* cards più premium */
 .product-item{
     overflow:hidden;
     position:relative;
     min-height:100%;
 }
-
-/* glow arancione */
 .product-item::before{
     content:"";
 
@@ -569,7 +493,6 @@ select.form-select:focus {
     transition:0.45s ease;
 }
 
-/* hover premium */
 .product-item:hover::before{
     opacity:1;
 }
@@ -578,7 +501,6 @@ select.form-select:focus {
     transform: translateY(-8px) scale(1.01);
 }
 
-/* badge migliorati */
 .badge-status{
     padding:10px 14px;
     border-radius:999px;
@@ -587,7 +509,6 @@ select.form-select:focus {
     letter-spacing:0.3px;
 }
 
-/* liste più eleganti */
 .problems-list .list-group-item{
     padding-top:12px;
     padding-bottom:12px;
@@ -597,7 +518,6 @@ select.form-select:focus {
     border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
-/* bottoni repair più belli */
 .font-adjust{
     margin-top:auto;
 
@@ -611,12 +531,10 @@ select.form-select:focus {
     letter-spacing:0.2px;
 }
 
-/* migliora spacing homepage */
 #page-home .card{
     backdrop-filter: blur(18px);
 }
 
-/* map section */
 iframe{
     border:none;
     filter:
@@ -633,8 +551,6 @@ iframe:hover{
         contrast(1.08)
         brightness(1);
 }
-
-/* mobile optimization */
 @media(max-width:768px){
 
     #page-home h2.section-title{
@@ -650,22 +566,17 @@ iframe:hover{
     }
 
 }
-/* =========================
-   PREMIUM IMAGE BLENDING
-========================= */
+
 
 .card img,
 .hero img,
 .device-icon {
     position: relative;
 
-    /* blend più naturale */
     mix-blend-mode: lighten;
 
-    /* leggero fade */
     opacity: 0.96;
 
-    /* glow arancione morbido */
     filter:
         drop-shadow(0 15px 30px rgba(255,107,0,0.18))
         drop-shadow(0 5px 12px rgba(0,0,0,0.35));
@@ -675,8 +586,6 @@ iframe:hover{
         filter 0.35s ease,
         opacity 0.35s ease;
 }
-
-/* hover più premium */
 .card:hover img,
 .hero:hover img {
     transform: scale(1.03);
@@ -687,15 +596,11 @@ iframe:hover{
 
     opacity: 1;
 }
-
-/* contenitore immagine */
 .card .img-wrapper {
     position: relative;
     overflow: hidden;
     border-radius: 20px;
 }
-
-/* glow dietro immagine */
 .card .img-wrapper::before {
     content: "";
     position: absolute;
@@ -712,13 +617,11 @@ iframe:hover{
     filter: blur(25px);
 }
 
-/* immagine sopra glow */
 .card .img-wrapper img {
     position: relative;
     z-index: 1;
 }
 
-/* fade inferiore per "fondere" col bg */
 .card img {
     mask-image: linear-gradient(
         to bottom,
@@ -734,7 +637,6 @@ iframe:hover{
         transparent 100%
     );
 }
-/* Uniforma immagini prodotti */
 .img-wrapper {
     height: 240px;
 
@@ -745,7 +647,6 @@ iframe:hover{
     overflow: hidden;
 }
 
-/* immagini più uniformi */
 .img-wrapper img {
     max-height: 220px;
     width: auto;
