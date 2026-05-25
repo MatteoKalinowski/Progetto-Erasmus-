@@ -734,3 +734,43 @@ iframe:hover{
         transparent 100%
     );
 }
+/* Uniforma immagini prodotti */
+.img-wrapper {
+    height: 240px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+/* immagini più uniformi */
+.img-wrapper img {
+    max-height: 220px;
+    width: auto;
+    object-fit: contain;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card h3 {
+    min-height: 60px;
+}
+
+.card .text-muted {
+    min-height: 40px;
+}
+
+.card .fs-3 {
+    margin-top: auto;
+}

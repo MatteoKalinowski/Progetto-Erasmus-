@@ -143,14 +143,14 @@ function initCablesShop() {
 
     let html = "";
 
-    Object.values(cablesShop).forEach(cable => {
+    Object.values(cableData).flat().forEach(cable => {
         html += `
         <div class="col-md-4">
             <div class="card h-100 p-4 shadow-sm text-center">
             <img src="${cable.image}" alt="${cable.name}" class="img-fluid">
                 <h3 class="fw-bold">${cable.name}</h3>
                 <p class="text-muted">Apple certified high quality accessory.</p>
-                <div class="fs-3 fw-bold text-orange mb-3">€${cable.price}</div>
+                <div class="fs-3 fw-bold text-orange mb-3">${cable.price}</div>
                 <button id="buyCableBtn" class="btn btn-orange w-100">Buy Now</button>
             </div>
         </div>`;
@@ -496,19 +496,35 @@ function updateCableShop() {
 
     grid.innerHTML = "";
 
+    if (!cableData[type]) return;
+
     cableData[type].forEach(item => {
+
         const card = document.createElement("div");
-        card.className = "col-md-4";
+        card.className = "col-md-4 d-flex";
 
         card.innerHTML = `
-            <div class="card h-100 p-4 shadow-sm text-center">
-                <img src="${item.image}" alt="${item.name}" class="img-fluid mb-3">
+            <div class="card h-100 p-4 shadow-sm text-center d-flex flex-column w-100">
+
+                <div class="img-wrapper mb-3">
+                    <img src="${item.image}" alt="${item.name}" class="img-fluid">
+                </div>
+
                 <h3 class="fw-bold">${item.name}</h3>
+
                 <p class="text-muted">${item.desc}</p>
-                <div class="fs-3 fw-bold text-orange mb-3">${item.price}</div>
-                <button class="btn btn-orange w-100">Buy Now</button>
+
+                <div class="fs-3 fw-bold text-orange mt-auto mb-3">
+                    ${item.price}
+                </div>
+
+                <button class="btn btn-orange w-100">
+                    Buy Now
+                </button>
+
             </div>
         `;
+
         grid.appendChild(card);
     });
 }
@@ -689,4 +705,8 @@ function prepareContactSummary() {
 
     nextStep(4);
 }
- 
+ function handleFormSubmit(e) {
+    e.preventDefault();
+
+    alert("Form submitted successfully!");
+}
