@@ -600,6 +600,7 @@ const issuePriceMap = {
         field: "swap"
     }
 };
+
 function prepareContactSummary() {
     const category = document.getElementById("selectedCategory").value;
     const model = document.getElementById("deviceModel").value;
