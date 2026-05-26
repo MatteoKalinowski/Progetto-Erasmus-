@@ -682,4 +682,170 @@ function prepareContactSummary() {
  function handleFormSubmit(e) {
     e.preventDefault();
     alert("Form submitted successfully!");
+ }
+const revealElements = document.querySelectorAll(`
+    .card,
+    .section-title,
+    .hero-title,
+    .hero-badge,
+    .hero-device-img,
+    .btn,
+    .about-card,
+    .selection-box
+`);
+
+revealElements.forEach((el, index) => {
+
+    if(index % 3 === 0){
+        el.classList.add("reveal");
+    }
+    else if(index % 3 === 1){
+        el.classList.add("reveal-left");
+    }
+    else{
+        el.classList.add("reveal-right");
+    }
+
+});
+
+function revealOnScroll() {
+
+    const triggerBottom = window.innerHeight * 0.88;
+
+    document.querySelectorAll(`
+        .reveal,
+        .reveal-left,
+        .reveal-right,
+        .reveal-zoom
+    `).forEach(el => {
+
+        const rect = el.getBoundingClientRect();
+
+        if(rect.top < triggerBottom){
+            el.classList.add("active");
+        }
+
+    });
+
 }
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            const cards = entry.target.querySelectorAll(`
+                .col-md-4,
+                .col-md-6,
+                .col-md-8
+            `);
+
+            cards.forEach((card, i) => {
+
+                setTimeout(() => {
+                    card.classList.add("show-card");
+                }, i * 150);
+
+            });
+
+        }
+
+    });
+
+}, {
+    threshold: 0.15
+});
+
+document.querySelectorAll(".products-grid")
+.forEach(grid => observer.observe(grid));
+window.addEventListener("scroll", () => {
+
+    const navbar = document.querySelector("header.navbar");
+
+    if(window.scrollY > 40){
+        navbar.classList.add("scrolled");
+    }
+    else{
+        navbar.classList.remove("scrolled");
+    }
+
+});
+document.addEventListener("mousemove", e => {
+
+    document.body.style.setProperty("--mouse-x", `${e.clientX}px`);
+    document.body.style.setProperty("--mouse-y", `${e.clientY}px`);
+
+});
+document.querySelectorAll(".btn").forEach(btn => {
+
+    btn.addEventListener("mousemove", e => {
+
+        const rect = btn.getBoundingClientRect();
+
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        btn.style.transform = `
+            translate(${x * 0.12}px, ${y * 0.12}px)
+        `;
+    });
+
+    btn.addEventListener("mouseleave", () => {
+        btn.style.transform = "translate(0px,0px)";
+    });
+
+});
+const oldSwitchPage = switchPage;
+
+switchPage = function(pageId){
+
+    document.body.style.opacity = 0;
+
+    setTimeout(() => {
+
+        oldSwitchPage(pageId);
+
+        document.body.style.opacity = 1;
+
+        revealOnScroll();
+
+    }, 250);
+
+};
+
+document.body.style.transition = "opacity .25s ease";
+document.querySelectorAll(".card").forEach(card => {
+
+    card.addEventListener("mousemove", e => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateY = ((x / rect.width) - 0.5) * 8;
+        const rotateX = ((y / rect.height) - 0.5) * -8;
+
+        card.style.transform = `
+            perspective(1000px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            translateY(-6px)
+        `;
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = `
+            perspective(1000px)
+            rotateX(0deg)
+            rotateY(0deg)
+            translateY(0px)
+        `;
+
+    });
+
+});
