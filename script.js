@@ -518,7 +518,6 @@ function updateCableShop() {
 
             </div>
         `;
-
         grid.appendChild(card);
     });
 }
