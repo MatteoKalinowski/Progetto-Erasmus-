@@ -499,25 +499,19 @@ function updateCableShop() {
     if (!cableData[type]) return;
 
     cableData[type].forEach(item => {
-
         const card = document.createElement("div");
         card.className = "col-md-4 d-flex";
 
         card.innerHTML = `
             <div class="card h-100 p-4 shadow-sm text-center d-flex flex-column w-100">
-
                 <div class="img-wrapper mb-3">
                     <img src="${item.image}" alt="${item.name}" class="img-fluid">
                 </div>
-
                 <h3 class="fw-bold">${item.name}</h3>
-
                 <p class="text-muted">${item.desc}</p>
-
                 <div class="fs-3 fw-bold text-orange mt-auto mb-3">
                     ${item.price}
                 </div>
-
                 <button class="btn btn-orange w-100">
                     Buy Now
                 </button>
@@ -562,7 +556,6 @@ function setRepairCategory(category) {
 function openRepairWithCategory(category) {
     switchPage('services');
 
-
     setTimeout(() => {
         setRepairCategory(category);
         nextStep(2);
@@ -573,7 +566,6 @@ function nextStep(step) {
     document.querySelectorAll('.wizard-step').forEach(s => s.classList.add('d-none'));
     document.getElementById(`w-step-${step}`).classList.remove('d-none');
 
-
     updateProgress(step);
 }
 
@@ -583,7 +575,6 @@ function prevStep(step) {
 
 function updateProgress(step) {
     document.querySelectorAll('.progress-step').forEach(el => el.classList.remove('text-orange', 'active'));
-
 
     const active = document.getElementById(`p-step-${step}`);
     if (active) active.classList.add('text-orange', 'active');
@@ -611,7 +602,6 @@ const issuePriceMap = {
     }
 };
 function prepareContactSummary() {
-
     const category = document.getElementById("selectedCategory").value;
     const model = document.getElementById("deviceModel").value;
 
@@ -629,20 +619,15 @@ function prepareContactSummary() {
         } ${customIssue ? " | " + customIssue : ""}`;
 
     let estimatedPrices = [];
-
     const categoryKey = category.toLowerCase();
-
     const modelData = priceData[categoryKey]?.[model];
 
     if (modelData) {
-
         checkedIssues.forEach(issue => {
-
             let repairName = "";
             let repairPrice = "";
 
             switch(issue) {
-
                 case "Damaged Screen / Glass":
                     repairName = "Screen Repair";
                     repairPrice = modelData.screen;
@@ -672,23 +657,19 @@ function prepareContactSummary() {
                     </span>
                 </div>
             `);
-
         });
     }
 
     if (customIssue !== "") {
-
         estimatedPrices.push(`
             <div class="alert alert-dark mt-3 mb-0 text-light border-0 custom-issue-box">
                 <strong>Custom Issue:</strong><br>
                 For pricing please contact us directly:<br><br>
-
-                📞 <a href="tel:960313883" class="text-orange fw-bold text-decoration-none">960 313 883</a><br>
-                ✉️ <a href="mailto:arl@arl.pt" class="text-orange fw-bold text-decoration-none">arl@arl.pt</a>
+                <a href="tel:960313883" class="text-orange fw-bold text-decoration-none">960 313 883</a><br>
+                <a href="mailto:arl@arl.pt" class="text-orange fw-bold text-decoration-none">arl@arl.pt</a>
             </div>
         `);
     }
-
     document.getElementById("sumPrice").innerHTML =
         `
         <strong>Estimated repair cost:</strong>
@@ -696,11 +677,10 @@ function prepareContactSummary() {
             ${estimatedPrices.length ? estimatedPrices.join("") : "No repair selected"}
         </div>
         `;
-
     nextStep(4);
 }
+
  function handleFormSubmit(e) {
     e.preventDefault();
-
     alert("Form submitted successfully!");
 }
