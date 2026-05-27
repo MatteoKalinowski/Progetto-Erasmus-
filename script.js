@@ -125,7 +125,15 @@ function initShopDevices() {
                     <h3 class="fw-bold">${product.name}</h3>
                     <p class="text-muted">Original Apple device with warranty and premium quality.</p>
                     <div class="fs-3 fw-bold text-orange mb-3">€${product.price}</div>
-                    <button class="btn btn-orange w-100">Buy Now</button>
+                    <button
+    class="btn btn-orange w-100"
+    onclick="openShopModal(
+        '${product.name}',
+        ${product.price}
+    )"
+>
+    Buy Now
+</button>
                 </div>
             </div>`;
         });
@@ -494,31 +502,55 @@ function updateCableShop() {
     const type = document.getElementById("cableSelect").value;
     const grid = document.getElementById("cableGrid");
 
+    if (!grid) return;
+
     grid.innerHTML = "";
 
-    if (!cableData[type]) return;
+    const items = cableData[type];
+    if (!items) return;
 
-    cableData[type].forEach(item => {
+    items.forEach(item => {
+
+        const col = document.createElement("div");
+        col.className = "col-md-4 d-flex";
+
         const card = document.createElement("div");
-        card.className = "col-md-4 d-flex";
+        card.className = "card h-100 p-4 shadow-sm text-center d-flex flex-column w-100";
 
-        card.innerHTML = `
-            <div class="card h-100 p-4 shadow-sm text-center d-flex flex-column w-100">
-                <div class="img-wrapper mb-3">
-                    <img src="${item.image}" alt="${item.name}" class="img-fluid">
-                </div>
-                <h3 class="fw-bold">${item.name}</h3>
-                <p class="text-muted">${item.desc}</p>
-                <div class="fs-3 fw-bold text-orange mt-auto mb-3">
-                    ${item.price}
-                </div>
-                <button class="btn btn-orange w-100">
-                    Buy Now
-                </button>
+        const img = document.createElement("img");
+        img.src = item.image;
+        img.alt = item.name;
+        img.className = "img-fluid mb-3";
 
-            </div>
-        `;
-        grid.appendChild(card);
+        const title = document.createElement("h3");
+        title.className = "fw-bold";
+        title.textContent = item.name;
+
+        const desc = document.createElement("p");
+        desc.className = "text-muted";
+        desc.textContent = item.desc;
+
+        const price = document.createElement("div");
+        price.className = "fs-3 fw-bold text-orange mt-auto mb-3";
+        price.textContent = item.price;
+
+        const btn = document.createElement("button");
+        btn.className = "btn btn-orange w-100";
+        btn.textContent = "Buy Now";
+
+        btn.addEventListener("click", () => {
+            const numericPrice = Number(item.price.replace("€", "").trim());
+            openShopModal(item.name, numericPrice);
+        });
+
+        card.appendChild(img);
+        card.appendChild(title);
+        card.appendChild(desc);
+        card.appendChild(price);
+        card.appendChild(btn);
+
+        col.appendChild(card);
+        grid.appendChild(col);
     });
 }
 
@@ -819,3 +851,61 @@ document.querySelectorAll(".card").forEach(card => {
         `;
     });
 });
+let currentShopItem = null;
+
+function openShopModal(name, price) {
+
+    currentShopItem = {
+        name,
+        price
+    };
+
+    document.getElementById("shopProductName").innerText = name;
+    document.getElementById("shopProductPrice").innerText = `€${price}`;
+
+    const quantityInput = document.getElementById("shopQuantity");
+
+    quantityInput.value = 1;
+
+    updateShopTotal();
+
+    quantityInput.oninput = updateShopTotal;
+
+    const modal = new bootstrap.Modal(
+        document.getElementById("shopModal")
+    );
+
+    modal.show();
+}
+
+function updateShopTotal() {
+
+    const qty = parseInt(
+        document.getElementById("shopQuantity").value
+    ) || 1;
+
+    const total = currentShopItem.price * qty;
+
+    document.getElementById("shopTotal").innerText =
+        `€${total}`;
+}
+
+function completePurchase() {
+
+    const qty = parseInt(
+        document.getElementById("shopQuantity").value
+    ) || 1;
+
+    const total = currentShopItem.price * qty;
+
+    alert(
+        `Purchase completed!\n\n` +
+        `${currentShopItem.name}\n` +
+        `Quantity: ${qty}\n` +
+        `Total: €${total}`
+    );
+
+    bootstrap.Modal.getInstance(
+        document.getElementById("shopModal")
+    ).hide();
+}
