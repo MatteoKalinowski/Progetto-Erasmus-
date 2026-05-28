@@ -901,4 +901,5 @@ body::before {
 
 .modal-backdrop.show{
     backdrop-filter:blur(6px);
-}
+} 
+

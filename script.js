@@ -64,22 +64,46 @@ const shopDevices = {
 };
 
 function switchPage(pageId) {
-    const links = document.querySelectorAll('.navbar-nav .nav-link');
+
+    const links =
+        document.querySelectorAll('.navbar-nav .nav-link');
+
     links.forEach(link => {
+
         link.classList.remove('active');
+
         if (link.getAttribute('data-page') === pageId) {
             link.classList.add('active');
         }
     });
-    const sections = document.querySelectorAll('.page-section');
-    sections.forEach(section => section.classList.remove('active-section'));
-    const target = document.getElementById(`page-${pageId}`);
+
+    const sections =
+        document.querySelectorAll('.page-section');
+
+    sections.forEach(section => {
+        section.classList.remove('active-section');
+    });
+
+    const target =
+        document.getElementById(`page-${pageId}`);
+
     if (target) {
+
         target.classList.add('active-section');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
-    if (pageId === "upcoming") initShopDevices();
-    if (pageId === "cables") initCablesShop();
+
+    if (pageId === "upcoming") {
+        initShopDevices();
+    }
+
+    if (pageId === "cables") {
+        updateCableShop();
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -663,7 +687,7 @@ function prepareContactSummary() {
                     repairName = "Screen Repair";
                     repairPrice = modelData.screen;
                     break;
-
+    
                 case "Degraded Battery":
                     repairName = "Battery Replacement";
                     repairPrice = modelData.battery;
